@@ -1,0 +1,502 @@
+# Tutorial Questions: Module 7 {-}
+## Question 5: Generating an appropriate sample 
+The sampling frame for this question is as follows:
+
+<div style="display: flex;">
+
+<div style="flex: 1;">
+
+- Barry Humphries (m)  
+- Bill Clinton (m)  
+- Bill Cosby (m)  
+- Bill Gates (m)  
+- Bob Dylan (m)  
+- Charles Yeager (m)  
+- Colin Powell (m)  
+- David Helfgott (m)  
+- Dawn Fraser (f)  
+- Evonne Goolagong (f)  
+- Germaine Greer (f)
+
+</div>
+
+<div style="flex: 1;">
+
+- Gough Whitlam (m)  
+- Harriet Tubman (f)  
+- Henry Kissinger (m)  
+- Janet Reno (f)  
+- Jennifer Crowe (f)  
+- Joan Sutherland (f)  
+- John Glenn (m)  
+- Laura Schlesinger (f)  
+- Leonardo DiCaprio (m)  
+- Manon Rheaume (f)  
+- Mario Cuomo (m)
+
+</div>
+
+<div style="flex: 1;">
+
+- Michael Jordan (m)  
+- Michele Pfeiffer (f)  
+- Nelson Mandela (m)  
+- Oprah Winfrey (f)  
+- Paul Davies (m)  
+- Paul Newman (m)  
+- Pele (m)  
+- Russell Crowe (m)  
+- Samantha Riley (f)  
+- Wayne Gardner (m)  
+- Wynton Marsalis (m)
+
+</div>
+
+</div>
+
+::: {.tipBox}
+**Tip**: Stratified sampling involves taking simple random samples from each of a number of groups (strata) into which a population has been divided.
+:::
+
+This question can be done manually, or visually using the information below.
+
+Suppose a random sample of eight people is required.
+
+(a) Using a random number generator (or interactive visual below), select a simple random sample (SRS) from the sampling frame defined above.
+
+(b) How many males and females are there in your sample?
+
+(c) Using a random number generator (or interactive visual below), select a second simple random sample.
+
+(d) How many males and females are there in this sample?
+
+(e) Compare your two samples: Did you expect the result you got? Explain your answer with reference to the sampling process.
+
+(f) *Using a random number generator (or interactive visual below), select a stratified random sample, stratified according to gender so as to contain equal numbers of males (m) and females (f).
+
+(g) *Describe, in detail, the steps you took to produce your stratified sample or the steps that were likely to have been taken if doing this manually.
+
+(h) *Why might you decide that a stratified sample is more representative?
+
+::: {.tipBox}
+**Note**: https://stattrek.com/statistics/random-number-generator is one possible random number generator or the function RANDBETWEEN() in Excel.
+:::
+---
+### Interactive - Simple Random Sampling and Stratified Sampling {-}
+
+Below is an interactive tool for selecting simple random samples (SRS) and stratified samples from the given sampling frame. 
+
+```{=html}
+<div id="sampling-app" style="max-width:900px;">
+
+<p class="h5">Sampling Frame</p> 
+
+<div style="font-size:0.9em; columns:2;">
+Barry Humphries (m)<br>
+Bill Clinton (m)<br>
+Bill Cosby (m)<br>
+Bill Gates (m)<br>
+Bob Dylan (m)<br>
+Charles Yeager (m)<br>
+Colin Powell (m)<br>
+David Helfgott (m)<br>
+Dawn Fraser (f)<br>
+Evonne Goolagong (f)<br>
+Germaine Greer (f)<br>
+Gough Whitlam (m)<br>
+Harriet Tubman (f)<br>
+Henry Kissinger (m)<br>
+Janet Reno (f)<br>
+Jennifer Crowe (f)<br>
+Joan Sutherland (f)<br>
+John Glenn (m)<br>
+Laura Schlesinger (f)<br>
+Leonardo DiCaprio (m)<br>
+Manon Rheaume (f)<br>
+Mario Cuomo (m)<br>
+Michael Jordan (m)<br>
+Michele Pfeiffer (f)<br>
+Nelson Mandela (m)<br>
+Oprah Winfrey (f)<br>
+Paul Davies (m)<br>
+Paul Newman (m)<br>
+Pele (m)<br>
+Russell Crowe (m)<br>
+Samantha Riley (f)<br>
+Wayne Gardner (m)<br>
+Wynton Marsalis (m)
+</div>
+
+<hr>
+
+<p class="h5">Controls</p>
+
+<p style="font-size:0.9em; color:#555; margin-top:-6px;">
+Use these settings to control how the random samples are generated.
+</p>
+
+<label>
+  Random seed:
+  <span style="font-size:0.85em; color:#666;">
+    (same seed = same random sample)
+  </span>
+</label>
+<input id="seed-box" type="number" value="123" style="width:120px;">
+
+<br><br>
+
+<label>
+  Sample size:
+  <span style="font-size:0.85em; color:#666;">
+    (number of people selected)
+  </span>
+</label>
+<input id="sample-size" type="number" value="8" min="1" max="34" style="width:120px;">
+
+<hr>
+
+
+<p class="h5">Simple Random Samples (SRS)</p>
+    <p>Press each button to create a simple random sample.</p>
+
+<button id="sample1-btn">Generate SRS Sample 1</button>
+<button id="sample2-btn">Generate SRS Sample 2</button>
+
+<div style="display:flex; gap:20px; margin-top:20px;">
+  <div style="flex:1;">
+    <h4>Sample 1</h4>
+    <div id="sample1-output"></div>
+    <canvas id="chart1" width="350" height="250"></canvas>
+  </div>
+
+  <div style="flex:1;">
+    <h4>Sample 2</h4>
+    <div id="sample2-output"></div>
+    <canvas id="chart2" width="350" height="250"></canvas>
+  </div>
+</div>
+
+<hr>
+
+<p class="h5">Stratified Sample</p>
+<p>Select the number of males and females in your straified sample and then press the button to create the sample.</p>
+
+<label>Males:</label>
+<input id="strat-m" type="number" value="4" min="0" max="34" style="width:80px;">
+
+<label>Females:</label>
+<input id="strat-f" type="number" value="4" min="0" max="34" style="width:80px;">
+
+<br><br>
+
+<button id="strat-btn">Generate Stratified Sample</button>
+<div id="strat-output"></div>
+<canvas id="strat-chart" width="350" height="250"></canvas>
+
+<hr>
+
+<p class="h5">Simulation: SRS vs Stratified Sampling</p>
+<p>Press the button to compare the number of males selected in your SRS in comparison with your stratified sample (Choose how many simulations to run).</p>
+
+<label>Number of simulations:</label>
+<input id="sim-n" type="number" value="1000" min="10" max="5000" style="width:120px;">
+
+<br><br>
+
+<button id="sim-btn">Run Simulation</button>
+
+<div style="display:flex; gap:20px; margin-top:20px;">
+  <div style="flex:1;">
+    <h4>SRS Male Count Distribution</h4>
+    <canvas id="sim-srs" width="350" height="250"></canvas>
+  </div>
+
+  <div style="flex:1;">
+    <h4>Stratified Male Count Distribution</h4>
+    <canvas id="sim-strat" width="350" height="250"></canvas>
+  </div>
+</div>
+
+<hr>
+
+<p class="h5">Your Explanation</p>
+
+<textarea id="explain-box" rows="5" style="width:100%;" placeholder="Explain why your two SRS samples may differ, and why stratified sampling may be more representative."></textarea>
+
+<br>
+<button id="explain-check">Check Explanation</button>
+<div id="explain-result" style="margin-top:10px;"></div>
+
+<hr>
+
+<p class="h5">Quick Quiz</p>
+
+<p><strong>1.</strong> Why do two SRS samples often contain different numbers of males and females?</p>
+<select id="q1">
+  <option value="">-- choose an answer --</option>
+  <option>Because the population changes each time</option>
+  <option>Because the computer makes mistakes</option>
+  <option value="correct">Because SRS involves randomness and gender is not controlled</option>
+</select>
+
+<p><strong>2.</strong> Why might a stratified sample be more representative?</p>
+<select id="q2">
+  <option value="">-- choose an answer --</option>
+  <option value="correct">It forces proportional representation of key groups</option>
+  <option>It is always random</option>
+  <option>It guarantees perfect accuracy</option>
+</select>
+
+<p><strong>3.</strong> In the simulation, what does the shape of the SRS sampling distribution tell you?</p>
+<select id="q3">
+  <option value="">-- choose an answer --</option>
+  <option>It shows that SRS always gives the same number of males</option>
+  <option value="correct">It shows how much the number of males can vary from sample to sample</option>
+  <option>It shows that stratified sampling is not random</option>
+  <option>It shows that the population is changing</option>
+</select>
+
+<p><strong>4.</strong> In the simulation, why is the stratified sampling distribution a single bar while the SRS distribution is spread out?</p>
+<select id="q4">
+  <option value="">-- choose an answer --</option>
+    <option>Because stratified sampling uses more people</option>
+  <option>Because SRS is not random</option>
+  <option value="correct">Because stratified sampling fixes the number of males, while SRS allows it to vary</option>
+  <option>Because the population changes each time</option>
+</select>
+
+<br><br>
+<button id="quiz-check">Check Quiz</button>
+<div id="quiz-result" style="margin-top:10px;"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// --- Sampling Frame ---
+const people = [
+  ["Barry Humphries","m"],["Bill Clinton","m"],["Bill Cosby","m"],["Bill Gates","m"],
+  ["Bob Dylan","m"],["Charles Yeager","m"],["Colin Powell","m"],["David Helfgott","m"],
+  ["Dawn Fraser","f"],["Evonne Goolagong","f"],["Germaine Greer","f"],
+  ["Gough Whitlam","m"],["Harriet Tubman","f"],["Henry Kissinger","m"],
+  ["Janet Reno","f"],["Jennifer Crowe","f"],["Joan Sutherland","f"],
+  ["John Glenn","m"],["Laura Schlesinger","f"],["Leonardo DiCaprio","m"],
+  ["Manon Rheaume","f"],["Mario Cuomo","m"],["Michael Jordan","m"],
+  ["Michele Pfeiffer","f"],["Nelson Mandela","m"],["Oprah Winfrey","f"],
+  ["Paul Davies","m"],["Paul Newman","m"],["Pele","m"],["Russell Crowe","m"],
+  ["Samantha Riley","f"],["Wayne Gardner","m"],["Wynton Marsalis","m"]
+];
+
+// --- Seeded RNG ---
+function seededRandom(seed) {
+  return function() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+}
+
+function randomSample(arr, n, seed){
+  let rng = seededRandom(seed);
+  let copy = [...arr];
+  let out = [];
+  for(let i=0;i<n;i++){
+    let idx = Math.floor(rng()*copy.length);
+    out.push(copy.splice(idx,1)[0]);
+  }
+  return out;
+}
+
+function countGender(sample){
+  return {
+    m: sample.filter(p=>p[1]==="m").length,
+    f: sample.filter(p=>p[1]==="f").length
+  };
+}
+
+function displaySample(id, sample){
+  let html = "<ul>";
+  sample.forEach(p => html += `<li>${p[0]} (${p[1]})</li>`);
+  html += "</ul>";
+  let g = countGender(sample);
+  html += `<strong>Males: ${g.m}, Females: ${g.f}</strong>`;
+  document.getElementById(id).innerHTML = html;
+  return g;
+}
+
+// --- Chart helper ---
+function makeBarChart(canvasId, males, females, title){
+  return new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: {
+      labels: ['Male', 'Female'],
+      datasets: [{
+        label: 'Frequency',
+        data: [males, females],
+        backgroundColor: ['#4e79a7','#f28e2b']
+      }]
+    },
+    options: {
+      scales: {
+        y: { title: { display: true, text: 'Frequency' }, beginAtZero:true },
+        x: { title: { display: true, text: 'Gender' } }
+      },
+      plugins: { title: { display: true, text: title } }
+    }
+  });
+}
+
+// --- SRS Sample Buttons ---
+let chart1, chart2, stratChart;
+
+document.getElementById("sample1-btn").onclick = () => {
+  let seed = Number(document.getElementById("seed-box").value);
+  let n = Number(document.getElementById("sample-size").value);
+  let s = randomSample(people, n, seed);
+  let g = displaySample("sample1-output", s);
+  if(chart1) chart1.destroy();
+  chart1 = makeBarChart("chart1", g.m, g.f, "Sample 1 Gender Distribution");
+};
+
+document.getElementById("sample2-btn").onclick = () => {
+  let seed = Number(document.getElementById("seed-box").value) + 1;
+  let n = Number(document.getElementById("sample-size").value);
+  let s = randomSample(people, n, seed);
+  let g = displaySample("sample2-output", s);
+  if(chart2) chart2.destroy();
+  chart2 = makeBarChart("chart2", g.m, g.f, "Sample 2 Gender Distribution");
+};
+
+// --- Stratified Sample ---
+document.getElementById("strat-btn").onclick = () => {
+  let seed = Number(document.getElementById("seed-box").value);
+  let mCount = Number(document.getElementById("strat-m").value);
+  let fCount = Number(document.getElementById("strat-f").value);
+  let total = Number(document.getElementById("sample-size").value);
+
+  if(mCount + fCount !== total){
+    alert("Male + Female counts must equal the sample size.");
+    return;
+  }
+
+  let males = people.filter(p=>p[1]==="m");
+  let females = people.filter(p=>p[1]==="f");
+
+  let s_m = randomSample(males, mCount, seed);
+  let s_f = randomSample(females, fCount, seed+1);
+  let combined = [...s_m, ...s_f];
+
+  let g = displaySample("strat-output", combined);
+  if(stratChart) stratChart.destroy();
+  stratChart = makeBarChart("strat-chart", g.m, g.f, "Stratified Sample Gender Distribution");
+};
+
+// --- Simulation (always without replacement) ---
+document.getElementById("sim-btn").onclick = () => {
+  let seed = Number(document.getElementById("seed-box").value);
+  let sims = Number(document.getElementById("sim-n").value);
+  let n = Number(document.getElementById("sample-size").value);
+
+  let srsCounts = [];
+  let stratCounts = [];
+
+  let males = people.filter(p=>p[1]==="m");
+  let females = people.filter(p=>p[1]==="f");
+
+  let mCount = Number(document.getElementById("strat-m").value);
+  let fCount = Number(document.getElementById("strat-f").value);
+
+  for(let i=0;i<sims;i++){
+    let srs = randomSample(people, n, seed+i);
+    srsCounts.push(countGender(srs).m);
+
+    let sm = randomSample(males, mCount, seed+i);
+    let sf = randomSample(females, fCount, seed+i+1);
+    stratCounts.push(countGender([...sm,...sf]).m);
+  }
+
+  if(window.simSRS) window.simSRS.destroy();
+  if(window.simStrat) window.simStrat.destroy();
+
+  window.simSRS = new Chart(document.getElementById("sim-srs"), {
+    type: 'bar',
+    data: {
+      labels: [...Array(n+1).keys()],
+      datasets: [{
+        label: 'Frequency',
+        data: [...Array(n+1).keys()].map(k => srsCounts.filter(x=>x===k).length),
+        backgroundColor: '#4e79a7'
+      }]
+    },
+    options: {
+      scales: {
+        y: { title: { display: true, text: 'Frequency' }, beginAtZero:true },
+        x: { title: { display: true, text: 'Number of Males' } }
+      },
+      plugins: { title: { display: true, text: 'SRS: Distribution of Male Counts' } }
+    }
+  });
+
+  window.simStrat = new Chart(document.getElementById("sim-strat"), {
+    type: 'bar',
+    data: {
+      labels: [...Array(n+1).keys()],
+      datasets: [{
+        label: 'Frequency',
+        data: [...Array(n+1).keys()].map(k => stratCounts.filter(x=>x===k).length),
+        backgroundColor: '#f28e2b'
+      }]
+    },
+    options: {
+      scales: {
+        y: { title: { display: true, text: 'Frequency' }, beginAtZero:true },
+        x: { title: { display: true, text: 'Number of Males' } }
+      },
+      plugins: { title: { display: true, text: 'Stratified: Distribution of Male Counts' } }
+    }
+  });
+};
+
+// --- Explanation Checker ---
+document.getElementById("explain-check").onclick = () => {
+  let text = document.getElementById("explain-box").value.toLowerCase();
+  let box = document.getElementById("explain-box");
+  let result = document.getElementById("explain-result");
+
+  let keywords = [
+    "random", "chance", "variation", "sampling", "different",
+    "proportion", "representative", "balance", "equal", "reduce", "variability", "stable"
+  ];
+
+  let ok = keywords.some(k => text.includes(k));
+
+  if(ok){
+    box.style.border = "3px solid green";
+    result.innerHTML = "<span style='color:green;'>Your explanation captures the key idea.</span>";
+  } else {
+    box.style.border = "3px solid red";
+    result.innerHTML = "<span style='color:red;'>Try to mention randomness or representativeness.</span>";
+  }
+};
+
+// --- Quiz Checker ---
+document.getElementById("quiz-check").onclick = () => {
+  let score = 0;
+
+  ["q1","q2","q3","q4"].forEach(id => {
+    let el = document.getElementById(id);
+    if(el.value === "correct"){
+      el.style.border = "3px solid green";
+      score++;
+    } else {
+      el.style.border = "3px solid red";
+    }
+  });
+
+  document.getElementById("quiz-result").innerHTML =
+    `<strong>Your score: ${score}/4</strong>`;
+};
+</script>
+
+
+```

@@ -1,7 +1,24 @@
-book_filename: "FunStats_Accountants"
+book_filename: "FunStatsBook_Acc"
 new_session: true
 before_chapter_script: _common.R
 delete_merged_file: true
+output_dir: "docs"
+
+rmd_files:
+- index.Rmd
+- 01-Mod1.Rmd
+#- 02-Mod2.Rmd
+#- 03-Mod3.Rmd
+#- 04-Mod4.Rmd
+#- 05-Mod5.Rmd
+#- 06-Mod6.Rmd
+#- 07-Mod7.Rmd
+#- 08-Mod8.Rmd
+#- 09-Mod9.Rmd
+#- 10-Mod10.Rmd
+#- 11-solutions.Rmd
+- 12-references.Rmd
+
 language:
   ui:
     chapter_name: "Chapter "

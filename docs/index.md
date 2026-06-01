@@ -1,7 +1,7 @@
 --- 
 title: "Fundamental Statistics for Accountants"
 author: "Dr Taryn Axelsen"
-date: "Last Updated: `r format(Sys.Date(), '%d %B %Y')`"
+date: "Last Updated: 02 June 2026"
 site: bookdown::bookdown_site
 documentclass: scrbook
 bibliography: [book.bib, packages.bib]
@@ -88,12 +88,12 @@ This interactive Workbook is your companion for the **learning through doing** c
 :::
 -->
 
-```{r, results='asis', echo=FALSE}
-banner_box(
-  "Welcome to Fundamental Statistics",
-  "This interactive Workbook is your companion for the **learning through doing** component of the course.   It is designed to guide your practice, deepen your understanding, and support your progress throughout the semester."
-)
-```
+
+\begin{bannerbox}
+\textbf{Welcome to Fundamental Statistics}
+
+This interactive Workbook is your companion for the **learning through doing** component of the course.   It is designed to guide your practice, deepen your understanding, and support your progress throughout the semester.
+\end{bannerbox}
 <!-- ====== END BANNER ====== -->
 
 The primary learning resource for the course is the lectures and tutorials, however we do have an accompanying textbook **Sharpe, De Veaux & Velleman,
@@ -122,16 +122,16 @@ To help guide you through this course and prevent the need to cram or skip mater
 
 
 
-```{r, results='asis', echo=FALSE}
-tip_box(
-  "Think of statistics like a toolbox.",
-  "A good toolbox needs a hammer, pliers, a wrench, and a screwdriver.
+
+\begin{tipbox}
+\textbf{💡 Think of statistics like a toolbox.}
+
+A good toolbox needs a hammer, pliers, a wrench, and a screwdriver.
 
 Likewise, in this course there are some concepts and skills which are essential for you to master — we call these **Threshold Competencies**.
 
-To pass the course, you’ll need to demonstrate a full understanding of these Threshold Competencies."
-)
-```
+To pass the course, you’ll need to demonstrate a full understanding of these Threshold Competencies.
+\end{tipbox}
 
 *   **Threshold competencies** in STA1004 refer to the key or fundamental ideas that are the core essential knowledge that a passing student must master.
 
@@ -190,16 +190,7 @@ Reset all answers in this workbook
 ```
 -->
 
-```{r, results='asis', echo=FALSE}
-if (knitr::is_html_output()) {
-  cat('
-<button onclick="resetAllAnswers()"
-        style="margin:10px 0; padding:8px 14px;">
-Reset all answers in this workbook
-</button>
-')
-}
-```
+
 
 
 \mainmatter 
@@ -207,9 +198,4 @@ Reset all answers in this workbook
 
 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+

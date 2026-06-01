@@ -1,0 +1,1020 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+  oneside]{scrbook}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\usepackage{booktabs}
+
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{float}
+\usepackage{amssymb}
+\newtcolorbox{bannerbox}{colback=blue!5, colframe=blue!70!black, arc=6pt, boxrule=1.2pt, left=12pt, right=12pt, top=12pt, bottom=12pt}
+\newtcolorbox{tipbox}{colback=green!5, colframe=green!60!black, arc=6pt, boxrule=1pt, left=10pt, right=10pt, top=10pt, bottom=10pt}
+\newtcolorbox{warningbox}{colback=yellow!10, colframe=orange!80!black, arc=6pt, boxrule=1pt, left=10pt, right=10pt, top=10pt, bottom=10pt}
+\newtcolorbox{notebox}{colback=gray!10, colframe=gray!70!black, arc=6pt, boxrule=1pt, left=10pt, right=10pt, top=10pt, bottom=10pt}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Fundamental Statistics for Accountants},
+  pdfauthor={Dr Taryn Axelsen},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Fundamental Statistics for Accountants}
+\author{Dr Taryn Axelsen}
+\date{Last Updated: 02 June 2026}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\newcommand{\cms}{\,\text{cm}}
+\newcommand{\dLs}{\,\text{dL}}
+\newcommand{\xdLs}{\text{dL}}
+
+\newcommand{\fmols}{\,\text{fmol}}
+\newcommand{\ft}{\,\text{ft}}
+\newcommand{\gs}{\,\text{g}}
+\newcommand{\hs}{\,\text{h}}
+\newcommand{\xhs}{\text{h}}
+
+\newcommand{\has}{\,\text{ha}}
+\newcommand{\xhas}{\text{ha}}
+
+\newcommand{\inches}{\,\text{inches}}
+\newcommand{\kgs}{\,\text{kg}}
+\newcommand{\kms}{\,\text{km}}
+\newcommand{\kWhs}{\,\text{kWh}}
+\newcommand{\lbs}{\,\text{lb}}
+\newcommand{\Ls}{\,\text{L}}
+\newcommand{\xLs}{\text{L}}
+
+\newcommand{\checkbox}{\(\square\)}
+
+\newtcolorbox{answerbox}{
+  colback=white,
+  colframe=black!40,
+  boxrule=0.6pt,
+  arc=2pt,
+  left=6pt,
+  right=6pt,
+  top=8pt,
+  bottom=8pt
+}
+
+\frontmatter
+
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\begin{bannerbox}
+\textbf{Welcome to Fundamental Statistics}
+
+This interactive Workbook is your companion for the **learning through doing** component of the course.   It is designed to guide your practice, deepen your understanding, and support your progress throughout the semester.
+\end{bannerbox}
+
+The primary learning resource for the course is the lectures and tutorials, however we do have an accompanying textbook \textbf{Sharpe, De Veaux \& Velleman,
+\emph{Business Statistics} (4th edition)}. We do not cover the whole textbook in this
+course or in the order it is presented in the book. You are directed to the relevant
+readings from the textbook at the end of each chapter within this interactive Workbook.
+
+Once you have watched the content recordings, you should consolidate your understanding
+by working through the material and tutorials in this interactive Workbook. The textbook
+readings will give you further knowledge and help to really solidify the materials
+covered each week.
+
+The tutorials align with the modules covered in this course as listed in the \emph{Course Specification}. At the end of each tutorial you will notice a \emph{Module Checklist} and, in
+some cases, a \emph{Using Excel Checklist}. Use these checklists to make sure that you have not missed an important concept as you work through the materials.
+
+\section*{📊 Why Statistics Matters to Accountants}\label{why-statistics-matters-to-accountants}
+\addcontentsline{toc}{section}{📊 Why Statistics Matters to Accountants}
+
+Statistics helps us make sense of the information we encounter every day.\\
+At the heart of statistics is \textbf{data}, and the need to understand that data is what drives this entire field. The goal in this course is to give you tools to enable you to competently use and interpret statistics.
+
+Accounting is not just about recording numbers - it is about \textbf{interpreting information, making judgements, and supporting decisions under uncertainty}. Statistics provides the tools accountants need to do this rigorously and responsibly.
+
+\section*{Threshold / Expanded Competencies}\label{threshold-expanded-competencies}
+\addcontentsline{toc}{section}{Threshold / Expanded Competencies}
+
+To help guide you through this course and prevent the need to cram or skip material, we have developed a THRESHOLD / EXPANDED competencies framework. All materials in this course have been broken into THRESHOLD competencies and EXPANDED competencies.
+
+\begin{tipbox}
+\textbf{💡 Think of statistics like a toolbox.}
+
+A good toolbox needs a hammer, pliers, a wrench, and a screwdriver.
+
+Likewise, in this course there are some concepts and skills which are essential for you to master — we call these **Threshold Competencies**.
+
+To pass the course, you’ll need to demonstrate a full understanding of these Threshold Competencies.
+\end{tipbox}
+
+\begin{itemize}
+\item
+  \textbf{Threshold competencies} in STA1004 refer to the key or fundamental ideas that are the core essential knowledge that a passing student must master.
+\item
+  Additional knowledge and skills associated with these concepts are referred to as \textbf{Expanded competencies}, which represent the knowledge required to achieve higher than a Pass (P) grade.
+\item
+  Mastery of expanded material will help students achieve a higher grade than a passing grade.
+\end{itemize}
+
+In this interactive Workbook, material related to \textbf{Expanded Competencies} are marked with an asterisk (*).
+
+The goal of the Threshold/Expanded framework for delivering and assessing content is to provide students with a structure that allows for incremental mastery and achievement, building student confidence and momentum throughout the course. If you are feeling overwhelmed with a particular module of content, or if you are struggling to balance competing priorities in your life at some stage in the trimester, you can focus on mastering the Threshold content and still be able to continue progressing through the course. You can attempt the Expanded content once you feel grounded in the Threshold material or if you have more time for study later in the trimester.
+
+\section*{What This Course Focuses On}\label{what-this-course-focuses-on}
+\addcontentsline{toc}{section}{What This Course Focuses On}
+
+The emphasis in Fundamental Statistics for Accountants is on:
+
+\begin{itemize}
+\tightlist
+\item
+  understanding and developing the basic concepts of statistical reasoning\\
+\item
+  learning to use statistical software
+\end{itemize}
+
+The broad objectives of this course are stated below. More detailed overall objectives
+are given in the Course Specification. Specific objectives for each module are stated
+at the start of each module in the lectures.
+
+Best wishes and good studying!
+
+\section*{Overall Learning Outcomes}\label{overall-learning-outcomes}
+\addcontentsline{toc}{section}{Overall Learning Outcomes}
+
+On completion of this course students should be able to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Identify, explain and analyse the role of statistics in decision making (TCA08:LO1) (BBCM PO4).
+\item
+  Analyse and evaluate financial and non-financial data from a variety of sources using appropriate tools to present results in tables and charts as well as numerical descriptive measures for business decision-making purposes (TCA08: LO2, LO3 and LO4; PCA01: LO1) (BBCM PO3 or PO4).
+\item
+  Communicate clearly, effectively and concisely when presenting and discussing results from the analysis of data (PCA02: LO2) (BBCM PO3).
+\item
+  Use problem-solving skills, including a selection of parametric and non-parametric tests to analyse, apply and interpret appropriate confidence interval and hypothesis testing procedures for given business data and identify applications to business problems to measure and reduce uncertainty (TCA08: LO3) (BBCM PO1 or PO4).
+\item
+  Apply thinking skills to solve problems through identifying, making decisions and reaching well-reasoned conclusions applying the relevant regression and correlation coefficients for a data set using Excel and identify ethical issues within a given business situation. (TCA08: LO4; PCA01: LO2, PCA04: LO4) (BBCM PO1 or PO2 or PO4).
+\item
+  Apply basic regression and time series forecasting tools to business problems and identify ethical issues to social responsibility within the business environment. (CPA/NZ PCA04: LO4) (BBCM PO4).
+\end{enumerate}
+
+\section*{How this book was made}\label{how-this-book-was-made}
+\addcontentsline{toc}{section}{How this book was made}
+
+This book was made using \textbf{R} \citep{R-base}, and the \textbf{bookdown} package \citep{R-bookdown}, which is based on \href{https://en.wikipedia.org/wiki/Markdown}{Markdown} syntax, using \textbf{knitr} \citep{R-knitr}.
+
+These tools allow us to build a clean, interactive, and reproducible learning resource.
+
+\subsection*{Author}\label{author}
+\addcontentsline{toc}{subsection}{Author}
+
+Dr Taryn Axelsen (Springfield, Australia)
+
+\mainmatter
+
+\chapter{Module 1}\label{module-1}
+
+\begin{bannerbox}
+\textbf{Module Focus: Introducing the foundational ideas}
+
+The focus is on understanding what data are, how they are collected, and how they should be summarised and interpreted responsibly.
+\end{bannerbox}
+
+\section{Variables, Types of Data, and Sampling}\label{variables-types-of-data-and-sampling}
+
+Understanding data begins with understanding variables.
+
+\textbf{Statistical terminology}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cases}: the individuals or objects being studied
+\item
+  \textbf{Variables}: characteristics measured on each case
+\item
+  \textbf{Data}: the observed values of the variables
+\end{itemize}
+
+\textbf{Types of data}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2903}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3871}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3226}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Data type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Examples
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Quantitative & Numerical values with meaningful units & Height (cm), pulse rate \\
+Categorical (Nominal) & Categories with no natural order & Gender, faculty \\
+Ordinal & Categories with a natural order & Likert scale responses \\
+Identifier & Unique labels for each case & Student number \\
+\end{longtable}
+}
+
+Categorical variables are often \textbf{coded numerically} in software, but the numbers themselves have no numerical meaning.
+
+\textbf{Populations and Sampling}
+Because studying an entire population is usually impractical, statistics relies on samples. Valid conclusions depend on three key ideas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Sampling} -- samples should be representative of the population.
+\item
+  \textbf{Randomising} -- random selection reduces bias and allows generalisation.
+\item
+  \textbf{Sample size} -- larger samples tend to give more accurate results, but at higher cost.
+\end{enumerate}
+
+Only \textbf{random samples} support valid statistical inference.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Visualising Data: One Categorical Variable}\label{visualising-data-one-categorical-variable}
+
+The \textbf{distribution of a variable} describes what values it takes and how often they occur. Graphs allow large amounts of data to be summarised clearly and patterns to be identified.
+
+\textbf{Numerical summaries}
+
+\begin{itemize}
+\tightlist
+\item
+  Frequency tables for categorical variables
+\item
+  Use pivot tables in Excel
+\end{itemize}
+
+\textbf{Bar charts}
+
+\begin{itemize}
+\tightlist
+\item
+  Used for \textbf{categorical variables}
+\item
+  Bars do \textbf{not} touch
+\item
+  Order bars logically (alphabetical or by size)
+\end{itemize}
+
+\textbf{Pie charts}
+
+\begin{itemize}
+\tightlist
+\item
+  Not recommended as difficult for the reader to fully understand
+\item
+  Show \textbf{parts of a whole}
+\item
+  Must include all categories (total = 100\%)
+\item
+  Best used sparingly and with few categories
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Contingency Tables}\label{contingency-tables}
+
+When analysing \textbf{two categorical variables}, we use a \textbf{contingency table} (also called a two-way table or cross-tabulation).
+
+\textbf{Types of distributions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Joint distribution}: proportions of all cases in each cell
+\item
+  \textbf{Marginal distribution}: proportions for one variable only (row or column totals)
+\item
+  \textbf{Conditional distribution}: proportions within a subgroup
+\end{itemize}
+
+\textbf{Assessing association}
+
+Two categorical variables are \textbf{associated} if the conditional distributions differ between groups. If the conditional distributions are similar, the variables are considered \textbf{independent}.
+
+\textbf{Graphical support}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Stacked bar charts} are useful for comparing conditional distributions visually.
+\end{itemize}
+
+\begin{tipbox}
+\textbf{💡 To assess association:}
+
+Always compare **conditional distributions**, not just raw counts.
+\end{tipbox}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Use, Abuse, and Misuse of Statistics}\label{use-abuse-and-misuse-of-statistics}
+
+Statistics are powerful, but they can be misleading if used poorly or dishonestly.
+
+\textbf{Key ideas}
+
+\begin{itemize}
+\tightlist
+\item
+  Results can be \textbf{misinterpreted} through poor sampling or misleading summaries.
+\item
+  Graphs can strongly influence interpretation depending on:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    scale and axis limits
+  \item
+    graph type
+  \item
+    use of 3D effects or distorted perspectives
+  \end{itemize}
+\end{itemize}
+
+\textbf{Good data visualisation principles}
+
+\begin{itemize}
+\tightlist
+\item
+  Match the graph type to the \textbf{data type}
+\item
+  Label axes clearly (variable names and units)
+\item
+  Use honest scales (usually starting at zero)
+\item
+  Avoid unnecessary decoration (especially 3D graphs)
+\item
+  Aim to \textbf{tell the truth} and communicate clearly
+\end{itemize}
+
+\section{A graph is only as good as the data it displays. No amount of visual design can fix poor or biased data.}\label{a-graph-is-only-as-good-as-the-data-it-displays.-no-amount-of-visual-design-can-fix-poor-or-biased-data.}
+
+\chapter*{Review Questions: Module 1}\label{review-questions-module-1}
+\addcontentsline{toc}{chapter}{Review Questions: Module 1}
+
+\begin{bannerbox}
+\textbf{Review Questions}
+
+Once you have watched the lecture recordings you should be able to answer the following *Threshold* questions (solutions can be found at the end of this Workbook).
+\end{bannerbox}
+
+\textit{Write your answers in the spaces provided.}
+
+\medskip
+
+\textbf{(i) What is a variable? What is a value of a variable? Give examples of reach.}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(ii) How can we tell if a variable is quantitative, categorical, ordinal, or an identifier?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(iii) What is the difference between cross sectional data and time series data?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(iv) What is the difference between a representative sample and a convenience sample? How are they obtained and what are their relative advantages/disadvantages?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(v) What is a contingency or two-way table? When is it used?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(v) What is meant by a marginal distribution, a joint distribution and a conditional distribution?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(v) List three things that may result in a bad graph.}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\chapter*{Tutorial Questions: Module 1}\label{tutorial-questions-module-1}
+\addcontentsline{toc}{chapter}{Tutorial Questions: Module 1}
+
+Note: * Indicates \textbf{Expanded} Competencies
+
+\section{Question 1: Classifying Data}\label{question-1-classifying-data}
+
+\section{Question 2: Generating an appropriate sample}\label{question-2-generating-an-appropriate-sample}
+
+\textbf{Sampling}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item Barry Humphries (m)
+\item Bill Clinton (m)
+\item Bill Cosby (m)
+\item Bill Gates (m)
+\item Bob Dylan (m)
+\item Charles Yeager (m)
+\item Colin Powell (m)
+\item David Helfgott (m)
+\item Dawn Fraser (f)
+\item Evonne Goolagong (f)
+\item Germaine Greer (f)
+
+\columnbreak
+
+\item Gough Whitlam (m)
+\item Harriet Tubman (f)
+\item Henry Kissinger (m)
+\item Janet Reno (f)
+\item Jennifer Crowe (f)
+\item Joan Sutherland (f)
+\item John Glenn (m)
+\item Laura Schlesinger (f)
+\item Leonardo DiCaprio (m)
+\item Manon Rheaume (f)
+\item Mario Cuomo (m)
+
+\columnbreak
+
+\item Michael Jordan (m)
+\item Michele Pfeiffer (f)
+\item Nelson Mandela (m)
+\item Oprah Winfrey (f)
+\item Paul Davies (m)
+\item Paul Newman (m)
+\item Pele (m)
+\item Russell Crowe (m)
+\item Samantha Riley (f)
+\item Wayne Gardner (m)
+\item Wynton Marsalis (m)
+\end{itemize}
+\end{multicols}
+
+\begin{tipbox}
+\textbf{💡 Stratified sampling}
+
+Stratified sampling involves taking simple random samples from each of a number of groups (strata) into which a population has been divided
+\end{tipbox}
+
+This question can be done manually, or visually (see below if using the interactive workbook).
+
+Suppose a random sample of \textbf{eight} people is required.
+
+\textbf{(a)} Using a random number generator (or interactive visual below), select a simple random sample (SRS) from the sampling frame defined above.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  How many males and females are there in your sample?
+\item
+  Using a random number generator, select a second simple random sample.
+\item
+  How many males and females are there in this sample?
+\item
+  Compare your two samples: Did you expect the result you got? Explain your answer with reference to the sampling process.
+\item
+  *Using a random number generator, select a stratified random sample, stratified according to gender so as to contain equal numbers of males (m) and females (f).
+\item
+  *Describe, in detail, the steps you took to produce your stratified sample or the steps that were likely to have been taken if doing this manually.
+\item
+  *Why might you decide that a stratified sample is more representative?
+\end{enumerate}
+
+\begin{tipbox}
+\textbf{💡 **Note**}
+
+https://stattrek.com/statistics/random-number-generator is one possible random number generator or the function RANDBETWEEN() in Excel
+\end{tipbox}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection*{Interactive - Simple Random Sampling and Stratified Sampling}\label{interactive---simple-random-sampling-and-stratified-sampling}
+\addcontentsline{toc}{subsection}{Interactive - Simple Random Sampling and Stratified Sampling}
+
+Below is an interactive tool for selecting simple random samples (SRS) and stratified samples from the given sampling frame.
+
+\begin{warningbox}
+\textbf{⚠️ Interactive Sampling}
+
+This tool is only available if using the interactive workbook and not the pdf version
+\end{warningbox}
+
+\section{Question 3: Investigating the association between two categorical variables}\label{question-3-investigating-the-association-between-two-categorical-variables}
+
+\emph{Is there an association between the type of banking client (new or old) and their satisfaction level?}
+
+The following data was collected and organized into the Contingency Table (two-way table) below to see if there is an association between type of client (stated as \emph{New client (12 months or less)} and \emph{Old client (longer than 12 months)}) and the satisfaction level (stated as \emph{Satisfied} and \emph{Dissatisfied}) for 151 banking clients.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2600}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3700}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0700}}@{}}
+\caption{Type of Client and Satisfaction Levels}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+New Client (12 mths or less)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Old Client (longer than 12mths)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Total
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+New Client (12 mths or less)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Old Client (longer than 12mths)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Total
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Satisfied & 57 & 19 & 76 \\
+Dissatisfied & 36 & 39 & 75 \\
+Total & 93 & 58 & 151 \\
+\end{longtable}
+
+\subsection*{Q3(a)}\label{q3a}
+\addcontentsline{toc}{subsection}{Q3(a)}
+
+From the data in the study:
+
+\textbf{(i) how many clients are new clients?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\textbf{(ii) how many clients are satisfied? }
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\textbf{(iii) how many clients are new clients AND dissatisfied?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\subsection*{Q3(b)}\label{q3b}
+\addcontentsline{toc}{subsection}{Q3(b)}
+
+From the data in the study (for each state if it is a joint, marginal or conditional
+percentage (rounded to 1 decimal place) as well as the answer):
+
+\textbf{(i) what percentage of clients are new clients?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\textbf{(ii) what percentage of clients are satisfied?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\textbf{(iii) what percentage of clients are new clients AND dissatisfied?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\textbf{(iv)    what percentage of clients who are satisfied are also new clients?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\textbf{(v) what percentage of clients who are new are also satisfied?}
+
+\begin{answerbox}\vspace{1.5cm}\end{answerbox}
+
+\subsection*{Q3(c): Joint Distribution}\label{q3c-joint-distribution}
+\addcontentsline{toc}{subsection}{Q3(c): Joint Distribution}
+
+In a two-way table, display the \emph{joint} distribution of type of client and level of satisfaction (round to 1 or 2 decimal place).
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{3} % increases row height
+
+% Define a light grey for convenience (optional)
+\definecolor{lightgray}{gray}{0.9}
+
+\begin{tabular}{|l|c|c|>{\columncolor{lightgray}}c|}
+\hline
+\textbf{Satisfaction / Type} & \textbf{New Client} & \textbf{Old Client} & \textbf{Total    } \\
+\hline
+Satisfied &  &  &  \\
+\hline
+Dissatisfied &  &  &  \\
+\hline
+\rowcolor{lightgray}
+\textbf{Total} &  &  &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Q3(d)}\label{q3d}
+\addcontentsline{toc}{subsection}{Q3(d)}
+
+Using the joint distribution in (c), write 4 sentences describing what each of
+these 4 percentages mean (i.e.~one of the sentences could be something like ``90\% of clients are new and dissatisfied'').
+
+\textit{Write your answers in the spaces provided.}
+
+\medskip
+
+\textbf{Sentence 1}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{Sentence 2}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{Sentence 3}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{Sentence 4}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\subsection*{Q1(e): Marginal Distribution}\label{q1e-marginal-distribution}
+\addcontentsline{toc}{subsection}{Q1(e): Marginal Distribution}
+
+Calculate, in percentages, and display, in a two-way table the following marginal
+distributions:
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\item
+  Marginal Distribution of Type of Client
+\item
+  Marginal Distribution of Satisfaction Level
+\end{enumerate}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{3} % increases row height
+
+% Define a light grey for convenience
+\definecolor{lightgray}{gray}{0.9}
+
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Satisfaction / Type} & \textbf{New Client} & \textbf{Old Client} & \textbf{Total} \\
+\hline
+Satisfied 
+  & \cellcolor{lightgray} 
+  & \cellcolor{lightgray} 
+  &  \\
+\hline
+Dissatisfied 
+  & \cellcolor{lightgray} 
+  & \cellcolor{lightgray} 
+  &  \\
+\hline
+\textbf{Total} 
+  &  
+  &  
+  &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Q1(f): Conditional Distribution}\label{q1f-conditional-distribution}
+\addcontentsline{toc}{subsection}{Q1(f): Conditional Distribution}
+
+Using percentages,
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\tightlist
+\item
+  calculate the distributions of satisfaction level \emph{conditional} on type of client (i.e.~calculate the distribution of satisfaction level for new clients and then the distribution of satisfaction level for old clients).
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{3} % increases row height
+
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Satisfaction / Type} & \textbf{New Client} & \textbf{Old Client} \\
+\hline
+Satisfied 
+  &  
+  &   \\
+\hline
+Dissatisfied 
+  &  
+  &   \\
+\hline
+\textbf{Total} 
+  & 100\% 
+  & 100\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calculate the distributions of type of client \emph{conditional} on satisfaction level.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{3} % increases row height
+
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Satisfaction / Type} & \textbf{New Client} & \textbf{Old Client} & \textbf{Total} \\
+\hline
+Satisfied 
+  &  
+  &  
+  & 100\% \\
+\hline
+Dissatisfied 
+  &  
+  &  
+  & 100\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Sketch a suitable graph to display the association between the two variables,
+  using the information from (i) or (ii) (there are two ways of doing
+  this, either using the information from your answer to f(i) or the information
+  from your answer to f(ii) ).
+\end{enumerate}
+
+\textbf{Sketch suitable graph}
+
+\begin{answerbox}\vspace{5cm}\end{answerbox}
+
+\subsection*{Q1(g)}\label{q1g}
+\addcontentsline{toc}{subsection}{Q1(g)}
+
+*We used two categorical variables in this exercise and have examined the joint, marginal and conditional distributions. Based on this analysis so far (including your graph from part (f)), do you think there is an association between type of client and satisfaction level? Why or why not?
+
+\textbf{Is there an association between type of client and satisfaction level?}
+
+\begin{answerbox}\vspace{5cm}\end{answerbox}
+
+\begin{tipbox}
+\textbf{💡 Note on wording:}
+
+Saying that two categorical variables are **not associated** (or not related) is the same as saying they are **independent**.
+
+Saying that two categorical variables are **associated** (or related) is the same as
+saying they are **NOT independent**.
+\end{tipbox}
+
+\section{Question 4: Repeat Q3 using Excel}\label{question-4-repeat-q3-using-excel}
+
+Using the data in Question 3, repeat the analysis using Excel for this course and then compare your answers in Question 3 with your output.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Open the datafile Tutorial 1 Q4 in your Statistical Software (this file can be found in the Module 1 block on the StudyDesk, or downloaded from here).
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{static/Tutorial\%201\%20Q4\%20data.xlsx}{Excel data file (Tutorial 1 Q4)}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  Create a two-way table using Pivot Tables to display the data (see the Contingency Tables video). Put satisfaction level in rows and type of client in columns.
+\item
+  Display the joint distribution of type of client and satisfaction level in terms of percentages, in a two-way table. Note that this table also gives you the marginal distributions. Compare with your answers in Question 3.
+\item
+  Produce the conditional distributions (both Row Percent and Column Percent). Compare with answers in Question 3.
+\item
+  Construct a Stacked Bar Graph to display the association between type of client and satisfaction level. Compare to your sketch in Question 3.
+\end{enumerate}
+
+\section{Textbook Readings}\label{textbook-readings}
+
+For extra clarification on materials in this module, see: Sharpe, De Veaux \& Velleman (4th Edition)
+
+\begin{itemize}
+\item
+  Chapter 1
+\item
+  Chapter 2 (excluding Section 2.5 and Mosaic Plots)
+\item
+  Chapter 8
+\end{itemize}
+
+\section{Further Practice from the Textbook}\label{further-practice-from-the-textbook}
+
+Answers to these questions are in the back of the textbook. If you require further explanation, please ask in the Module Content Discussion Forum on the StudyDesk.
+
+\textbf{Note}: 1.23 means Sharpe, DeVeaux \& Velleman (4th edition) Chapter 1, Exercise 23 at the end of the chapter.
+
+• Questions 1.3, 1.17, 2.17, 2.23, 2.35(a,b,c,d* ), 2.37(a,b,c,d,e,f* )
+
+\section*{Module 1 Checklist}\label{module-1-checklist}
+\addcontentsline{toc}{section}{Module 1 Checklist}
+
+\section*{Sampling}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Identify the cases/individuals and variables in any data set\\
+\item
+  \(\square\) Classify a variable as categorical, quantitative, ordinal or an identifier\\
+\item
+  \(\square\) Choose an appropriate graph to display the distribution of a categorical variable\\
+\item
+  \(\square\) Identify the population and sampling frame in a study\\
+\item
+  \(\square\) Understand the concepts of random sampling and census\\
+\item
+  \(\square\) Use random numbers to generate a simple random sample of a specified size from a target frame\\
+\item
+  \(\square\) Recognise the possibility of bias due to undercoverage, nonresponse and poor wording of questions in sample surveys\\
+\item
+  \(\square\) Recognise the possibility of bias in non-random sampling methods\\
+\item
+  \(\square\) \emph{*Distinguish amongst simple random samples, convenience samples, voluntary response samples, stratified samples, systematic samples, cluster samples and multistage samples in survey designs}
+\end{itemize}
+
+\section*{Association Between Two Categorical Variables}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Create a contingency table from data for two categorical variables\\
+\item
+  \(\square\) Determine and interpret joint, marginal and conditional distributions from a contingency table\\
+\item
+  \(\square\) Interpret the association between two categorical variables summarised in a stacked bar chart\\
+\item
+  \(\square\) \emph{*Interpret the association between two categorical variables from the conditional distributions}
+\end{itemize}
+
+\section*{Using Excel Checklist}
+
+The Excel videos that have been covered this week include:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Starting with Excel\\
+\item
+  \(\square\) Inputting data in Excel\\
+\item
+  \(\square\) Editing data in Excel\\
+\item
+  \(\square\) Saving output in Excel\\
+\item
+  \(\square\) Selecting cases\\
+\item
+  \(\square\) Bar Graph\\
+\item
+  \(\square\) Pie Graph\\
+\item
+  \(\square\) Stacked Bar Graph\\
+\item
+  \(\square\) Frequency Tables\\
+\item
+  \(\square\) Contingency Tables
+\end{itemize}
+
+\section*{Using Excel Checklist}\label{using-excel-checklist}
+\addcontentsline{toc}{section}{Using Excel Checklist}
+
+\section*{Using Excel Checklist}
+
+The Excel videos that have been covered this week include:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Starting with Excel\\
+\item
+  \(\square\) Inputting data in Excel\\
+\item
+  \(\square\) Editing data in Excel\\
+\item
+  \(\square\) Saving output in Excel\\
+\item
+  \(\square\) Selecting cases\\
+\item
+  \(\square\) Bar Graph\\
+\item
+  \(\square\) Pie Graph\\
+\item
+  \(\square\) Stacked Bar Graph\\
+\item
+  \(\square\) Frequency Tables\\
+\item
+  \(\square\) Contingency Tables
+\end{itemize}
+
+\bibliography{book.bib,packages.bib}
+
+\end{document}

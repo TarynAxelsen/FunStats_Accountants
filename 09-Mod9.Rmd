@@ -1,0 +1,30 @@
+# Module 9
+
+<!-- ====== COLOURED BANNER ====== -->
+```{=html}
+<div style="
+  background: linear-gradient(90deg, #e6f0ff, #f7fbff);
+  border-left: 8px solid #2a7ae2;
+  padding: 22px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+">
+  <h2 style="margin-top:0; color:#1a4f8b; font-weight:700;">
+    Module Focus:
+  </h2>
+  <p style="font-size:1.05em; margin-bottom:0;">
+    One line summary
+
+In this module, we ???.
+  </p>
+</div>
+```
+<!-- ====== END BANNER ====== -->
+
+## Summary
+
+# Review Questions: Module 9 {-}
+<!-- Copy from Module 1. Then copy from the Workbook and ask AI to change  -->
+
+
+

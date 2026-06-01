@@ -1,0 +1,39 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Restore saved values
+  document.querySelectorAll("textarea, input, select").forEach(function (el) {
+    if (!el.id) return;
+
+    const saved = localStorage.getItem(el.id);
+    if (saved !== null) {
+      if (el.type === "checkbox" || el.type === "radio") {
+        el.checked = (saved === "true");
+      } else {
+        el.value = saved;
+      }
+    }
+  });
+
+  // Save values
+  document.querySelectorAll("textarea, input, select").forEach(function (el) {
+    if (!el.id) return;
+
+    const save = function () {
+      if (el.type === "checkbox" || el.type === "radio") {
+        localStorage.setItem(el.id, el.checked);
+      } else {
+        localStorage.setItem(el.id, el.value);
+      }
+    };
+
+    // input works for text/number
+    el.addEventListener("input", save);
+
+    // change is REQUIRED for select
+    el.addEventListener("change", save);
+  });
+
+});
+</script>
+``

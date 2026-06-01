@@ -1,0 +1,19 @@
+<script>
+function resetAllAnswers() {
+
+  // Clear everything saved by this book
+  localStorage.clear();
+
+  // Clear visible inputs on the current page
+  document.querySelectorAll("textarea, input").forEach(el => {
+    if (el.type === "checkbox" || el.type === "radio") {
+      el.checked = false;
+    } else {
+      el.value = "";
+    }
+    el.classList.remove("correct","incorrect");
+  });
+
+  alert("All saved answers in this workbook have been cleared.");
+}
+</script>

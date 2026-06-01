@@ -2,11 +2,25 @@ bookdown::bs4_book:
   css: style.css
   theme:
     primary: "#096B72"
+    bootswatch: flatly
+    #primary: "#2b8cbe"
   repo: https://github.com/rstudio/bookdown-demo
-bookdown::pdf_book:
+  
   includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
-bookdown::epub_book: default
+    after_body: 
+      - answer-persistence.html
+      - global-reset.html
+
+  
+
+ #Disable PDF and EPUB builds on GitHub
+ #(You can still build them locally if you want.)
+bookdown::pdf_book:
+   includes:
+     in_header: preamble.tex
+   latex_engine: xelatex
+   citation_package: natbib
+   keep_tex: yes
+
+
+# bookdown::epub_book: default
