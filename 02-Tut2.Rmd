@@ -2,364 +2,251 @@
 
 Note: * Indicates **Expanded** Competencies
 
-## Question 1: Describing Distributions
+## Question 1: Observational / Experiment
 
-(a) Construct a stem-and-leaf display of the following data:
+In recent years, the Therapeutic Goods Administration has introduced new guidelines for marketers of herbs and other natural substances who make health claims about their product. Brands of gingko extract claim to improve memory and concentration. A study of 230 healthy people over 60 years old were randomly assigned to a gingko pill or a placebo pill. All participants took tests for learning and memory before treatment started and again after six weeks.
 
-2.73, 2.79, 2.85, 2.85, 2.53, 2.37, 2.61, 2.67, 2.78, 2.65, 2.84, 2.69, 2.72, 2.63, 2.68
-
-Drag the **leaves** into the correct **stem**.
-
+<!-- HTML -->
 ```{=html}
-<!-- Leaf pool -->
-<div id="leaf-pool">
-<span class="leaf" id="leaf-1">3</span>
-<span class="leaf" id="leaf-2">9</span>
-<span class="leaf" id="leaf-3">5</span>
-<span class="leaf" id="leaf-4">5</span>
-<span class="leaf" id="leaf-5">3</span>
-<span class="leaf" id="leaf-6">7</span>
-<span class="leaf" id="leaf-7">1</span>
-<span class="leaf" id="leaf-8">7</span>
-<span class="leaf" id="leaf-9">8</span>
-<span class="leaf" id="leaf-10">5</span>
-<span class="leaf" id="leaf-11">4</span>
-<span class="leaf" id="leaf-12">9</span>
-<span class="leaf" id="leaf-13">2</span>
-<span class="leaf" id="leaf-14">3</span>
-<span class="leaf" id="leaf-15">8</span>
-</div>
-
-<!-- Stems -->
-<div class="stem" data-stem="2.3">2.3 | </div>
-<div class="stem" data-stem="2.5">2.5 | </div>
-<div class="stem" data-stem="2.6">2.6 | </div>
-<div class="stem" data-stem="2.7">2.7 | </div>
-<div class="stem" data-stem="2.8">2.8 | </div>
-
-<br>
-
-<button onclick="checkAnswer()">Check Answer</button>
-<button onclick="resetActivity()">Reset</button>
-<button onclick="showHint()">Hint</button>
-
-<p id="hint" style="display:none">
-<strong>Hint:</strong> The stem is the first two digits.<br>
-Example: <code>2.73 → stem 2.7, leaf 3</code>.
-
-</p>
-
-<p id="result" style="font-weight:bold;"></p>
-
 <style>
-
-#leaf-pool{
-margin-bottom:15px;
-}
-
-.leaf{
-display:inline-block;
-padding:6px 10px;
-margin:4px;
-background:#e6f0ff;
-border:1px solid #2a7ae2;
-border-radius:4px;
-cursor:grab;
-}
-
-.stem{
-margin-top:10px;
-padding:10px;
-min-height:40px;
-border:2px dashed #aaa;
-}
-
+  .tut-btn  { padding: 6px 12px; margin-right: 6px; margin-top: 10px; }
+  .tut-hint {
+    display: none;
+    border-left: 6px solid #2b8cbe;
+    background: #f6fbff;
+    padding: .8rem 1rem;
+    border-radius: 6px;
+    margin-top: .6rem;
+  }
+  .tut-model {
+    display: none;
+    border-left: 6px solid #27ae60;
+    background: #f6fff8;
+    padding: .8rem 1rem;
+    border-radius: 6px;
+    margin-top: .6rem;
+  }
+  select.tut-correct, input.tut-correct, textarea.tut-correct { border: 3px solid green; background: #eaffea; }
+  select.tut-incorrect, input.tut-incorrect, textarea.tut-incorrect { border: 3px solid red; background: #ffecec; }
+  .tut-box { max-width: 750px; }
 </style>
 
-<script>
-let dragged = null;
-const STORAGE_KEY = "stem_leaf_state";
+<div class="tut-box">
 
-// ---------- DRAG SETUP ----------
-document.querySelectorAll('.leaf').forEach(el => {
-  el.setAttribute("draggable","true");
+<p><strong>(a)</strong> Is this an observational or experimental study? Explain your answer.</p>
+<select id="q1a-type">
+  <option value="">-- Select --</option>
+  <option>Observational</option>
+  <option>Experimental</option>
+</select>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q1a-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q1a-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckSelect('q1a-type','Experimental','q1a-fb')">Check</button>
+  <button class="tut-btn" onclick="tutResetSelect('q1a-type','q1a-fb',['q1a-hint','q1a-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q1a-hint">Ask yourself: did the researchers impose a treatment, or did they simply observe?</div>
+<div class="tut-model" id="q1a-model">It is an <strong>experimental</strong> study because treatments (either a gingko or placebo pill) were imposed by the researchers on the subjects.</div>
+<p id="q1a-fb"></p>
 
-  el.addEventListener("dragstart", e => {
-    dragged = e.target;
-    e.dataTransfer.setData("text/plain", ""); // Firefox
-  });
-});
+<p><strong>(b)</strong> What were the subjects and how many were there?</p>
+<textarea id="q1b" rows="2" style="width:100%;" placeholder="Describe the subjects…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q1b-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q1b-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q1b',['230'],['people','person','participants','subjects'],'q1b-fb','Good answer ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q1b','q1b-fb',['q1b-hint','q1b-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q1b-hint">Who participated in the study, and how many of them were there?</div>
+<div class="tut-model" id="q1b-model">The subjects were the <strong>230 healthy people over 60 years old</strong> who participated in the experiment.</div>
+<p id="q1b-fb"></p>
 
-document.querySelectorAll('.stem, #leaf-pool').forEach(container => {
-  container.addEventListener("dragover", e => e.preventDefault());
+<p><strong>(c)</strong> Identify all factors and factor levels.</p>
+<textarea id="q1c" rows="3" style="width:100%;" placeholder="Identify the factor(s) and their levels…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q1c-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q1c-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q1c',['gingko','placebo'],['factor','level','pill'],'q1c-fb','Good answer ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q1c','q1c-fb',['q1c-hint','q1c-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q1c-hint">A factor is the variable being manipulated. The levels are the different values of that factor applied to subjects.</div>
+<div class="tut-model" id="q1c-model">There is <strong>one factor</strong>: the pill.<br>The <strong>two levels</strong> of this factor are gingko and placebo.</div>
+<p id="q1c-fb"></p>
 
-  container.addEventListener("drop", e => {
-    e.preventDefault();
-    container.appendChild(dragged);
-    saveState();
-  });
-});
+<p><strong>(d)</strong> What was the response variable(s)?</p>
+<textarea id="q1d" rows="2" style="width:100%;" placeholder="Identify the response variable(s)…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q1d-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q1d-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q1d',['memory'],['learning','test','result','score'],'q1d-fb','Good answer ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q1d','q1d-fb',['q1d-hint','q1d-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q1d-hint">What outcome was being measured? What did participants take tests on?</div>
+<div class="tut-model" id="q1d-model">The response variables were the results on the <strong>learning and memory tests</strong>.</div>
+<p id="q1d-fb"></p>
 
-// ---------- PERSISTENCE ----------
-function saveState() {
-  const state = {};
-
-  document.querySelectorAll(".leaf").forEach(leaf => {
-    state[leaf.id] = leaf.parentElement.id || leaf.parentElement.dataset.stem;
-  });
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
-
-function restoreState() {
-  const state = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (!state) return;
-
-  Object.entries(state).forEach(([leafId, containerId]) => {
-    const leaf = document.getElementById(leafId);
-    if (!leaf) return;
-
-    if (containerId === "leaf-pool") {
-      document.getElementById("leaf-pool").appendChild(leaf);
-    } else {
-      const stem = document.querySelector(`.stem[data-stem="${containerId}"]`);
-      if (stem) stem.appendChild(leaf);
-    }
-  });
-}
-
-// Restore on load
-restoreState();
-
-// ---------- HINT ----------
-function showHint(){
-  document.getElementById("hint").style.display="block";
-}
-
-// ---------- CHECK ----------
-function checkAnswer(){
-
-  const correct = {
-    "2.3":["7"],
-    "2.5":["3"],
-    "2.6":["1","3","5","7","8","9"],
-    "2.7":["2","3","8","9"],
-    "2.8":["4","5","5"]
-  };
-
-  let correctStem = 0;
-  let ordered = 0;
-
-  document.querySelectorAll(".stem").forEach(stem => {
-    const label = stem.dataset.stem;
-    const leaves = Array.from(stem.querySelectorAll(".leaf")).map(x => x.textContent);
-    const sorted = [...leaves].sort();
-
-    if (JSON.stringify(sorted) === JSON.stringify(correct[label])) {
-      correctStem++;
-      if (JSON.stringify(leaves) === JSON.stringify(sorted)) {
-        ordered++;
-      }
-    }
-  });
-
-  if (correctStem === 5 && ordered === 5) {
-    document.getElementById("result").innerHTML =
-      "✔ Correct! Stems and leaves are correct and ordered.";
-  }
-  else if (correctStem === 5) {
-    document.getElementById("result").innerHTML =
-      "⚠ Half correct: stems are correct but leaves are not ordered.";
-  }
-  else {
-    document.getElementById("result").innerHTML =
-      "✘ Some stems are incorrect. Try again.";
-  }
-}
-
-// ---------- RESET ----------
-function resetActivity() {
-  const pool = document.getElementById("leaf-pool");
-
-  document.querySelectorAll(".leaf").forEach(leaf => pool.appendChild(leaf));
-
-  localStorage.removeItem(STORAGE_KEY);
-  document.getElementById("result").textContent = "";
-  document.getElementById("hint").style.display = "none";
-}
-</script>
+</div>
 ```
 
-(b) Describe the distribution in terms of shape, centre, spread and outliers.
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{(a) Is this an observational or experimental study? Explain your answer.}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
 
-Select the most appropriate description.
+\\textbf{(b) What were the subjects and how many were there?}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
 
-``` {=html}
-<hr>
+\\textbf{(c) Identify all factors and factor levels.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
 
-<strong>(b) Describe the distribution</strong><br><br>
-
-<strong>Shape</strong><br>
-<select id="distB-shape">
-  <option value="">Choose</option>
-  <option value="symmetric">Symmetric</option>
-  <option value="left">Skewed to the left</option>
-  <option value="right">Skewed to the right</option>
-  <option value="bimodal">Bimodal</option>
-</select>
-
-<hr>
-
-<strong>Centre</strong><br>
-<select id="distB-centre">
-  <option value="">Choose</option>
-  <option value="2.4">About 2.4</option>
-  <option value="2.5">About 2.5</option>
-  <option value="2.6-2.7">About 2.6–2.7</option>
-  <option value="2.8">About 2.8</option>
-</select>
-
-<hr>
-
-<strong>Spread</strong><br>
-<select id="distB-spread">
-  <option value="">Choose</option>
-  <option value="full">2.37 to 2.85</option>
-  <option value="253">2.53 to 2.85</option>
-  <option value="261">2.61 to 2.84</option>
-  <option value="237">2.37 to 2.72</option>
-</select>
-
-<hr>
-
-<strong>Outliers</strong><br>
-<select id="distB-outlier">
-  <option value="">Choose</option>
-  <option value="none">No unusual observations</option>
-  <option value="237">2.37 may be a possible outlier</option>
-  <option value="285">2.85 is an outlier</option>
-  <option value="253">2.53 is an outlier</option>
-</select>
-
-<hr>
-
-<button onclick="distB_check()">Check Answer</button>
-<button onclick="distB_reset()">Reset</button>
-<button onclick="distB_toggleHint()">Hint</button>
-
-<p id="distB-result" style="font-weight:bold; margin-top:10px;"></p>
-
-<p id="distB-hint" style="display:none;">
-<strong>Hint:</strong>
-Look at the direction of the tail, where most values cluster,
-the full range of the data, and whether any value sits apart from the rest.
-</p>
-
-<script>
-/* ---------- CONFIG ---------- */
-const distB_STORAGE_KEY = "distB_distribution_state";
-
-const distB_correct = {
-  shape: "left",
-  centre: "2.6-2.7",
-  spread: "full",
-  outlier: "237"
-};
-
-const distB_fields = ["shape", "centre", "spread", "outlier"];
-
-/* ---------- SAVE / RESTORE ---------- */
-function distB_saveState() {
-  const state = {};
-  distB_fields.forEach(key => {
-    state[key] = document.getElementById("distB-" + key).value;
-  });
-  localStorage.setItem(distB_STORAGE_KEY, JSON.stringify(state));
+\\textbf{(d) What was the response variable(s)?}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+')
 }
-
-function distB_restoreState() {
-  const state = JSON.parse(localStorage.getItem(distB_STORAGE_KEY));
-  if (!state) return;
-
-  distB_fields.forEach(key => {
-    document.getElementById("distB-" + key).value = state[key];
-  });
-}
-
-/* Restore on load */
-distB_restoreState();
-
-/* Save on change */
-distB_fields.forEach(key => {
-  document
-    .getElementById("distB-" + key)
-    .addEventListener("change", distB_saveState);
-});
-
-/* ---------- CHECK ---------- */
-function distB_check() {
-  let score = 0;
-
-  distB_fields.forEach(key => {
-    const sel = document.getElementById("distB-" + key);
-    if (sel.value === distB_correct[key]) {
-      sel.style.backgroundColor = "#c8f7c5"; // green
-      score++;
-    } else {
-      sel.style.backgroundColor = "#f7c5c5"; // red
-    }
-  });
-
-  const out = document.getElementById("distB-result");
-
-  if (score === 4) {
-    out.textContent =
-      "✔ Correct. The distribution is left‑skewed, centred around 2.6–2.7, " +
-      "with values from 2.37 to 2.85. The value 2.37 may be a possible outlier.";
-  } else if (score >= 2) {
-    out.textContent =
-      "⚠ Partially correct. Review the skew, centre, and possible outliers.";
-  } else {
-    out.textContent =
-      "✘ Not quite. Look carefully at the tail direction and overall spread.";
-  }
-}
-
-/* ---------- RESET ---------- */
-function distB_reset() {
-  distB_fields.forEach(key => {
-    const sel = document.getElementById("distB-" + key);
-    sel.value = "";
-    sel.style.backgroundColor = "";
-  });
-
-  localStorage.removeItem(distB_STORAGE_KEY);
-  document.getElementById("distB-result").textContent = "";
-  document.getElementById("distB-hint").style.display = "none";
-}
-
-/* ---------- HINT ---------- */
-function distB_toggleHint() {
-  const h = document.getElementById("distB-hint");
-  h.style.display = (h.style.display === "none") ? "block" : "none";
-}
-</script>
 ```
 
-## Question 2: Assignment Results
+## Question 2: Experimental Design
 
-The following represent the assignment results (out of 100) for a class of 20 statistics students:
+A researcher wants to know whether the difficulty of a task influences our estimate of how long we spend working at it. She designs two sets of mazes that subjects can work through on a computer — one set is easy and the other set is difficult. A group of 50 subjects are randomly allocated a set of mazes and work until told to stop (5 minutes, but subjects do not know this). They are then asked to estimate how long they worked.
+
+<!-- HTML -->
+```{=html}
+<div class="tut-box">
+
+<p><strong>(a)</strong> Draw a diagram to show the design of this experiment.</p>
+<textarea id="q2a" rows="4" style="width:100%;" placeholder="Describe or sketch the experimental design…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q2a-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q2a-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutResetText('q2a','',['q2a-hint','q2a-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q2a-hint">Start with the 50 subjects. Show how they are randomly split into two groups, what treatment each group receives, and what is then compared.</div>
+
+<div class="tut-model" id="q2a-model">
+  This is a <strong>completely randomised design</strong>:<br><br>
+
+  50 subjects → Random assignment →<br>
+  &nbsp;&nbsp;Group 1 (25 subjects) → Easy mazes → Compare time estimates<br>
+  &nbsp;&nbsp;Group 2 (25 subjects) → Difficult mazes → Compare time estimates
+</div>
+<p id="q2a-fb"></p>
+
+<p><strong>(b)</strong> Have the four elements of good experimental design been used here?</p>
+<textarea id="q2b" rows="6" style="width:100%;" placeholder="Discuss randomisation, control, replication and blocking…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q2b-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q2b-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q2b',['randomis','replicat'],['control','block'],'q2b-fb','Good answer ✅ — make sure you address all four principles.')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q2b','q2b-fb',['q2b-hint','q2b-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q2b-hint">Go through each of the four principles in turn: randomisation, control, replication, blocking. For each one, state whether it was used and why.</div>
+<div class="tut-model" id="q2b-model">
+  <ul>
+    <li><strong>Randomisation:</strong> Yes — subjects were randomly allocated to either easy or difficult mazes.</li>
+    <li><strong>Control:</strong> No — there is no group given no mazes (no treatment), so there is no control group.</li>
+    <li><strong>Replication:</strong> Yes — there are 50 participants, so results for both treatments are replicated.</li>
+    <li><strong>Blocking:</strong> No — subjects were not divided into groups with similar characteristics before treatments were allocated.</li>
+  </ul>
+</div>
+<p id="q2b-fb"></p>
+
+<p><strong>(c)</strong> *The researcher is interested to see whether gender has an effect on people's perception of how long it takes to do a difficult task. How could she account for this in her experimental design? Draw a diagram to show the revised design.</p>
+<textarea id="q2c" rows="5" style="width:100%;" placeholder="Describe the revised design incorporating gender…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q2c-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q2c-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q2c',['block'],['gender','male','female','men','women'],'q2c-fb','Good answer ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q2c','q2c-fb',['q2c-hint','q2c-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q2c-hint">Which of the four experimental design principles would help control for the effect of gender? How would you apply it here?</div>
+<div class="tut-model" id="q2c-model">
+  <strong>Blocking</strong> by gender could be incorporated by dividing the 50 people into males and females first, then randomly allocating both easy and difficult mazes within each gender group:<br><br>
+  Block 1 (females) → Random assignment → Easy mazes / Difficult mazes → Compare<br>
+  Block 2 (males) &nbsp;→ Random assignment → Easy mazes / Difficult mazes → Compare
+</div>
+<p id="q2c-fb"></p>
+
+</div>
+```
+
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{(a) Draw a diagram to show the design of this experiment.}
+\\begin{answerbox}\\vspace{5cm}\\end{answerbox}
+
+\\textbf{(b) Have the four elements of good experimental design been used here?}
+\\begin{answerbox}\\vspace{4cm}\\end{answerbox}
+
+\\textbf{(c) * How could the researcher account for gender? Draw a diagram of the revised design.}
+\\begin{answerbox}\\vspace{5cm}\\end{answerbox}
+')
+}
+```
+
+## Question 3: Observational Study
+
+A study found that senior citizens who report drinking diet soft drink regularly experience a greater increase in weight and waist circumference than those who do not drink diet soft drink regularly.
+
+<!-- HTML -->
+```{=html}
+<div class="tut-box">
+
+<p><strong>(a)</strong> From these results, can we conclude that drinking diet soft drink <em>causes</em> weight gain? Why or why not?</p>
+<textarea id="q3a" rows="5" style="width:100%;" placeholder="Type your answer here…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q3a-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q3a-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q3a',['observational','no'],['causation','cause','association','treatment'],'q3a-fb','Good answer ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q3a','q3a-fb',['q3a-hint','q3a-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q3a-hint">What type of study is this? What type of study is required to establish causation?</div>
+<div class="tut-model" id="q3a-model">No, we cannot conclude causation. This is an <strong>observational study</strong> — no treatments were imposed by the researcher. We can only conclude that there is an <strong>association</strong> between drinking diet soft drink and weight gain. To establish causation, an experiment would be needed where the researcher randomly allocated participants to either drink or not drink diet soft drink.</div>
+<p id="q3a-fb"></p>
+
+<p><strong>(b)</strong> *What could be a potential lurking variable? Explain how it would impact both the explanatory and outcome variables.</p>
+<textarea id="q3b" rows="5" style="width:100%;" placeholder="Identify a lurking variable and explain its effect…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q3b-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q3b-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutResetText('q3b','q3b-fb',['q3b-hint','q3b-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q3b-hint">A lurking variable affects both variables in the study but is not being measured. Think: what other factor might explain why someone both drinks diet soft drink AND gains weight?</div>
+<div class="tut-model" id="q3b-model">The explanatory variable in this scenario is ‘type of drink’ (either diet soft drink or other).
+The outcome (or response) variables are ‘weight’ and ‘waist circumference’.
+There are multiple possible lurking variables. One possible lurking variable is <strong>health consciousness</strong>. Someone who is health conscious may avoid diet soft drinks and also exercise more (decreasing weight). Someone who is not health conscious may consume more junk food and exercise less (increasing weight). This creates an apparent association between diet soft drink and weight gain, even though the lurking variable is the real explanation.</div>
+<p id="q3b-fb"></p>
+
+</div>
+```
+
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{(a) Can we conclude that drinking diet soft drink causes weight gain? Why or why not?}
+\\begin{answerbox}\\vspace{4cm}\\end{answerbox}
+
+\\textbf{(b) * What could be a potential lurking variable? Explain how it would impact both variables.}
+\\begin{answerbox}\\vspace{4cm}\\end{answerbox}
+')
+}
+```
+
+## Question 4: Describing Distributions
+
+The following represent the assignment results (out of 100) for a class of 20 Accounting students:
 
 85, 38, 92, 93, 100, 88, 78, 79, 96, 81, 62, 39, 77, 78, 83, 91, 90, 85, 99, 97
 
-```{r hist-assignment, fig.cap="Histogram of assignment results (n = 20) (\\#fig:hist-assignment)", echo=FALSE, message=FALSE, warning=FALSE}
+```{r hist-assignment, fig.cap="Histogram of assignment results (n = 20)", echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)
-library(plotly)
 
-# Data
 scores <- c(85, 38, 92, 93, 100, 88, 78, 79, 96, 81, 62, 39, 77, 78, 83, 91, 90, 85, 99, 97)
 
-# Histogram
 p <- ggplot(data.frame(scores), aes(x = scores)) +
   geom_histogram(binwidth = 10, fill = "#2a7ae2", color = "white", boundary = 0) +
   labs(title = "Histogram of Assignment Results (n=20)",
@@ -371,494 +258,671 @@ p <- ggplot(data.frame(scores), aes(x = scores)) +
     axis.title = element_text(size = 12)
   )
 
-# Interactive
-ggplotly(p)
+if (knitr::is_html_output()) {
+  library(plotly)
+  ggplotly(p)
+} else {
+  print(p)
+}
 ```
-
 
 For this data and Figure \@ref(fig:hist-assignment) complete the following questions:
 
-(a) Describe the distribution of Assignment Results in terms of shape, centre, spread and outliers (including how many student results could be considered to be outliers).
+<!-- HTML -->
+```{=html}
+<div class="tut-box">
 
-<!-- =========================
-Q2 (a) Describe the distribution
-========================== -->
+<p><strong>(a)</strong> Describe the distribution of Assignment Results in terms of shape, centre, spread and outliers.</p>
 
-<!-- Shape -->
 <p><strong>Shape:</strong></p>
-<select id="q2-shape">
-  <option value="">Choose</option>
+<select id="q4-shape">
+  <option value="">-- Select --</option>
   <option>Symmetric</option>
-  <option>Skewed left</option>
-  <option>Skewed right</option>
-  <option>Bimodal</option>
+  <option>Skewed left, unimodal</option>
+  <option>Skewed right, unimodal</option>
+  <option>Skewed left, bimodal</option>
+  <option>Skewed right, bimodal</option>
 </select>
 <div>
-  <button class="q2-btn" onclick="q2_hintA('shape')">Hint</button>
-  <button class="q2-btn" onclick="q2_checkA('shape')">Check</button>
-  <button class="q2-btn" onclick="q2_resetA('shape')">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4-hint-shape')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckSelect('q4-shape','Skewed left, unimodal','q4-fb-shape')">Check</button>
+  <button class="tut-btn" onclick="tutResetSelect('q4-shape','q4-fb-shape',['q4-hint-shape'])">Reset</button>
 </div>
-<p id="q2-fb-shape" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4-hint-shape">Look for the long tail — which direction does it point? Note the two very low scores (below 40) far from the main cluster.</div>
+<p id="q4-fb-shape"></p>
 
-<!-- Centre -->
-<p style="margin-top:10px;"><strong>Centre:</strong></p>
-<select id="q2-centre">
-  <option value="">Choose</option>
+<p><strong>Centre:</strong></p>
+<select id="q4-centre">
+  <option value="">-- Select --</option>
+  <option>60–69</option>
   <option>70–79</option>
   <option>80–89</option>
   <option>90–99</option>
-  <option>60–69</option>
 </select>
 <div>
-  <button class="q2-btn" onclick="q2_hintA('centre')">Hint</button>
-  <button class="q2-btn" onclick="q2_checkA('centre')">Check</button>
-  <button class="q2-btn" onclick="q2_resetA('centre')">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4-hint-centre')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckSelect('q4-centre','80–89','q4-fb-centre')">Check</button>
+  <button class="tut-btn" onclick="tutResetSelect('q4-centre','q4-fb-centre',['q4-hint-centre'])">Reset</button>
 </div>
-<p id="q2-fb-centre" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4-hint-centre">Look at where the tallest bars of the histogram fall — this is where most values are clustered.</div>
+<p id="q4-fb-centre"></p>
 
-<!-- Spread -->
-<p style="margin-top:10px;"><strong>Spread:</strong></p>
-<select id="q2-spread">
-  <option value="">Choose</option>
+<p><strong>Spread:</strong></p>
+<select id="q4-spread">
+  <option value="">-- Select --</option>
   <option>38–100</option>
   <option>62–100</option>
   <option>70–95</option>
-  <option>75–100</option>
 </select>
 <div>
-  <button class="q2-btn" onclick="q2_hintA('spread')">Hint</button>
-  <button class="q2-btn" onclick="q2_checkA('spread')">Check</button>
-  <button class="q2-btn" onclick="q2_resetA('spread')">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4-hint-spread')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckSelect('q4-spread','62–100','q4-fb-spread')">Check</button>
+  <button class="tut-btn" onclick="tutResetSelect('q4-spread','q4-fb-spread',['q4-hint-spread'])">Reset</button>
 </div>
-<p id="q2-fb-spread" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4-hint-spread">Report the range of the main cluster, excluding obvious outliers. Note: if you considered there are no outliers, 38–100 would also be acceptable.</div>
+<p id="q4-fb-spread"></p>
 
-<!-- Outliers -->
-<p style="margin-top:10px;"><strong>Outliers:</strong></p>
-<select id="q2-outlier">
-  <option value="">Choose</option>
+<p><strong>Outliers:</strong></p>
+<select id="q4-outlier">
+  <option value="">-- Select --</option>
   <option>None</option>
   <option>1 student</option>
   <option>2 students</option>
-  <option>More than 2</option>
 </select>
 <div>
-  <button class="q2-btn" onclick="q2_hintA('outlier')">Hint</button>
-  <button class="q2-btn" onclick="q2_checkA('outlier')">Check</button>
-  <button class="q2-btn" onclick="q2_resetA('outlier')">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4-hint-outlier')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckSelect('q4-outlier','2 students','q4-fb-outlier')">Check</button>
+  <button class="tut-btn" onclick="tutResetSelect('q4-outlier','q4-fb-outlier',['q4-hint-outlier'])">Reset</button>
 </div>
-<p id="q2-fb-outlier" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4-hint-outlier">Check the frequency (y-axis) of the lowest bar on the histogram. How many values are in that far-left bin?</div>
+<p id="q4-fb-outlier"></p>
 
 <hr>
 
-<!-- =========================
-Q2 (b) Recommended centre & spread
-========================== -->
-<p class="h5">(b) What centre and spread would you use to describe this distribution? Why?</p>
-<input type="text" id="q2-centrespread" placeholder="Type your answer here (e.g., median & IQR)" style="width:100%; max-width:420px;">
+<p><strong>(b)</strong> What centre and spread would you use to describe this distribution? Why?</p>
+<input id="q4b" style="width:100%;" placeholder="Name the measures and explain why…">
 <div>
-  <button class="q2-btn" onclick="q2_hintB()">Hint</button>
-  <button class="q2-btn" onclick="q2_checkB()">Check</button>
-  <button class="q2-btn" onclick="q2_resetB()">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4b-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q4b',['median'],['iqr','interquartile'],'q4b-fb','Correct ✅ — median and IQR are appropriate for skewed data with outliers.')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4b','q4b-fb',['q4b-hint'])">Reset</button>
 </div>
-<p id="q2-fb-b" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4b-hint">Skewed distribution or outliers → use <strong>median</strong> (centre) and <strong>IQR</strong> (spread). Symmetric, no outliers → use <strong>mean</strong> and <strong>standard deviation</strong>.</div>
+<p id="q4b-fb"></p>
 
 <hr>
 
-<!-- =========================
-Q2 (c) Mean
-========================== -->
-<p class="h5">(c) Using a computer or calculator, calculate the mean of the data set.</p>
-<input type="number" step="0.01" id="q2-mean" placeholder="Enter mean" style="width:200px;">
+<p><strong>(c)</strong> Calculate the mean of the data set:</p>
+<input type="number" id="q4c" placeholder="Enter mean…">
 <div>
-  <button class="q2-btn" onclick="q2_hintC()">Hint</button>
-  <button class="q2-btn" onclick="q2_checkC()">Check</button>
-  <button class="q2-btn" onclick="q2_resetC()">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4c-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckNum('q4c',81.55,'q4c-fb')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4c','q4c-fb',['q4c-hint'])">Reset</button>
 </div>
-<p id="q2-fb-c" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4c-hint">Add all 20 values together, then divide by 20. The sum is 1631.</div>
+<p id="q4c-fb"></p>
 
 <hr>
 
-<!-- =========================
-Q2 (d) Standard deviation
-========================== -->
-<p class="h5">(d) Using a computer or calculator, calculate the standard deviation of the data set.</p>
-<input type="number" step="0.01" id="q2-sd" placeholder="Enter SD" style="width:200px;">
+<p><strong>(d)</strong> Calculate the standard deviation of the data set:</p>
+<input type="number" id="q4d" placeholder="Enter SD…">
 <div>
-  <button class="q2-btn" onclick="q2_hintD()">Hint</button>
-  <button class="q2-btn" onclick="q2_checkD()">Check</button>
-  <button class="q2-btn" onclick="q2_resetD()">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4d-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckNum('q4d',17.32,'q4d-fb')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4d','q4d-fb',['q4d-hint'])">Reset</button>
 </div>
-<p id="q2-fb-d" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4d-hint">Use the <strong>sample</strong> standard deviation (divide by n − 1 = 19). On most calculators this is the <em>s</em> or <em>s<sub>x</sub></em> button.</div>
+<p id="q4d-fb"></p>
 
 <hr>
 
-<!-- =========================
-Q2 (e) Median
-========================== -->
-<p class="h5">(e) Calculate the median of the data set (using both software and by hand).</p>
-<input type="number" step="0.01" id="q2-median" placeholder="Enter median" style="width:200px;">
+<p><strong>(e)</strong> Calculate the median of the data set by hand:</p>
+<input type="number" id="q4e" placeholder="Enter median…">
 <div>
-  <button class="q2-btn" onclick="q2_hintE()">Hint</button>
-  <button class="q2-btn" onclick="q2_checkE()">Check</button>
-  <button class="q2-btn" onclick="q2_resetE()">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4e-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckNum('q4e',85,'q4e-fb')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4e','q4e-fb',['q4e-hint'])">Reset</button>
 </div>
-<p id="q2-fb-e" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4e-hint">Sort all 20 values. With an even number, the median = average of the 10th and 11th values in the sorted list.<br>Sorted: 38 39 62 77 78 78 79 81 83 <strong>85 85</strong> 88 90 91 92 93 96 97 99 100</div>
+<p id="q4e-fb"></p>
 
 <hr>
 
-<!-- =========================
-Q2 (f) Explain mean vs median difference
-========================== -->
-<p class="h5">(f) Why are the mean and median different/similar?</p>
-<textarea id="q2-meanmedian" placeholder="Explain here" rows="3" style="width:100%;"></textarea>
+<p><strong>(f)</strong> Why are the mean and median different/similar?</p>
+<textarea id="q4f" rows="4" style="width:100%;" placeholder="Type your explanation here…"></textarea>
 <div>
-  <button class="q2-btn" onclick="q2_hintF()">Hint</button>
-  <button class="q2-btn" onclick="q2_checkF()">Check</button>
-  <button class="q2-btn" onclick="q2_resetF()">Reset</button>
+  <button class="tut-btn" onclick="tutToggle('q4f-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q4f-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q4f',['mean','median'],['outlier','skew','pull','different','lower'],'q4f-fb','Good explanation ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4f','q4f-fb',['q4f-hint','q4f-model'])">Reset</button>
 </div>
-<p id="q2-fb-f" class="q2-feedback" aria-live="polite"></p>
+<div class="tut-hint" id="q4f-hint">Which measure of centre is affected by extreme values (outliers)? Which is resistant to them?</div>
+<div class="tut-model" id="q4f-model">The mean (81.55) and median (85) are not very different, but the difference is due to the skewness and the two outliers (38 and 39) which <strong>pull the mean downward</strong>. The median is resistant to outliers so it remains higher. In a left-skewed distribution, the mean will always be smaller than the median.</div>
+<p id="q4f-fb"></p>
 
-<!-- =========================
-Styling for correct/incorrect
-========================== -->
-<style>
-.q2-correct { background-color:#c8f7c5 !important; }
-.q2-incorrect { background-color:#f7c5c5 !important; }
-.q2-feedback {
-  font-size: 0.9em;
-  font-weight: normal;
-  margin-top: 6px;
-  color: #333;
+<hr>
+
+<p><strong>(g)</strong> Reproduce these results (graph and descriptive statistics) using Excel.</p>
+<button class="tut-btn" onclick="tutToggle('q4g-hint')">Show hint</button>
+<div class="tut-hint" id="q4g-hint">
+  <strong>Excel:</strong> Enter data in a column. Use <em>Data → Data Analysis → Histogram</em> (bin width 10) and <em>Data → Data Analysis → Descriptive Statistics</em> (tick "Summary statistics").<br><br>
+
+</div>
+
+<hr>
+
+<p><strong>(h)</strong> What five numbers make up the five-number summary?</p>
+<input id="q4h" style="width:100%;" placeholder="Name the five numbers (e.g. minimum, Q1, …)">
+<div>
+  <button class="tut-btn" onclick="tutToggle('q4h-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckFiveNum()">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4h','q4h-fb',['q4h-hint'])">Reset</button>
+</div>
+<div class="tut-hint" id="q4h-hint">Think: one at each end, one in the middle, and one in each half.</div>
+<p id="q4h-fb"></p>
+
+<hr>
+
+<p><strong>(i)</strong> Calculate Q1 and Q3:</p>
+<p>Q1: <input type="number" id="q4i-q1" placeholder="Q1…" style="width:120px;"></p>
+<p>Q3: <input type="number" id="q4i-q3" placeholder="Q3…" style="width:120px;"></p>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q4i-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckI()">Check</button>
+  <button class="tut-btn" onclick="tutResetI()">Reset</button>
+</div>
+<div class="tut-hint" id="q4i-hint">
+  Split the sorted 20 values into lower half (positions 1–10) and upper half (positions 11–20).<br>
+  Q1 = average of 5th and 6th values = (78+78)/2 = 78<br>
+  Q3 = average of 15th and 16th values = (92+93)/2 = 92.5
+</div>
+<p id="q4i-fb"></p>
+
+<hr>
+
+<p><strong>(j)</strong> Calculate the IQR:</p>
+<input type="number" id="q4j" placeholder="IQR…">
+<div>
+  <button class="tut-btn" onclick="tutToggle('q4j-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckNum('q4j',14.5,'q4j-fb')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q4j','q4j-fb',['q4j-hint'])">Reset</button>
+</div>
+<div class="tut-hint" id="q4j-hint">IQR = Q3 − Q1. Use your answers from part (i).</div>
+<p id="q4j-fb"></p>
+
+</div>
+```
+
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{(a) Describe the distribution (shape, centre, spread and outliers).}
+\\begin{answerbox}\\vspace{4cm}\\end{answerbox}
+
+\\textbf{(b) What centre and spread would you use? Why?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(c) Calculate the mean.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(d) Calculate the standard deviation.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(e) Calculate the median.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(f) Why are the mean and median different/similar?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(g) Reproduce the histogram and descriptive statistics in software.}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(h) What are the five numbers in the five-number summary?}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(i) Calculate Q1 and Q3.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(j) Calculate the IQR.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+')
 }
-.q2-btn { margin-right:6px; margin-top:6px; }
-</style>
+```
 
-<!-- =========================
-Logic
-========================== -->
+## Question 5: Comparing Distributions
+
+```{r boxplot-housing, fig.cap="Side by side boxplots of housing price data (n = 545)", echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+set.seed(42)
+furnished   <- c(rlnorm(272, meanlog=13.7, sdlog=0.6),
+                 c(2400000, 2500000, 2600000))
+unfurnished <- c(rlnorm(270, meanlog=13.3, sdlog=0.5),
+                 c(1900000, 2000000, 2050000, 2100000, 2150000, 2200000))
+
+housing <- data.frame(
+  price  = c(furnished, unfurnished),
+  status = c(rep("furnished", length(furnished)),
+             rep("unfurnished", length(unfurnished)))
+)
+
+excel_blue_fill <- "#B4CFEF"
+excel_blue_line <- "#2F5DA8"
+
+bp <- ggplot(housing,
+             aes(x = status, y = price)) +
+
+ geom_boxplot(
+  width = 0.5,
+  fill = excel_blue_fill,
+  colour = excel_blue_line,
+  linewidth = 0.45,
+  staplewidth = 0.5,
+  outlier.shape = 21,
+  outlier.fill = "white",
+  outlier.colour = excel_blue_line
+) +
+
+  # Mean shown as X (Excel style)
+  stat_summary(
+  fun = mean,
+  geom = "point",
+  shape = 4,
+  size = 4,
+  stroke = 0.9,
+  colour = excel_blue_line
+)+
+
+  scale_y_continuous(labels = scales::comma) +
+
+
+  labs(
+    title = "Distribution of house price according to furnishing status (n = 545)",
+    x = "Furnishing status",
+    y = "House Price ($)"
+  ) +
+
+  theme_bw() +
+theme(
+  plot.title = element_text(size = 11, hjust = 0.5),
+  panel.grid.major.y = element_line(colour = "grey80"),
+  panel.grid.major.x = element_blank(),
+  legend.position = "none"
+)
+
+if (knitr::is_html_output()) {
+  library(plotly)
+  ggplotly(bp)
+} else {
+  print(bp)
+}
+```
+
+The figure above shows the distribution of house prices for 545 furnished and unfurnished properties in a large city. Compare the distributions of prices of furnished and unfurnished properties in fewer than 100 words. You should mention shape, centre, spread, and outliers in your discussion.
+
+<!-- HTML -->
+```{=html}
+<div class="tut-box">
+
+<textarea id="q5a" rows="6" style="width:100%;" placeholder="Compare the two distributions: mention shape, centre, spread and outliers."></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q5a-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q5a-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q5a',['shape','centre','spread','outlier'],['skew','higher','wider','both'],'q5a-fb','Good answer ✅ — make sure you cover all four aspects.')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q5a','q5a-fb',['q5a-hint','q5a-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q5a-hint">Work through shape, centre, spread and outliers systematically. Use the boxplot: the line inside the box is the median (centre); the box width is the IQR (spread); dots beyond the whiskers are outliers.</div>
+<div class="tut-model" id="q5a-model">
+  <strong>Shape:</strong> Both furnished and unfurnished house prices are right-skewed — there are some very high-priced properties pulling the distribution to the right.<br>
+  <strong>Centre:</strong> The median price for furnished houses is higher than for unfurnished houses.<br>
+  <strong>Spread:</strong> Furnished houses have a wider range of prices than unfurnished houses.<br>
+  <strong>Outliers:</strong> Both groups have high-priced outliers, though furnished properties have more extreme values than unfurnished.
+</div>
+<p id="q5a-fb"></p>
+
+</div>
+```
+
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{Compare the two distributions (shape, centre, spread, outliers) in fewer than 100 words.}
+\\begin{answerbox}\\vspace{5cm}\\end{answerbox}
+')
+}
+```
+
+## Question 6: Describing Distributions
+
+```{r timeseries-exports, fig.cap="Value of Australian exports ($ million)", echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(scales)
+
+# Example data
+set.seed(123)
+
+Year <- 1914:2014
+
+Value <- c(
+
+  # 1914-1958: essentially flat
+  seq(10000, 12000, length.out = 45),
+
+  # 1959-1997: strong exponential growth
+  12000 * exp(seq(0, 2.8, length.out = 39)),
+
+  # 1998-2002: plateau
+  rep(190000, 5),
+
+  # 2003-2014: growth resumes
+  seq(195000, 260000, length.out = 12)
+)
+
+Value <- Value + rnorm(length(Value), 0, 0.01 * Value)
+
+exports <- data.frame(
+  Year,
+  Value = round(Value)
+)
+
+ts_p <- ggplot(exports, aes(x = Year, y = Value)) +
+  
+  geom_line(
+    colour = "#4472C4",
+    linewidth = 1
+  ) +
+  
+  scale_x_continuous(
+    limits = c(1914, 2014),
+    breaks = seq(1914, 2014, by = 1),
+    labels = function(x)
+      ifelse((x - 1914) %% 4 == 0, x, ""),
+    expand = expansion(mult = c(0, 0))
+  ) +
+  
+  scale_y_continuous(
+    limits = c(0, 300000),
+    breaks = seq(0, 300000, by = 50000),
+    labels = scales::comma
+  ) +
+  
+  labs(
+    title = "Value of Australian exports ($million)",
+    x = "Year",
+    y = "Value of exports ($million)"
+  ) +
+  
+  theme_bw() +
+  
+  theme(
+    # Excel-like chart area
+    plot.background = element_rect(fill = "white", colour = NA),
+    panel.background = element_rect(fill = "white", colour = NA),
+    
+    # Gridlines
+    panel.grid.major.x = element_line(
+      colour = "#E0E0E0",
+      linewidth = 0.5
+    ),
+    panel.grid.major.y = element_line(
+      colour = "#E0E0E0",
+      linewidth = 0.5
+    ),
+    panel.grid.minor = element_blank(),
+    
+    # Axes
+    axis.text.x = element_text(
+      angle = 90,
+      vjust = 0.5,
+      hjust = 1
+    ),
+    
+    axis.title = element_text(size = 11),
+    axis.text = element_text(size = 10),
+    
+    # Title
+    plot.title = element_text(
+      size = 14,
+      hjust = 0.5
+    ),
+    
+    legend.position = "none"
+  )
+
+
+if (knitr::is_html_output()) {
+  library(plotly)
+  ggplotly(ts_p)
+} else {
+  print(ts_p)
+}
+```
+
+Figure \@ref(fig:timeseries-exports) shows the value of Australian exports (measured in $AUD million).
+
+<!-- HTML -->
+```{=html}
+<div class="tut-box">
+
+<p><strong>(a)</strong> What type of graph is this?</p>
+<select id="q6a">
+  <option value="">-- Select --</option>
+  <option>Histogram</option>
+  <option>Bar chart</option>
+  <option>Time series plot</option>
+  <option>Boxplot</option>
+  <option>Scatterplot</option>
+</select>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q6a-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutCheckSelect('q6a','Time series plot','q6a-fb')">Check</button>
+  <button class="tut-btn" onclick="tutResetSelect('q6a','q6a-fb',['q6a-hint'])">Reset</button>
+</div>
+<div class="tut-hint" id="q6a-hint">What type of graph is used when a quantitative variable is measured at regular intervals over time?</div>
+<p id="q6a-fb"></p>
+
+<p><strong>(b)</strong> In less than 100 words, interpret the information in this graph.</p>
+<textarea id="q6b" rows="5" style="width:100%;" placeholder="Interpret the trend in Australian exports over time…"></textarea>
+<div>
+  <button class="tut-btn" onclick="tutToggle('q6b-hint')">Show hint</button>
+  <button class="tut-btn" onclick="tutToggle('q6b-model')">Show model answer</button>
+  <button class="tut-btn" onclick="tutCheckKeywords('q6b',['increase','increas'],['stable','slow','rapid','exponential','time','trend'],'q6b-fb','Good answer ✅')">Check</button>
+  <button class="tut-btn" onclick="tutResetText('q6b','q6b-fb',['q6b-hint','q6b-model'])">Reset</button>
+</div>
+<div class="tut-hint" id="q6b-hint">Describe what happened to Australian export values over time. Were there periods of stability? When did the rate of change accelerate?</div>
+<div class="tut-model" id="q6b-model">The value of Australian exports was fairly stable between 1914 and approximately 1958, with only a slight rise during that period. After 1958, the rate of increase became exponential-growing faster and faster-with the exception of a short stable period around 1998–2002.</div>
+<p id="q6b-fb"></p>
+
+</div>
+
+<!-- ========================= SHARED JAVASCRIPT ========================= -->
 <script>
-/* --------- Config --------- */
-const q2cfg = {
-  correct: {
-    shape: "Skewed left",
-    centre: "80–89",
-    spread: "62–100",
-    outlier: "2 students",
-    mean: 81.55,
-    sd: 17.33,
-    median: 85
-  },
-  tol: 0.10 // numeric tolerance
-};
+(function(){
 
-/* --------- Helpers --------- */
-function q2_setState(el, ok) {
-  el.classList.remove('q2-correct','q2-incorrect');
-  if (ok === true) el.classList.add('q2-correct');
-  if (ok === false) el.classList.add('q2-incorrect');
-}
-function q2_clearState(el) {
-  el.classList.remove('q2-correct','q2-incorrect');
-}
-function q2_setText(id, html) {
-  document.getElementById(id).innerHTML = html || "";
-}
+  var TOL = 0.11;
 
-/* ===== (a) per-subcontrol: shape/centre/spread/outlier ===== */
-function q2_checkA(which) {
-  const id = "q2-" + which;
-  const el = document.getElementById(id);
-  const val = el.value;
-  const isCorrect = val === q2cfg.correct[which];
-  q2_setState(el, isCorrect);
-  const fb = isCorrect ? "✔ Correct." : "✘ Not quite. Try the hint.";
-  q2_setText("q2-fb-" + which, fb);
-}
+  /* ------ Toggle hint/model panels ------ */
+  window.tutToggle = function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+  };
 
-function q2_hintA(which) {
-  let msg = "";
-  if (which === "shape") {
-    msg = "Look at the tail: a few low marks (38 & 39) extend the left tail.";
-  } else if (which === "centre") {
-    msg = "Most observations lie in the 80s; the middle of the data is around there.";
-  } else if (which === "spread") {
-    msg = "Consider the range that captures the bulk of the data, not just the extreme values.";
-  } else if (which === "outlier") {
-    msg = "The two lowest scores (38 & 39) are likely outliers.";
-  }
-  q2_setText("q2-fb-" + which, msg);
-}
+  /* ------ Dropdown check ------ */
+  window.tutCheckSelect = function(selId, correct, fbId){
+    var el = document.getElementById(selId);
+    var fb = document.getElementById(fbId);
+    if(!el || !fb) return;
+    var ok = (el.value === correct);
+    el.className = ok ? "tut-correct" : "tut-incorrect";
+    fb.innerHTML = ok
+      ? "<span style='color:green;'>Correct \u2705</span>"
+      : "<span style='color:red;'>Not quite \u2014 use the hint if needed.</span>";
+    localStorage.setItem(selId, el.value);
+  };
 
-function q2_resetA(which) {
-  const id = "q2-" + which;
-  const el = document.getElementById(id);
-  el.value = "";
-  q2_clearState(el);
-  q2_setText("q2-fb-" + which, "");
-}
+  window.tutResetSelect = function(selId, fbId, hintIds){
+    var el = document.getElementById(selId);
+    if(el){ el.value = ""; el.className = ""; }
+    var fb = document.getElementById(fbId);
+    if(fb) fb.innerHTML = "";
+    if(hintIds) hintIds.forEach(function(id){
+      var h = document.getElementById(id);
+      if(h) h.style.display = "none";
+    });
+    localStorage.removeItem(selId);
+  };
 
-/* ===== (b) centre & spread free text ===== */
-function q2_checkB() {
-  const el = document.getElementById("q2-centrespread");
-  const txt = (el.value || "").toLowerCase();
-  const ok = txt.includes("median") && (txt.includes("iqr") || txt.includes("interquartile"));
-  q2_setState(el, ok);
-  q2_setText("q2-fb-b", ok ? "✔ Correct: use the median & IQR for skewed data." :
-                              "✘ Try again. For skewed data, use a robust centre and spread.");
-}
-function q2_hintB() {
-  q2_setText("q2-fb-b", "Skewed distributions are best summarised by the median (centre) and IQR (spread).");
-}
-function q2_resetB() {
-  const el = document.getElementById("q2-centrespread");
-  el.value = "";
-  q2_clearState(el);
-  q2_setText("q2-fb-b", "");
-}
+  /* ------ Numeric check ------ */
+  window.tutCheckNum = function(id, expected, fbId){
+    var el = document.getElementById(id);
+    var fb = fbId ? document.getElementById(fbId) : null;
+    var v  = parseFloat(el.value);
+    var ok = !isNaN(v) && Math.abs(v - expected) <= TOL;
+    el.className = ok ? "tut-correct" : "tut-incorrect";
+    if(fb) fb.innerHTML = ok
+      ? "<span style='color:green;'>Correct \u2705</span>"
+      : "<span style='color:red;'>Not quite \u2014 check your working and use the hint if needed.</span>";
+    localStorage.setItem(id, el.value);
+  };
 
-/* ===== (c) mean ===== */
-function q2_checkC() {
-  const el = document.getElementById("q2-mean");
-  const val = parseFloat(el.value);
-  const ok = isFinite(val) && Math.abs(val - q2cfg.correct.mean) <= q2cfg.tol;
-  q2_setState(el, ok);
-  q2_setText("q2-fb-c", ok ? "✔ Correct (≈ 81.55)." : "✘ Not quite. Check your sum and divide by n = 20.");
-}
-function q2_hintC() {
-  q2_setText("q2-fb-c", "Mean = (sum of all 20 scores) ÷ 20.");
-}
-function q2_resetC() {
-  const el = document.getElementById("q2-mean");
-  el.value = "";
-  q2_clearState(el);
-  q2_setText("q2-fb-c", "");
-}
+  /* ------ Keyword check ------ */
+  window.tutCheckKeywords = function(id, required, any, fbId, successMsg){
+    var el = document.getElementById(id);
+    var fb = document.getElementById(fbId);
+    if(!el || !fb) return;
+    var t = el.value.toLowerCase();
+    var hasRequired = required.every(function(w){ return t.includes(w); });
+    var hasAny      = any.length === 0 || any.some(function(w){ return t.includes(w); });
+    var ok = hasRequired && hasAny;
+    el.className = ok ? "tut-correct" : "tut-incorrect";
+    fb.innerHTML = ok
+      ? "<span style='color:green;'>" + successMsg + "</span>"
+      : "<span style='color:red;'>Make sure your answer addresses the key points \u2014 try the hint or model answer.</span>";
+    localStorage.setItem(id, el.value);
+  };
 
-/* ===== (d) standard deviation ===== */
-function q2_checkD() {
-  const el = document.getElementById("q2-sd");
-  const val = parseFloat(el.value);
-  const ok = isFinite(val) && Math.abs(val - q2cfg.correct.sd) <= q2cfg.tol;
-  q2_setState(el, ok);
-  q2_setText("q2-fb-d", ok ? "✔ Correct (≈ 17.33)." :
-                              "✘ Not quite. Use the sample SD and mind rounding.");
-}
-function q2_hintD() {
-  q2_setText("q2-fb-d", "Use a calculator or statistical software and make sure you are calculating the sample standard deviation.");
-}
-function q2_resetD() {
-  const el = document.getElementById("q2-sd");
-  el.value = "";
-  q2_clearState(el);
-  q2_setText("q2-fb-d", "");
-}
+  /* ------ Text/number reset ------ */
+  window.tutResetText = function(id, fbId, hintIds){
+    var el = document.getElementById(id);
+    if(el){ el.value = ""; el.className = ""; }
+    if(fbId){ var fb = document.getElementById(fbId); if(fb) fb.innerHTML = ""; }
+    if(hintIds) hintIds.forEach(function(id){
+      var h = document.getElementById(id);
+      if(h) h.style.display = "none";
+    });
+    localStorage.removeItem(id);
+  };
 
-/* ===== (e) median ===== */
-function q2_checkE() {
-  const el = document.getElementById("q2-median");
-  const val = parseFloat(el.value);
-  const ok = isFinite(val) && Math.abs(val - q2cfg.correct.median) <= q2cfg.tol;
-  q2_setState(el, ok);
-  q2_setText("q2-fb-e", ok ? "✔ Correct (85)." : "✘ Not quite. Sort the 20 values and average the 10th & 11th.");
-}
-function q2_hintE() {
-  q2_setText("q2-fb-e", "There are 20 observations, so the median is the average of the 10th and 11th values after ordering the data");
-}
-function q2_resetE() {
-  const el = document.getElementById("q2-median");
-  el.value = "";
-  q2_clearState(el);
-  q2_setText("q2-fb-e", "");
-}
+  /* ------ Q4(h) Five-number summary ------ */
+  window.tutCheckFiveNum = function(){
+    var el = document.getElementById("q4h");
+    var fb = document.getElementById("q4h-fb");
+    var t  = el.value.toLowerCase();
+    var ok = t.includes("min") && t.includes("q1") && t.includes("median") &&
+             t.includes("q3") && t.includes("max");
+    el.className = ok ? "tut-correct" : "tut-incorrect";
+    fb.innerHTML = ok
+      ? "<span style='color:green;'>Correct \u2705</span>"
+      : "<span style='color:red;'>Make sure you name all five: minimum, Q1, median, Q3, maximum.</span>";
+    localStorage.setItem("q4h", el.value);
+  };
 
-/* ===== (f) explanation ===== */
-function q2_checkF() {
-  const el = document.getElementById("q2-meanmedian");
-  const txt = (el.value || "").toLowerCase();
+  /* ------ Q4(i) Q1 and Q3 ------ */
+  window.tutCheckI = function(){
+    var elQ1 = document.getElementById("q4i-q1");
+    var elQ3 = document.getElementById("q4i-q3");
+    var fb   = document.getElementById("q4i-fb");
+    var okQ1 = !isNaN(parseFloat(elQ1.value)) && Math.abs(parseFloat(elQ1.value) - 78)   <= TOL;
+    var okQ3 = !isNaN(parseFloat(elQ3.value)) && Math.abs(parseFloat(elQ3.value) - 92.5) <= TOL;
+    elQ1.className = okQ1 ? "tut-correct" : "tut-incorrect";
+    elQ3.className = okQ3 ? "tut-correct" : "tut-incorrect";
+    fb.innerHTML = (okQ1 && okQ3)
+      ? "<span style='color:green;'>Both correct \u2705 (Q1 = 78, Q3 = 92.5)</span>"
+      : "<span style='color:red;'>Check: Q1 = 78 and Q3 = 92.5. Use the hint for the method.</span>";
+    localStorage.setItem("q4i-q1", elQ1.value);
+    localStorage.setItem("q4i-q3", elQ3.value);
+  };
 
-  // Require key ideas: skew/outliers + effect on mean vs median robustness
-  const hasSkew = txt.includes("skew");
-  const hasOut = txt.includes("outlier") || txt.includes("38") || txt.includes("39");
-  const talksMean = txt.includes("mean");
-  const talksMedian = txt.includes("median");
-  const pulls = txt.includes("pull") || txt.includes("drag") || txt.includes("lower") || txt.includes("influenc");
-  const robust = txt.includes("robust") || txt.includes("resistant");
+  window.tutResetI = function(){
+    ["q4i-q1","q4i-q3"].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el){ el.value = ""; el.className = ""; }
+      localStorage.removeItem(id);
+    });
+    var fb = document.getElementById("q4i-fb");
+    if(fb) fb.innerHTML = "";
+    var h = document.getElementById("q4i-hint");
+    if(h) h.style.display = "none";
+  };
 
-  const ok = (hasSkew || hasOut) && talksMean && talksMedian && (pulls || robust);
-
-  q2_setState(el, ok);
-  q2_setText("q2-fb-f",
-    ok ? "✔ Good explanation." :
-         "✘ Try to mention skew/outliers pull the mean, while the median is more robust."
-  );
-}
-function q2_hintF() {
-  q2_setText("q2-fb-f",
-    "The two low outliers (38, 39) create left skew which pulls the mean down. " +
-    "The median** is more robust to outliers."
-  );
-}
-function q2_resetF() {
-  const el = document.getElementById("q2-meanmedian");
-  el.value = "";
-  q2_clearState(el);
-  q2_setText("q2-fb-f", "");
-}
-</script>
-
-<!--
-Q2(g)
--->
-(g) Reproduce these results (graph and descriptive statistics) using a statistical software package. Tick each item below that you sucessfully reproduced.
-
-<form id="qg-check">
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    I produced a histogram that matches the overall shape of the distribution
-  </label><br>
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    My histogram shows a longer tail on the lower values (left skew)
-  </label><br>
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    I calculated the mean using software
-  </label><br>
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    I calculated the median using software
-  </label><br>
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    I calculated the sample standard deviation using software
-  </label><br>
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    I identified the same minimum and maximum values as shown above
-  </label><br>
-
-  <label>
-    <input type="checkbox" data-correct="true">
-    I can see two low values that may be considered potential outliers
-  </label>
-
-</form>
-
-<div style="margin-top:12px;">
-  <button onclick="qg_showHint()">Hint (Excel / JASP)</button>
-  <button onclick="qg_check()">Check</button>
-  <button onclick="qg_reset()">Reset</button>
-</div>
-
-<p id="qg-hint" class="qg-hint" style="display:none;"></p>
-<p id="qg-feedback" class="qg-feedback"></p>
-
-<style>
-.qg-feedback {
-  margin-top: 8px;
-  font-size: 0.95em;
-}
-
-.qg-hint {
-  margin-top: 8px;
-  font-size: 0.9em;
-  color: #333;
-}
-
-.qg-correct {
-  outline: 3px solid #7bc67b;
-}
-
-.qg-incorrect {
-  outline: 3px solid #e07b7b;
-}
-</style>
-
-<script>
-function qg_showHint(){
-  document.getElementById("qg-hint").innerHTML =
-    "Excel: Enter the data in a column. Use Insert → Charts → Histogram. " +
-    "To obtain statistics, use Data → Data Analysis → Descriptive Statistics (or formulas such as AVERAGE, MEDIAN, STDEV.S). " +
-    "JASP: Go to Descriptives, move the variable into the analysis box, and tick Histogram and Descriptive Statistics.";
-  document.getElementById("qg-hint").style.display = "block";
-}
-
-function qg_check(){
-  let allChecked = true;
-
-  document.querySelectorAll("#qg-check input[type='checkbox']").forEach(box => {
-    box.classList.remove("qg-correct","qg-incorrect");
-
-    if(box.checked){
-      box.classList.add("qg-correct");
-    } else {
-      box.classList.add("qg-incorrect");
-      allChecked = false;
+  /* ------ Restore saved answers on page load ------ */
+  var allIds = [
+    "q1a-type","q1b","q1c","q1d",
+    "q2a","q2b","q2c",
+    "q3a","q3b",
+    "q4-shape","q4-centre","q4-spread","q4-outlier",
+    "q4b","q4c","q4d","q4e","q4f","q4g","q4h","q4i-q1","q4i-q3","q4j",
+    "q5a",
+    "q6a","q6b"
+  ];
+  allIds.forEach(function(id){
+    var saved = localStorage.getItem(id);
+    if(saved){
+      var el = document.getElementById(id);
+      if(el) el.value = saved;
     }
   });
 
-  document.getElementById("qg-feedback").innerHTML =
-    allChecked
-      ? "✔ Good — you have successfully reproduced the graph and descriptive statistics."
-      : "⚠ Some items are not yet ticked. Review your output and check again.";
-}
-
-function qg_reset(){
-  document.querySelectorAll("#qg-check input[type='checkbox']").forEach(box => {
-    box.checked = false;
-    box.classList.remove("qg-correct","qg-incorrect");
-  });
-  document.getElementById("qg-feedback").innerHTML = "";
-  document.getElementById("qg-hint").style.display = "none";
-}
+})();
 </script>
+```
 
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{(a) What type of graph is this?}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
 
-(h) What 5 numbers make up the five-number summary?
-(i) *Calculate Q1 and Q3 of the data set by hand and then fill in the numbers of
-the five-number summary.
-(j) *Calculate the IQR of the data set by hand.
-
-
+\\textbf{(b) In less than 100 words, interpret the information in this graph.}
+\\begin{answerbox}\\vspace{4cm}\\end{answerbox}
+')
+}
+```
 
 ## Further Practice from the Textbook
 
-Answers to these questions are located in the back of the textbook. If you require further explanation, please ask in the Module Content Discussion Forum on the Study-
-Desk.
+Answers to these questions are located in the back of the textbook. If you require further explanation, please ask in the Module Content Discussion Forum on the StudyDesk.
 
-• Questions 3.25, 4.31, 4.33  (De Veaux, Velleman & Bock, (4th edition))
+- Questions 9.13(a,b\*,c), 9.19(a,b,c\*), 3.21, 3.23, 3.43, 3.75
 
-• Questions 2.53, 4.31, 4.33  (De Veaux, Velleman & Bock, (5th edition))
+## Textbook Readings
 
-## Textbook Readings 
-For extra clarification on materials in this module, see: De Veaux, Velleman
-& Bock, (4th edition), Chapters 3, 4, and 12 (De Veaux, Velleman
-& Bock, (5th edition), Chapters 2.2-2.5, 4, and 11).
+For extra clarification on materials in this module, see: Sharpe, De Veaux & Velleman (4th Edition).
+
+- Chapter 9 (only Sections 9.1-9.4)
+- Chapter 3 (excluding Section 3.11)
 
 
 # Module 2 Checklist {-}
 
 ```{=html}
 <style>
-  .cl-wrap{max-width:900px;margin:0 auto}
-  .cl-card{border:1px solid #e5e5e5;border-radius:6px;padding:14px;background:#fff;margin:12px 0}
-  .cl-card h4{margin:.2rem 0 .6rem;font-size:1.05rem}
-  .cl-note{font-size:.9rem;color:#666}
-  .cl-group-title{font-weight:700;margin:.4rem 0}
-  .cl-item{display:flex;align-items:flex-start;gap:8px;margin:.35rem 0}
-  .cl-item input[type=checkbox]{transform:scale(1.2);margin-top:2px}
-  .cl-adv{font-style:italic;color:#333}
-  .cl-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:.6rem}
-  .btn{padding:6px 10px;border:1px solid #ccc;border-radius:4px;background:#f7f7f7;cursor:pointer}
-  .cl-prog{height:10px;background:#f1f1f1;border-radius:6px;overflow:hidden;margin:.4rem 0 .8rem}
-  .cl-bar{height:100%;width:0%;background:#2b8cbe;transition:width .25s ease}
-  .cl-stats{font-size:.9rem;color:#555}
+  .cl-wrap { max-width: 900px; margin: 0 auto; }
+  .cl-card { border: 1px solid #e5e5e5; border-radius: 6px; padding: 14px; background: #fff; margin: 12px 0; }
+  .cl-card h4 { margin: .2rem 0 .6rem; font-size: 1.05rem; }
+  .cl-note { font-size: .9rem; color: #666; }
+  .cl-group-title { font-weight: 700; margin: .4rem 0; }
+  .cl-item { display: flex; align-items: flex-start; gap: 8px; margin: .35rem 0; }
+  .cl-item input[type=checkbox] { transform: scale(1.2); margin-top: 2px; }
+  .cl-adv { font-style: italic; color: #333; }
+  .cl-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-top: .6rem; }
+  .btn { padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background: #f7f7f7; cursor: pointer; }
+  .cl-prog { height: 10px; background: #f1f1f1; border-radius: 6px; overflow: hidden; margin: .4rem 0 .8rem; }
+  .cl-bar { height: 100%; width: 0%; background: #2b8cbe; transition: width .25s ease; }
+  .cl-stats { font-size: .9rem; color: #555; }
 </style>
 
 <div class="cl-wrap" id="m2-checklist">
@@ -869,10 +933,8 @@ For extra clarification on materials in this module, see: De Veaux, Velleman
       and textbook problems, tick the outcomes you have achieved.
       Your selections are saved in your browser on this device.
     </div>
-
     <div class="cl-prog"><div class="cl-bar"></div></div>
     <div class="cl-stats"></div>
-
     <div class="cl-controls">
       <button class="btn" data-action="all">Mark all done</button>
       <button class="btn" data-action="clear">Clear all</button>
@@ -881,110 +943,136 @@ For extra clarification on materials in this module, see: De Veaux, Velleman
   </div>
 
   <div class="cl-card">
-    <div class="cl-group-title">Describing Distributions</div>
+  <div class="cl-group-title">Experimental Design</div>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d1">
-      <span>Visually describe the distribution of a quantitative variable in terms of shape, centre, and spread from a histogram.</span>
-    </label>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g1">
+    <span>Recognise whether a study is observational or experimental.</span>
+  </label>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d2">
-      <span>Calculate by hand and interpret the median.</span>
-    </label>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g2">
+    <span>Identify the response variable(s) and individuals (or subjects, or cases) in an experiment.</span>
+  </label>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d3">
-      <span>Know the numbers that make up the five-number summary.</span>
-    </label>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g3">
+    <span class="cl-adv">* Identify the factors (explanatory variables) and treatments in an experiment.</span>
+  </label>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d4">
-      <span>Use technology to find the mean and standard deviation of a data set.</span>
-    </label>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g4">
+    <span class="cl-adv">* Explain why a randomised comparative experiment can give good evidence of causation.</span>
+  </label>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d5">
-      <span>Compare groups using boxplots.</span>
-    </label>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g5">
+    <span class="cl-adv">* Recognise the importance of a control group, placebos, the double-blind technique and of replication.</span>
+  </label>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d6">
-      <span class="cl-adv">* Calculate by hand the interquartile range (IQR) and five-number summary.</span>
-    </label>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g6">
+    <span class="cl-adv">* Identify blocks and understand why blocking can improve an experiment.</span>
+  </label>
 
-    <label class="cl-item">
-      <input type="checkbox" data-id="d7">
-      <span class="cl-adv">* Recognise the impact of outliers and skewness on measures of centre and spread.</span>
-    </label>
-  </div>
+  <label class="cl-item">
+    <input type="checkbox" data-id="g7">
+    <span class="cl-adv">* Recognise the existence and potential effect of lurking variables on both observational and experimental studies.</span>
+  </label>
+</div>
+
+  <div class="cl-card">
+  <div class="cl-group-title">Describing Distributions</div>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d1">
+    <span>Summarize and describe the distribution of a categorical variable using a frequency table.</span>
+  </label>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d2">
+    <span>Visually describe the distribution of a quantitative variable in terms of shape, centre and spread from a histogram.</span>
+  </label>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d3">
+    <span>Calculate by hand and interpret the median.</span>
+  </label>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d4">
+    <span>Use technology to find the mean and standard deviation of a data set.</span>
+  </label>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d5">
+    <span class="cl-adv">* Calculate by hand and using technology the interquartile range (IQR) and five-number summary.</span>
+  </label>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d6">
+    <span class="cl-adv">* Recognize the impact of outliers and skewness on measures of centre and spread.</span>
+  </label>
+
+  <label class="cl-item">
+    <input type="checkbox" data-id="d7">
+    <span>Compare groups using boxplots.</span>
+  </label>
 </div>
 
 <script>
 (function(){
-  const ROOT = document.getElementById("m2-checklist");
-  const KEY  = "m2-checklist-v1";
-
-  const boxes = Array.from(ROOT.querySelectorAll("input[type=checkbox][data-id]"));
-  const bar   = ROOT.querySelector(".cl-bar");
-  const stats = ROOT.querySelector(".cl-stats");
-  const btnAll   = ROOT.querySelector('[data-action="all"]');
-  const btnClear = ROOT.querySelector('[data-action="clear"]');
+  var ROOT = document.getElementById("m2-checklist");
+  var KEY  = "m2-checklist-v1";
+  var boxes = Array.from(ROOT.querySelectorAll("input[type=checkbox][data-id]"));
+  var bar   = ROOT.querySelector(".cl-bar");
+  var stats = ROOT.querySelector(".cl-stats");
+  var btnAll   = ROOT.querySelector('[data-action="all"]');
+  var btnClear = ROOT.querySelector('[data-action="clear"]');
 
   function update(){
-    const total = boxes.length;
-    const done  = boxes.filter(b => b.checked).length;
-    const pct   = total ? Math.round(100 * done / total) : 0;
+    var total = boxes.length;
+    var done  = boxes.filter(function(b){ return b.checked; }).length;
+    var pct   = total ? Math.round(100 * done / total) : 0;
     bar.style.width = pct + "%";
-    stats.textContent = `${done} of ${total} completed (${pct}%)`;
+    stats.textContent = done + " of " + total + " completed (" + pct + "%)";
   }
-
   function save(){
-    const state = {};
-    boxes.forEach(b => state[b.dataset.id] = b.checked);
+    var state = {};
+    boxes.forEach(function(b){ state[b.dataset.id] = b.checked; });
     localStorage.setItem(KEY, JSON.stringify(state));
     update();
   }
-
   function load(){
-    const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
-    boxes.forEach(b => b.checked = !!saved[b.dataset.id]);
+    var saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+    boxes.forEach(function(b){ b.checked = !!saved[b.dataset.id]; });
     update();
   }
-
-  boxes.forEach(b => b.addEventListener("change", save));
-
-  btnAll.addEventListener("click", () => {
-    boxes.forEach(b => b.checked = true);
-    save();
-  });
-
-  btnClear.addEventListener("click", () => {
-    if (!confirm("Clear all ticks for this checklist on this device?")) return;
+  boxes.forEach(function(b){ b.addEventListener("change", save); });
+  btnAll.addEventListener("click", function(){ boxes.forEach(function(b){ b.checked = true; }); save(); });
+  btnClear.addEventListener("click", function(){
+    if(!confirm("Clear all ticks for this checklist on this device?")) return;
     localStorage.removeItem(KEY);
-    boxes.forEach(b => b.checked = false);
+    boxes.forEach(function(b){ b.checked = false; });
     update();
   });
-
   load();
 })();
 </script>
 ```
 
-## Using Statistical Software Checklist {-}
+## Using Excel Checklist {-}
 
 ```{=html}
 <div class="cl-wrap" id="m2-software-checklist">
   <div class="cl-card">
-    <h4>Module 2 — Using Statistical Software Checklist</h4>
+    <h4>Module 2 — Using Excel Checklist</h4>
     <div class="cl-note">
-      On successful completion of this module, students should be able to use SPSS or Excel
+      On successful completion of this module, students should be able to use Excel
       to complete the following tasks.
     </div>
-
     <div class="cl-prog"><div class="cl-bar"></div></div>
     <div class="cl-stats"></div>
-
     <div class="cl-controls">
       <button class="btn" data-action="all">Mark all done</button>
       <button class="btn" data-action="clear">Clear all</button>
@@ -992,72 +1080,92 @@ For extra clarification on materials in this module, see: De Veaux, Velleman
   </div>
 
   <div class="cl-card">
-    <div class="cl-group-title">Using Statistical Software</div>
-
+    <div class="cl-group-title">Using Excel</div>
     <label class="cl-item">
       <input type="checkbox" data-id="ss1">
-      <span>Construct a histogram, a boxplot, and multiple boxplots.</span>
+      <span>Construct a histogram.</span>
     </label>
-
     <label class="cl-item">
       <input type="checkbox" data-id="ss2">
-      <span>Produce summary statistics of quantitative data.</span>
+      <span>Construct boxplots.</span>
     </label>
-
     <label class="cl-item">
       <input type="checkbox" data-id="ss3">
-      <span>Select subsets of data using Select Cases.</span>
+      <span>Produce summary statistics of quantitative data.</span>
     </label>
   </div>
 </div>
 
 <script>
 (function(){
-  const ROOT = document.getElementById("m2-software-checklist");
-  const KEY  = "m2-software-checklist-v1";
-
-  const boxes = Array.from(ROOT.querySelectorAll("input[type=checkbox][data-id]"));
-  const bar   = ROOT.querySelector(".cl-bar");
-  const stats = ROOT.querySelector(".cl-stats");
-  const btnAll   = ROOT.querySelector('[data-action="all"]');
-  const btnClear = ROOT.querySelector('[data-action="clear"]');
+  var ROOT = document.getElementById("m2-software-checklist");
+  var KEY  = "m2-software-checklist-v1";
+  var boxes = Array.from(ROOT.querySelectorAll("input[type=checkbox][data-id]"));
+  var bar   = ROOT.querySelector(".cl-bar");
+  var stats = ROOT.querySelector(".cl-stats");
+  var btnAll   = ROOT.querySelector('[data-action="all"]');
+  var btnClear = ROOT.querySelector('[data-action="clear"]');
 
   function update(){
-    const total = boxes.length;
-    const done  = boxes.filter(b => b.checked).length;
-    const pct   = total ? Math.round(100 * done / total) : 0;
+    var total = boxes.length;
+    var done  = boxes.filter(function(b){ return b.checked; }).length;
+    var pct   = total ? Math.round(100 * done / total) : 0;
     bar.style.width = pct + "%";
-    stats.textContent = `${done} of ${total} completed (${pct}%)`;
+    stats.textContent = done + " of " + total + " completed (" + pct + "%)";
   }
-
   function save(){
-    const state = {};
-    boxes.forEach(b => state[b.dataset.id] = b.checked);
+    var state = {};
+    boxes.forEach(function(b){ state[b.dataset.id] = b.checked; });
     localStorage.setItem(KEY, JSON.stringify(state));
     update();
   }
-
   function load(){
-    const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
-    boxes.forEach(b => b.checked = !!saved[b.dataset.id]);
+    var saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+    boxes.forEach(function(b){ b.checked = !!saved[b.dataset.id]; });
     update();
   }
-
-  boxes.forEach(b => b.addEventListener("change", save));
-
-  btnAll.addEventListener("click", () => {
-    boxes.forEach(b => b.checked = true);
-    save();
-  });
-
-  btnClear.addEventListener("click", () => {
-    if (!confirm("Clear all ticks for this checklist on this device?")) return;
+  boxes.forEach(function(b){ b.addEventListener("change", save); });
+  btnAll.addEventListener("click", function(){ boxes.forEach(function(b){ b.checked = true; }); save(); });
+  btnClear.addEventListener("click", function(){
+    if(!confirm("Clear all ticks for this checklist on this device?")) return;
     localStorage.removeItem(KEY);
-    boxes.forEach(b => b.checked = false);
+    boxes.forEach(function(b){ b.checked = false; });
     update();
   });
-
   load();
 })();
 </script>
+```
+
+<!-- PDF checklist -->
+```{r, echo=FALSE, results='asis'}
+if (knitr::is_latex_output()) {
+cat("
+\\section*{Experimental Design}
+
+- \\(\\square\\) Recognise whether a study is observational or experimental
+- \\(\\square\\) Identify the response variable(s) and individuals (or subjects, or cases) in an experiment
+- \\(\\square\\) \\emph{*Identify the factors (explanatory variables) and treatments in an experiment}
+- \\(\\square\\) \\emph{*Explain why a randomised comparative experiment can give good evidence of causation}
+- \\(\\square\\) \\emph{*Recognise the importance of a control group, placebos, the double-blind technique and of replication}
+- \\(\\square\\) \\emph{*Identify blocks and understand why blocking can improve an experiment}
+- \\(\\square\\) \\emph{*Recognise the existence and potential effect of lurking variables on both observational and experimental studies}
+
+\\section*{Describing Distributions}
+
+- \\(\\square\\) Summarize and describe the distribution of a categorical variable using a frequency table
+- \\(\\square\\) Visually describe the distribution of a quantitative variable in terms of shape, centre and spread from a histogram
+- \\(\\square\\) Calculate by hand and interpret the median
+- \\(\\square\\) Use technology to find the mean and standard deviation of a data set
+- \\(\\square\\) \\emph{*Calculate by hand and using technology the interquartile range (IQR) and five-number summary}
+- \\(\\square\\) \\emph{*Recognize the impact of outliers and skewness on measures of centre and spread}
+- \\(\\square\\) Compare groups using boxplots
+
+\\section*{Using Excel Checklist}
+
+- \\(\\square\\) Construct a histogram
+- \\(\\square\\) Construct a boxplot
+- \\(\\square\\) Produce summary statistics of quantitative data
+")
+}
 ```

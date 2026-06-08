@@ -2,8 +2,309 @@
 
 Note: * Indicates **Expanded** Competencies
 
-## Question 1: Classifying Data
+## Question 1: Experiments Verse Observational
 
+An excerpt from a data set containing information about Australian Charities is shown below:
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("Q1_Excel.jpg")
+```
+
+**Q1(a)**
+
+For each of the variables listed in the spreadsheet:
+
+- Identify the **type of variable**  
+- State the **units**, if appropriate  
+
+<!-- HTML version -->
+```{=html}
+<div class="q1-box">
+
+<table>
+<tr>
+<th>Variable</th><th>Type</th><th>Units</th>
+</tr>
+
+<tr>
+<td>ABN</td>
+<td>
+<select class="q1-type" data-answer="Identifier">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="none"></td>
+</tr>
+
+<tr>
+<td>Charity name</td>
+<td>
+<select class="q1-type" data-answer="Identifier">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="none"></td>
+</tr>
+
+<tr>
+<td>Postcode</td>
+<td>
+<select class="q1-type" data-answer="Categorical">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="none"></td>
+</tr>
+
+<tr>
+<td>Aged Care</td>
+<td>
+<select class="q1-type" data-answer="Categorical">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="none"></td>
+</tr>
+
+<tr>
+<td>Total full time equivalent staff</td>
+<td>
+<select class="q1-type" data-answer="Quantitative">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="people"></td>
+</tr>
+
+<tr>
+<td>Total gross income</td>
+<td>
+<select class="q1-type" data-answer="Quantitative">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="$"></td>
+</tr>
+
+<tr>
+<td>Net assets / liabilities</td>
+<td>
+<select class="q1-type" data-answer="Quantitative">
+<option value="">--Select--</option>
+<option>Identifier</option>
+<option>Categorical</option>
+<option>Quantitative</option>
+<option>Ordinal</option>
+</select>
+</td>
+<td><input class="q1-unit" data-answer="$"></td>
+</tr>
+
+</table>
+
+<button id="q1-check">Check answers</button>
+<button id="q1-show">Show answers</button>
+<button id="q1-reset">Reset</button>
+
+<div id="q1-result"></div>
+
+</div>
+
+<script>
+(function(){
+
+  function normalise(x){
+    return x.trim().toLowerCase();
+  }
+
+  function correctUnit(user, key){
+    if(key === "none"){
+      return user === "" || user === "none" || user === "-";
+    }
+
+    if(key === "$"){
+      return user.includes("$") || user.includes("dollar");
+    }
+
+    if(key === "people"){
+      return user.includes("people") || user.includes("persons") || user.includes("count");
+    }
+
+    return normalise(user) === normalise(key);
+  }
+
+  function check(){
+    let correct = 0, total = 0;
+
+    // TYPE
+    document.querySelectorAll(".q1-type").forEach(el => {
+      total++;
+      if(el.value === el.dataset.answer){
+        el.style.border = "3px solid green";
+        correct++;
+      } else {
+        el.style.border = "3px solid red";
+      }
+    });
+
+    // UNITS
+    document.querySelectorAll(".q1-unit").forEach(el => {
+      total++;
+      let user = normalise(el.value);
+      let key  = el.dataset.answer;
+
+      if(correctUnit(user, key)){
+        el.style.border = "3px solid green";
+        correct++;
+      } else {
+        el.style.border = "3px solid red";
+      }
+    });
+
+    document.getElementById("q1-result").innerHTML =
+      `Score: ${correct} of ${total}`;
+  }
+
+  function show(){
+    document.querySelectorAll(".q1-type").forEach(el => {
+      el.value = el.dataset.answer;
+      el.style.border = "none";
+    });
+
+    document.querySelectorAll(".q1-unit").forEach(el => {
+      el.value = el.dataset.answer;
+      el.style.border = "none";
+    });
+
+    document.getElementById("q1-result").innerText = "Answers shown.";
+  }
+
+  function reset(){
+    document.querySelectorAll(".q1-type").forEach(el => {
+      el.value = "";
+      el.style.border = "none";
+    });
+
+    document.querySelectorAll(".q1-unit").forEach(el => {
+      el.value = "";
+      el.style.border = "none";
+    });
+
+    document.getElementById("q1-result").innerText = "";
+  }
+
+  document.getElementById("q1-check").onclick = check;
+  document.getElementById("q1-show").onclick  = show;
+  document.getElementById("q1-reset").onclick = reset;
+
+})();
+</script>
+```
+
+
+<!-- PDF version -->
+::: {=latex}
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\begin{longtable}{|l|l|l|}
+\\hline
+Variable & Type & Units \\\\
+\\hline
+ABN & & \\\\ \\hline
+Charity name & & \\\\ \\hline
+Postcode & & \\\\ \\hline
+Aged Care & & \\\\ \\hline
+Total full time equivalent staff & & \\\\ \\hline
+Total gross income & & \\\\ \\hline
+Net assets / liabilities & & \\\\ \\hline
+\\end{longtable}
+')
+}
+```
+
+
+**Q1(b)**
+
+Is this **cross-sectional** or **time series** data?
+<!-- HTML version -->
+```{=html}
+<select id="q1b">
+<option value="">--Select--</option>
+<option>Cross-sectional</option>
+<option>Time series</option>
+</select>
+
+<button id="q1b-check">Check</button>
+<button id="q1b-hint">Show hint</button>
+
+<div id="q1b-result" style="margin-top:10px;"></div>
+
+<script>
+
+function normalise(x){
+  return x.trim().toLowerCase();
+}
+
+document.getElementById("q1b-check").onclick = function(){
+
+  let ans = normalise(document.getElementById("q1b").value);
+
+  if(ans === "cross-sectional" || ans === "cross sectional"){
+    document.getElementById("q1b-result").innerHTML =
+      "<span style='color:green;'>Correct ✅</span>";
+  } else if(ans === ""){
+    document.getElementById("q1b-result").innerHTML =
+      "<span style='color:red;'>Please select an answer.</span>";
+  } else {
+    document.getElementById("q1b-result").innerHTML =
+      "<span style='color:red;'>Not quite — think about when the data was collected.</span>";
+  }
+};
+
+document.getElementById("q1b-hint").onclick = function(){
+  document.getElementById("q1b-result").innerHTML =
+    "<strong>Hint:</strong> Multiple variables for each charity have been measured/recorded at a single point in time, so this is cross-sectional data.";
+};
+
+</script>
+```
+
+<!-- PDF version -->
+::: {=latex}
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{Is this cross-sectional or time series data?}
+
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+')
+}
+```
 
 ## Question 2: Generating an appropriate sample 
 **Sampling**
@@ -109,7 +410,7 @@ This question can be done manually, or visually (see below if using the interact
 
 Suppose a random sample of **eight** people is required.
 
-**(a)** Using a random number generator (or interactive visual below), select a simple random sample (SRS) from the sampling frame defined above.
+(a) Using a random number generator (or interactive visual below), select a simple random sample (SRS) from the sampling frame defined above.
 
 (b) How many males and females are there in your sample?
 
@@ -623,6 +924,7 @@ if (knitr::is_latex_output()) {
 ')
 }
 ```
+
 
 ### Q3(b){-}
 From the data in the study (for each state if it is a joint, marginal or conditional
@@ -1225,17 +1527,17 @@ ii. Marginal Distribution of Satisfaction Level
 
     <div style="margin-top:.5rem;">
       <em>(i) Marginal Distribution of Type of Client</em>
-      <label for="sleep-leq7">7 or less hours</label>
+      <label for="sleep-leq7">New</label>
       <input id="sleep-leq7" class="ftt-in" data-answer="61.59" placeholder="%">
-      <label for="sleep-gt7">More than 7 hours</label>
+      <label for="sleep-gt7">Old</label>
       <input id="sleep-gt7" class="ftt-in" data-answer="38.41" placeholder="%">
     </div>
 
     <div style="margin-top:.5rem;">
       <em>(ii) Marginal Distribution of Level of Satisfcation</em>
-      <label for="coffee-light">Light</label>
+      <label for="coffee-light">Satisified</label>
       <input id="coffee-light" class="ftt-in" data-answer="50.33" placeholder="%">
-      <label for="coffee-heavy">Heavy</label>
+      <label for="coffee-heavy">Dissatified</label>
       <input id="coffee-heavy" class="ftt-in" data-answer="49.67" placeholder="%">
     </div>
 
@@ -1976,6 +2278,142 @@ Using the data in Question 3, repeat the analysis using Excel for this course an
 
 (e) Construct a Stacked Bar Graph to display the association between type of client and satisfaction level. Compare to your sketch in Question 3.
 
+```{=html}
+<div class="q4-box">
+
+<!-- PART (b) -->
+<h4>(b) Two-way table (Pivot Table)</h4>
+
+<button class="q4-btn" id="hint-b-show">Show hint</button>
+<button class="q4-btn" id="hint-b-hide" style="display:none;">Hide hint</button>
+
+<button class="q4-btn" id="sol-b-show">Show solution</button>
+<button class="q4-btn" id="sol-b-hide" style="display:none;">Hide solution</button>
+
+<div class="hint-box" id="hint-b" style="display:none;">
+<strong>Hint:</strong>
+<ul>
+<li>Select your data</li>
+<li>Insert → Pivot Table</li>
+<li>Drag <strong>Satisfaction</strong> into Rows</li>
+<li>Drag <strong>Client Type</strong> into Columns</li>
+<li>Drag any variable into Values (Count)</li>
+</ul>
+</div>
+
+<div id="sol-b" style="display:none; margin-top:10px;">
+<img src="Module1_Q4b.png" style="max-width:100%;">
+</div>
+
+<hr>
+
+
+<!-- PART (c) -->
+<h4>(c) Joint distribution (percentages)</h4>
+
+<button class="q4-btn" id="hint-c-show">Show hint</button>
+<button class="q4-btn" id="hint-c-hide" style="display:none;">Hide hint</button>
+
+<button class="q4-btn" id="sol-c-show">Show solution</button>
+<button class="q4-btn" id="sol-c-hide" style="display:none;">Hide solution</button>
+
+<div class="hint-box" id="hint-c" style="display:none;">
+<strong>Hint:</strong>
+<ul>
+<li>In Pivot Table → Value Field Settings</li>
+<li>Select <strong>"Show Values As"</strong></li>
+<li>Choose <strong>% of Grand Total</strong></li>
+</ul>
+</div>
+
+<div id="sol-c" style="display:none; margin-top:10px;">
+<img src="Module1_Q4c.png" style="max-width:100%;">
+</div>
+
+<hr>
+
+
+<!-- PART (d) -->
+<h4>(d) Conditional distributions</h4>
+
+<button class="q4-btn" id="hint-d-show">Show hint</button>
+<button class="q4-btn" id="hint-d-hide" style="display:none;">Hide hint</button>
+
+<button class="q4-btn" id="sol-d-show">Show solution</button>
+<button class="q4-btn" id="sol-d-hide" style="display:none;">Hide solution</button>
+
+<div class="hint-box" id="hint-d" style="display:none;">
+<strong>Hint:</strong>
+<ul>
+<li>For <strong>Row %</strong>: choose % of Row Total</li>
+<li>For <strong>Column %</strong>: choose % of Column Total</li>
+<li>Compare how percentages change across groups</li>
+</ul>
+</div>
+
+<div id="sol-d" style="display:none; margin-top:10px;">
+<img src="Module1_Q4d.png" style="max-width:100%;">
+</div>
+
+<hr>
+
+
+<!-- PART (e) -->
+<h4>(e) Stacked bar graph</h4>
+
+<button class="q4-btn" id="hint-e-show">Show hint</button>
+<button class="q4-btn" id="hint-e-hide" style="display:none;">Hide hint</button>
+
+<button class="q4-btn" id="sol-e-show">Show solution</button>
+<button class="q4-btn" id="sol-e-hide" style="display:none;">Hide solution</button>
+
+<div class="hint-box" id="hint-e" style="display:none;">
+<strong>Hint:</strong>
+<ul>
+<li>Select your Pivot Table</li>
+<li>Insert → Bar Chart → Stacked Bar</li>
+<li>Use conditional percentages for interpretation</li>
+</ul>
+</div>
+
+<div id="sol-e" style="display:none; margin-top:10px;">
+<img src="Module1_Q4e.png" style="max-width:100%;">
+</div>
+
+</div>
+
+
+<script>
+function toggle(showBtn, hideBtn, target){
+  document.getElementById(showBtn).onclick = () => {
+    document.getElementById(target).style.display = "block";
+    document.getElementById(showBtn).style.display = "none";
+    document.getElementById(hideBtn).style.display = "inline-block";
+  };
+
+  document.getElementById(hideBtn).onclick = () => {
+    document.getElementById(target).style.display = "none";
+    document.getElementById(hideBtn).style.display = "none";
+    document.getElementById(showBtn).style.display = "inline-block";
+  };
+}
+
+// hooks
+toggle("hint-b-show","hint-b-hide","hint-b");
+toggle("sol-b-show","sol-b-hide","sol-b");
+
+toggle("hint-c-show","hint-c-hide","hint-c");
+toggle("sol-c-show","sol-c-hide","sol-c");
+
+toggle("hint-d-show","hint-d-hide","hint-d");
+toggle("sol-d-show","sol-d-hide","sol-d");
+
+toggle("hint-e-show","hint-e-hide","hint-e");
+toggle("sol-e-show","sol-e-hide","sol-e");
+</script>
+```
+
+
 ## Textbook Readings 
 For extra clarification on materials in this module, see: Sharpe, De Veaux & Velleman (4th Edition)
 
@@ -2181,20 +2619,6 @@ if (knitr::is_latex_output()) {
 - \\(\\square\\) Interpret the association between two categorical variables summarised in a stacked bar chart  
 - \\(\\square\\) \\emph{*Interpret the association between two categorical variables from the conditional distributions}
 
-\\section*{Using Excel Checklist}
-
-The Excel videos that have been covered this week include:
-
-- \\(\\square\\) Starting with Excel  
-- \\(\\square\\) Inputting data in Excel  
-- \\(\\square\\) Editing data in Excel  
-- \\(\\square\\) Saving output in Excel  
-- \\(\\square\\) Selecting cases  
-- \\(\\square\\) Bar Graph  
-- \\(\\square\\) Pie Graph  
-- \\(\\square\\) Stacked Bar Graph  
-- \\(\\square\\) Frequency Tables  
-- \\(\\square\\) Contingency Tables  
 ")
 }
 ```
@@ -2323,7 +2747,7 @@ The Excel videos that have been covered this week include:
 ```{r, echo=FALSE, results='asis'}
 if (knitr::is_latex_output()) {
   cat("
-\\section*{Using Excel Checklist}
+\\section*{}
 
 The Excel videos that have been covered this week include:
 

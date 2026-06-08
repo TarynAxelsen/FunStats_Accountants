@@ -114,8 +114,14 @@ Statistics are powerful, but they can be misleading if used poorly or dishonestl
 - Avoid unnecessary decoration (especially 3D graphs)
 - Aim to **tell the truth** and communicate clearly
 
+```{r, results='asis', echo=FALSE}
+tip_box(
+  "A graph is only as good as the data it displays.",
+  "No amount of visual design can fix poor or biased data."
+)
+```
+ 
 
-A graph is only as good as the data it displays. No amount of visual design can fix poor or biased data.
 ---
 
 # Review Questions: Module 1 {-}

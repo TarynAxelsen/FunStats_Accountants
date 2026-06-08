@@ -96,7 +96,7 @@
 
 \title{Fundamental Statistics for Accountants}
 \author{Dr Taryn Axelsen}
-\date{Last Updated: 02 June 2026}
+\date{Last Updated: 08 June 2026}
 
 \begin{document}
 \maketitle
@@ -440,7 +440,13 @@ Statistics are powerful, but they can be misleading if used poorly or dishonestl
   Aim to \textbf{tell the truth} and communicate clearly
 \end{itemize}
 
-\section{A graph is only as good as the data it displays. No amount of visual design can fix poor or biased data.}\label{a-graph-is-only-as-good-as-the-data-it-displays.-no-amount-of-visual-design-can-fix-poor-or-biased-data.}
+\begin{tipbox}
+\textbf{💡 A graph is only as good as the data it displays.}
+
+No amount of visual design can fix poor or biased data.
+\end{tipbox}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \chapter*{Review Questions: Module 1}\label{review-questions-module-1}
 \addcontentsline{toc}{chapter}{Review Questions: Module 1}
@@ -488,7 +494,44 @@ Once you have watched the lecture recordings you should be able to answer the fo
 
 Note: * Indicates \textbf{Expanded} Competencies
 
-\section{Question 1: Classifying Data}\label{question-1-classifying-data}
+\section{Question 1: Experiments Verse Observational}\label{question-1-experiments-verse-observational}
+
+An excerpt from a data set containing information about Australian Charities is shown below:
+
+\includegraphics[width=0.8\linewidth]{Q1_Excel}
+
+\textbf{Q1(a)}
+
+For each of the variables listed in the spreadsheet:
+
+\begin{itemize}
+\tightlist
+\item
+  Identify the \textbf{type of variable}\\
+\item
+  State the \textbf{units}, if appropriate
+\end{itemize}
+
+\begin{longtable}{|l|l|l|}
+\hline
+Variable & Type & Units \\
+\hline
+ABN & & \\ \hline
+Charity name & & \\ \hline
+Postcode & & \\ \hline
+Aged Care & & \\ \hline
+Total full time equivalent staff & & \\ \hline
+Total gross income & & \\ \hline
+Net assets / liabilities & & \\ \hline
+\end{longtable}
+
+\textbf{Q1(b)}
+
+Is this \textbf{cross-sectional} or \textbf{time series} data?
+
+\textbf{Is this cross-sectional or time series data?}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
 
 \section{Question 2: Generating an appropriate sample}\label{question-2-generating-an-appropriate-sample}
 
@@ -548,11 +591,10 @@ This question can be done manually, or visually (see below if using the interact
 
 Suppose a random sample of \textbf{eight} people is required.
 
-\textbf{(a)} Using a random number generator (or interactive visual below), select a simple random sample (SRS) from the sampling frame defined above.
-
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
-\setcounter{enumi}{1}
+\item
+  Using a random number generator (or interactive visual below), select a simple random sample (SRS) from the sampling frame defined above.
 \item
   How many males and females are there in your sample?
 \item
@@ -956,7 +998,10 @@ Answers to these questions are in the back of the textbook. If you require furth
   \(\square\) \emph{*Interpret the association between two categorical variables from the conditional distributions}
 \end{itemize}
 
-\section*{Using Excel Checklist}
+\section*{Using Excel Checklist}\label{using-excel-checklist}
+\addcontentsline{toc}{section}{Using Excel Checklist}
+
+\section*{}
 
 The Excel videos that have been covered this week include:
 
@@ -984,35 +1029,623 @@ The Excel videos that have been covered this week include:
   \(\square\) Contingency Tables
 \end{itemize}
 
-\section*{Using Excel Checklist}\label{using-excel-checklist}
-\addcontentsline{toc}{section}{Using Excel Checklist}
+\chapter{Module 2}\label{module-2}
 
-\section*{Using Excel Checklist}
+\begin{bannerbox}
+\textbf{Module Focus: Exploring and understanding data}
 
-The Excel videos that have been covered this week include:
+The focus of this module is displaying one quantitative variable both visually and numberically.
+\end{bannerbox}
+
+\section{Gathering Data}\label{gathering-data}
+
+\textbf{Types of Studies}
+
+There are two main types of studies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Observational studies}
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  \(\square\) Starting with Excel\\
+  Researchers observe and measure variables
 \item
-  \(\square\) Inputting data in Excel\\
+  No intervention is applied
 \item
-  \(\square\) Editing data in Excel\\
+  Examples: surveys, polls, transactional data
 \item
-  \(\square\) Saving output in Excel\\
+  Can identify relationships but \textbf{cannot establish causation}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
-  \(\square\) Selecting cases\\
+  \emph{Experimental studies}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
 \item
-  \(\square\) Bar Graph\\
+  Researchers impose treatments and observe outcomes
 \item
-  \(\square\) Pie Graph\\
+  Can establish \textbf{cause and effect}
 \item
-  \(\square\) Stacked Bar Graph\\
+  \emph{Explanatory variable (factor)}: the variable being manipulated\\
 \item
-  \(\square\) Frequency Tables\\
+  \emph{Levels}: the values of the factor\\
 \item
-  \(\square\) Contingency Tables
+  \emph{Treatments}: combinations of factor levels\\
+\item
+  \emph{Experimental units}: individuals receiving treatments
+\end{itemize}
+
+\begin{tipbox}
+\textbf{💡 Only experiments can demonstrate causation.}
+
+Observational studies can only show if variables are related.
+\end{tipbox}
+
+\textbf{Association vs Causation}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Association}: Two variables move together\\
+\item
+  \emph{Causation}: One variable directly affects another
+\end{itemize}
+
+A key issue is the presence of \textbf{lurking variables}:
+
+\begin{itemize}
+\tightlist
+\item
+  A \textbf{lurking variable} affects both variables but is not measured
+\item
+  Can create misleading associations
+\end{itemize}
+
+\textbf{Example}\\
+Pet ownership and spending on cleaning products may be related, but a lurking variable (e.g.~family with children) may explain the relationship.
+
+\textbf{Types of Observational Studies}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Prospective study}: follows individuals into the future\\
+\item
+  \emph{Retrospective study}: uses past/historical data
+\end{itemize}
+
+\textbf{Principles of Good Experimental Design}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Randomisation}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Randomly assign subjects to treatments
+\item
+  Reduces bias and lurking variables
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{Control}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Use control groups and placebos
+\item
+  Allows fair comparison
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \emph{Replication}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Use many subjects or repeat the experiment
+\item
+  Reduces variability due to chance
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \emph{Blocking}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Group similar individuals before assigning treatments
+\item
+  Improves precision of comparisons
+\end{itemize}
+
+\section{Displaying Distributions}\label{displaying-distributions}
+
+The \textbf{distribution of a quantitative variable} describes what values the data take
+and how often those values occur.
+
+\textbf{Key ideas}
+
+\begin{itemize}
+\tightlist
+\item
+  Raw data are often difficult to interpret without summarisation
+\item
+  Graphical displays help reveal important patterns in the data
+\item
+  Different graphs are suited to different data sizes and purposes
+\end{itemize}
+
+\textbf{Common displays for one quantitative variable}
+
+\emph{Histograms}\\
+- Best for larger data sets\\
+- Show the overall shape clearly\\
+- Require careful choice of bin width
+
+\emph{Boxplots}
+- Summarise the distribution using the five-number summary\\
+- Excellent for comparing distributions across groups\\
+- Do not show detailed distribution shape
+
+\begin{tipbox}
+\textbf{💡 When constructing graphs}
+
+It is important to include:
+  
+  - clear titles
+  
+  - labelled axes with units
+  
+  - appropriate scales
+  
+A graph should make the **overall features of the distribution easy to see**.
+\end{tipbox}
+
+\textbf{Describing Distributions (Graphically)}
+
+When interpreting a histogram or boxplot, describe:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Shape}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Symmetric, left-skewed, right-skewed\\
+\item
+  Number of peaks (modes)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Centre}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Typical value
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Spread}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Range of values (exclude outliers if there are any)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Outliers}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Unusual observations
+\end{itemize}
+
+\textbf{Time Series Data}
+
+\begin{itemize}
+\tightlist
+\item
+  Data measured over time at regular intervals\\
+\item
+  Displayed using a \textbf{time series plot}
+\end{itemize}
+
+Use time series plots to:
+- Identify trends
+- Detect changes over time
+
+\section{Describing Distributions with Numbers}\label{describing-distributions-with-numbers}
+
+\textbf{Summary Statistics}
+
+We describe quantitative data using:
+
+\textbf{Centre}
+
+\begin{itemize}
+\item
+  Mean - Average value, sensitive to outliers
+\item
+  Median - middle number when dataset ordered, resistant to outliers
+\end{itemize}
+
+\textbf{Spread}
+
+\begin{itemize}
+\item
+  Range = max − min
+\item
+  Interquartile Range (IQR) = {[}Q3 − Q1{]} - Used with the median for skewed data or data with outliers
+\item
+  Standard deviation - Measures average spread around the mean, used with the mean for symmetric data
+\end{itemize}
+
+\begin{tipbox}
+\textbf{💡 💡 Use:}
+
+ - Mean/SD: for **symmetric distributions** with no outliers.
+- Median/IQR: for **skewed distributions** or distributions with outilers.
+\end{tipbox}
+
+\textbf{Quartiles and Five-Number Summary}
+
+Five-number summary:
+
+\begin{itemize}
+\tightlist
+\item
+  Minimum\\
+\item
+  First quartile (Q1)\\
+\item
+  Median\\
+\item
+  Third quartile (Q3)\\
+\item
+  Maximum
+\end{itemize}
+
+Used to summarise the entire distribution. These numbers for the boxplot.
+
+\textbf{Choosing the Right Summary}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Distribution Type & Centre & Spread \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Symmetric & Mean & Standard deviation \\
+Skewed / Outliers & Median & IQR \\
+\end{longtable}
+}
+
+\section{Key Takeaways}\label{key-takeaways}
+
+\begin{itemize}
+\tightlist
+\item
+  Observational studies show relationships, not causation\\
+\item
+  Experiments are required for cause-and-effect conclusions\\
+\item
+  Graphs help visualise distributions\\
+\item
+  Always describe distributions using: Shape, Centre, Spread, Outliers\\
+\item
+  Use appropriate numerical summaries based on distribution shape
+\end{itemize}
+
+\chapter*{Review Questions: Module 2}\label{review-questions-module-2}
+\addcontentsline{toc}{chapter}{Review Questions: Module 2}
+
+\begin{bannerbox}
+\textbf{Review Questions}
+
+Once you have watched the lecture recordings you should be able to answer the following *Threshold* questions (solutions can be found at the end of this Workbook).
+\end{bannerbox}
+
+\textit{Write your answers in the spaces provided.}
+
+\medskip
+
+\textbf{(i) What are the main differences between an observational study and an experiment?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(ii) State and define, with examples, the four principles of experimental design.}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(iii) Which three types of graphs can be used to display the distribution of one quantitative variable?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(iv) What is an outlier?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(v) If the units are metres, what are the units of mean, median, standard deviation and variance?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(vi) Which descriptions of centre and spread are best for skewed vs symmetric distributions?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\chapter*{Tutorial Questions: Module 2}\label{tutorial-questions-module-2}
+\addcontentsline{toc}{chapter}{Tutorial Questions: Module 2}
+
+Note: * Indicates \textbf{Expanded} Competencies
+
+\section{Question 1: Observational / Experiment}\label{question-1-observational-experiment}
+
+In recent years, the Therapeutic Goods Administration has introduced new guidelines for marketers of herbs and other natural substances who make health claims about their product. Brands of gingko extract claim to improve memory and concentration. A study of 230 healthy people over 60 years old were randomly assigned to a gingko pill or a placebo pill. All participants took tests for learning and memory before treatment started and again after six weeks.
+
+\textbf{(a) Is this an observational or experimental study? Explain your answer.}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(b) What were the subjects and how many were there?}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(c) Identify all factors and factor levels.}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(d) What was the response variable(s)?}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\section{Question 2: Experimental Design}\label{question-2-experimental-design}
+
+A researcher wants to know whether the difficulty of a task influences our estimate of how long we spend working at it. She designs two sets of mazes that subjects can work through on a computer --- one set is easy and the other set is difficult. A group of 50 subjects are randomly allocated a set of mazes and work until told to stop (5 minutes, but subjects do not know this). They are then asked to estimate how long they worked.
+
+\textbf{(a) Draw a diagram to show the design of this experiment.}
+
+\begin{answerbox}\vspace{5cm}\end{answerbox}
+
+\textbf{(b) Have the four elements of good experimental design been used here?}
+
+\begin{answerbox}\vspace{4cm}\end{answerbox}
+
+\textbf{(c) * How could the researcher account for gender? Draw a diagram of the revised design.}
+
+\begin{answerbox}\vspace{5cm}\end{answerbox}
+
+\section{Question 3: Observational Study}\label{question-3-observational-study}
+
+A study found that senior citizens who report drinking diet soft drink regularly experience a greater increase in weight and waist circumference than those who do not drink diet soft drink regularly.
+
+\textbf{(a) Can we conclude that drinking diet soft drink causes weight gain? Why or why not?}
+
+\begin{answerbox}\vspace{4cm}\end{answerbox}
+
+\textbf{(b) * What could be a potential lurking variable? Explain how it would impact both variables.}
+
+\begin{answerbox}\vspace{4cm}\end{answerbox}
+
+\section{Question 4: Describing Distributions}\label{question-4-describing-distributions}
+
+The following represent the assignment results (out of 100) for a class of 20 Accounting students:
+
+85, 38, 92, 93, 100, 88, 78, 79, 96, 81, 62, 39, 77, 78, 83, 91, 90, 85, 99, 97
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={\label{fig:hist-assignment}Histogram of assignment results (n = 20)}]{02-Mod2_files/figure-latex/hist-assignment-1.pdf}}
+\caption{\label{fig:hist-assignment}Histogram of assignment results (n = 20)}
+\end{figure}
+
+For this data and Figure \ref{fig:hist-assignment} complete the following questions:
+
+\textbf{(a) Describe the distribution (shape, centre, spread and outliers).}
+
+\begin{answerbox}\vspace{4cm}\end{answerbox}
+
+\textbf{(b) What centre and spread would you use? Why?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(c) Calculate the mean.}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(d) Calculate the standard deviation.}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(e) Calculate the median.}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(f) Why are the mean and median different/similar?}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(g) Reproduce the histogram and descriptive statistics in software.}
+
+\begin{answerbox}\vspace{3cm}\end{answerbox}
+
+\textbf{(h) What are the five numbers in the five-number summary?}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(i) Calculate Q1 and Q3.}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(j) Calculate the IQR.}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\section{Question 5: Comparing Distributions}\label{question-5-comparing-distributions}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={\label{fig:boxplot-housing}Side by side boxplots of housing price data (n = 545)}]{02-Mod2_files/figure-latex/boxplot-housing-1.pdf}}
+\caption{\label{fig:boxplot-housing}Side by side boxplots of housing price data (n = 545)}
+\end{figure}
+
+The figure above shows the distribution of house prices for 545 furnished and unfurnished properties in a large city. Compare the distributions of prices of furnished and unfurnished properties in fewer than 100 words. You should mention shape, centre, spread, and outliers in your discussion.
+
+\textbf{Compare the two distributions (shape, centre, spread, outliers) in fewer than 100 words.}
+
+\begin{answerbox}\vspace{5cm}\end{answerbox}
+
+\section{Question 6: Describing Distributions}\label{question-6-describing-distributions}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio,alt={\label{fig:timeseries-exports}Value of Australian exports (\$ million)}]{02-Mod2_files/figure-latex/timeseries-exports-1.pdf}}
+\caption{\label{fig:timeseries-exports}Value of Australian exports (\$ million)}
+\end{figure}
+
+Figure \ref{fig:timeseries-exports} shows the value of Australian exports (measured in \$AUD million).
+
+\textbf{(a) What type of graph is this?}
+
+\begin{answerbox}\vspace{2cm}\end{answerbox}
+
+\textbf{(b) In less than 100 words, interpret the information in this graph.}
+
+\begin{answerbox}\vspace{4cm}\end{answerbox}
+
+\section{Further Practice from the Textbook}\label{further-practice-from-the-textbook-1}
+
+Answers to these questions are located in the back of the textbook. If you require further explanation, please ask in the Module Content Discussion Forum on the StudyDesk.
+
+\begin{itemize}
+\tightlist
+\item
+  Questions 9.13(a,b*,c), 9.19(a,b,c*), 3.21, 3.23, 3.43, 3.75
+\end{itemize}
+
+\section{Textbook Readings}\label{textbook-readings-1}
+
+For extra clarification on materials in this module, see: Sharpe, De Veaux \& Velleman (4th Edition).
+
+\begin{itemize}
+\tightlist
+\item
+  Chapter 9 (only Sections 9.1-9.4)
+\item
+  Chapter 3 (excluding Section 3.11)
+\end{itemize}
+
+\chapter*{Module 2 Checklist}\label{module-2-checklist}
+\addcontentsline{toc}{chapter}{Module 2 Checklist}
+
+\section*{Using Excel Checklist}\label{using-excel-checklist-1}
+\addcontentsline{toc}{section}{Using Excel Checklist}
+
+\section*{Experimental Design}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Recognise whether a study is observational or experimental
+\item
+  \(\square\) Identify the response variable(s) and individuals (or subjects, or cases) in an experiment
+\item
+  \(\square\) \emph{*Identify the factors (explanatory variables) and treatments in an experiment}
+\item
+  \(\square\) \emph{*Explain why a randomised comparative experiment can give good evidence of causation}
+\item
+  \(\square\) \emph{*Recognise the importance of a control group, placebos, the double-blind technique and of replication}
+\item
+  \(\square\) \emph{*Identify blocks and understand why blocking can improve an experiment}
+\item
+  \(\square\) \emph{*Recognise the existence and potential effect of lurking variables on both observational and experimental studies}
+\end{itemize}
+
+\section*{Describing Distributions}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Summarize and describe the distribution of a categorical variable using a frequency table
+\item
+  \(\square\) Visually describe the distribution of a quantitative variable in terms of shape, centre and spread from a histogram
+\item
+  \(\square\) Calculate by hand and interpret the median
+\item
+  \(\square\) Use technology to find the mean and standard deviation of a data set
+\item
+  \(\square\) \emph{*Calculate by hand and using technology the interquartile range (IQR) and five-number summary}
+\item
+  \(\square\) \emph{*Recognize the impact of outliers and skewness on measures of centre and spread}
+\item
+  \(\square\) Compare groups using boxplots
+\end{itemize}
+
+\section*{Using Excel Checklist}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\square\) Construct a histogram
+\item
+  \(\square\) Construct a boxplot
+\item
+  \(\square\) Produce summary statistics of quantitative data
 \end{itemize}
 
 \bibliography{book.bib,packages.bib}

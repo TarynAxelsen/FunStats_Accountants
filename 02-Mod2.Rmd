@@ -1,313 +1,215 @@
 # Module 2
 
 <!-- ====== COLOURED BANNER ====== -->
-```{=html}
-<div style="
-  background: linear-gradient(90deg, #e6f0ff, #f7fbff);
-  border-left: 8px solid #2a7ae2;
-  padding: 22px;
-  margin-bottom: 30px;
-  border-radius: 6px;
-">
-  <h2 style="margin-top:0; color:#1a4f8b; font-weight:700;">
-    Module Focus: Understanding, describing, and ethically interpreting data
-  </h2>
-  <p style="font-size:1.05em; margin-bottom:0;">
-    
-In this module, we develops skills in displaying and describing data, choosing appropriate summary measures, and interpreting statistical results responsibly and ethically.
-  </p>
-</div>
+```{r, results='asis', echo=FALSE}
+banner_box(
+  "Module Focus: Exploring and understanding data",
+  "The focus of this module is displaying one quantitative variable both visually and numberically."
+)
 ```
 <!-- ====== END BANNER ====== -->
 
-## Supplementary Notes{-}
 
-### Ethics and Statistics{-}
-```{=html}
-<div style="
-  background: linear-gradient(90deg, #f5f9ff, #ffffff);
-  border-left: 8px solid #2a7ae2;
-  padding: 20px;
-  border-radius: 6px;
-  margin-bottom: 25px;
-">
-  <strong>Why ethics matters:</strong><br>
+## Gathering Data
 
-Whether we are consumers of statistical information or the person responsible for
-producing statistical analyses and results, standards of ethical practice help us navigate potential pitfalls which could lead to the spread of misinformation.
-</div>
-```
+**Types of Studies**
+  
+There are two main types of studies:
+  
+1. *Observational studies*
+- Researchers observe and measure variables
+- No intervention is applied
+- Examples: surveys, polls, transactional data
+- Can identify relationships but **cannot establish causation**
+  
+2. *Experimental studies*
+- Researchers impose treatments and observe outcomes
+- Can establish **cause and effect**
+- *Explanatory variable (factor)*: the variable being manipulated  
+- *Levels*: the values of the factor  
+- *Treatments*: combinations of factor levels  
+- *Experimental units*: individuals receiving treatments  
+  
 
-The Committee on Professional Ethics of the American Statistical Association (ASA)
-published their Ethical Guidelines for Statistical Practice in 2018. https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.
-aspx. These guidelines are intended to help users of statistics make ethical decisions
-and inform those who rely on statistical analysis of the standards they should expect.
+```{r, results='asis', echo=FALSE}
+tip_box(
+  "Only experiments can demonstrate causation.",
+  "Observational studies can only show if variables are related."
+)
+```  
 
-The ASA states:
-*Good statistical practice is fundamentally based on transparent assumptions, reproducible results, and valid interpretations. In some situations, guideline principles may conflict, requiring individuals to prioritize principles according to context.*
+**Association vs Causation**
+  
+- *Association*: Two variables move together  
+- *Causation*: One variable directly affects another  
 
-```{=html}
-<div style="background:#fff4d6; border-left:6px solid #ffb300; padding:18px; margin:25px 0; border-radius:6px;">
-  <p style="margin:0; font-size:1.05em;">
-Discussion around ethical use of data and/or research often focuses on important
-aspects such as:
-</p>
-  <ul style="margin-bottom:0; padding-left:20px;">
-    <li>Reproducibility and open data</li>
-    <li>Security of data storage and data transmission</li>
-    <li>Ethical treatment of human and animal participants (including confidentiality and informed consent)</li>
-    <li>Intellectual property</li>
-  </ul>
-</div>
-```
+A key issue is the presence of **lurking variables**:
+  
+- A **lurking variable** affects both variables but is not measured
+- Can create misleading associations
 
-There are also key ethical considerations relating to:
+**Example**  
+Pet ownership and spending on cleaning products may be related, but a lurking variable (e.g. family with children) may explain the relationship.
 
-**Quality of data**
-
-where the data may have been compromised by a conflict of
-interest held by those collecting, analysing, reporting or commissioning the
-reporting of the data and/or resulting research outcomes. For example:
-
-• Where known problems with the collection method that could distort interpretation
-are intentionally not reported.
-
-• Where details of data collection methodology are not adequately described
-allowing for later misuse or misinterpretation of the true nature of the
-data. This might not be done to intentionally misinform; however, simple
-lack of clarity and incomplete disclosure can lead to ethical issues.
-
-**Use of statistical methods**
-
-appropriate to the data and questions that hope to
-be answered:
-
-• Verification of assumptions;
-
-• Appropriate use of statistical methods if more than one is available;
-
-• Appropriate use of visualisation (more than one type of graph) if more
-than one approach is available.
-
-**Fair reporting of results**
-
-• Sample size and its effect on statistical significance (we will cover this in
-more detail in Module 10);
-
-• Reporting significance without contextualising the meaning and importance
-of the effect size (e.g. the size of the difference between means or
-the strength of the relationships between variables. More details in Module
-10);
-
-• Applying multiple hypothesis tests to subsets of the data and selectively
-reporting only the significant results (we will cover this in more detail in
-Module 10);
-
-• Over-interpreting results e.g. inferring cause-and-effect based on an observational
-study, discussing results in the context of a population for
-which the sample is non-representative
-
-```{=html}
-<div style="
-  background:#f0fff4;
-  border-left:6px solid #2a9d8f;
-  padding:18px;
-  border-radius:6px;
-  margin:20px 0;
-">
-Even if your future work does not require you to produce statistical analyses and
-results, you may may need to rely on statistics produced by others. <strong>As consumers
-of statistical information</strong> we rarely have access to the original data to check if the
-analyses and claims are true. Ethical guidelines help us identify the information
-that should be available to us in order to trust the claims made.
-</div>
-```
-
-### Ethical Reporting in Practice{-}
+**Types of Observational Studies**
+  
+- *Prospective study*: follows individuals into the future  
+- *Retrospective study*: uses past/historical data 
 
 
-::: {.tipBox}
-**When considering statistical claims in research publications, the ethical statistician:**
+**Principles of Good Experimental Design**
+  
+1. *Randomisation*
+- Randomly assign subjects to treatments
+- Reduces bias and lurking variables
 
-- Acknowledges statistical and substantive assumptions made in the execution  
-  and interpretation of any analysis. When reporting on the validity of data  
-  used, acknowledges data editing procedures, including any imputation and  
-  missing data mechanisms.
+2. *Control*
+- Use control groups and placebos
+- Allows fair comparison
 
-- Reports the limitations of statistical inference and possible sources of error.
+3. *Replication*
+- Use many subjects or repeat the experiment
+- Reduces variability due to chance
 
-- In publications, reports, or testimony, identifies who is responsible for the statistical work if it would not otherwise be apparent.
-
-- Reports the sources and assessed adequacy of the data, accounts for all data  
-  considered in a study, and explains the sample(s) actually used.
-
-- Clearly and fully reports the steps taken to preserve data integrity and valid  
-  results.
-
-- Where appropriate, addresses potential confounding variables not included in  
-  the study.
-
-- In publications and reports, conveys the findings in ways that are both honest  
-  and meaningful to the user/reader. This includes tables, models, and graphics.
-
-- In publications or testimony, identifies the ultimate financial sponsor of the  
-  study, the stated purpose, and the intended use of the study results.
-
-- When reporting analyses of volunteer data or other data that may not be representative  
-  of a defined population, includes appropriate disclaimers and, if used, appropriate weighting.
-
-- To aid peer review and replication, shares the data used in the analyses whenever  
-  possible/allowable and exercises due caution to protect proprietary and  
-  confidential data, including all data that might inappropriately reveal respondent  
-  identities.
-
-- Strives to promptly correct any errors discovered while producing the final report  
-  or after publication. As appropriate, disseminates the correction publicly  
-  or to others relying on the results.
-:::
-
-
-## Summary of Module 2{-}
+4. *Blocking*
+- Group similar individuals before assigning treatments
+- Improves precision of comparisons
 
 ## Displaying Distributions
-
+  
 The **distribution of a quantitative variable** describes what values the data take
 and how often those values occur.
 
 **Key ideas**
-
+  
 - Raw data are often difficult to interpret without summarisation
 - Graphical displays help reveal important patterns in the data
 - Different graphs are suited to different data sizes and purposes
 
 **Common displays for one quantitative variable**
+  
+*Histograms*  
+- Best for larger data sets  
+- Show the overall shape clearly  
+- Require careful choice of bin width
 
-- **Stem-and-leaf plots**  
-  - Useful for small data sets  
-  - Show the overall shape of the distribution  
-  - Retain all individual data values
+*Boxplots*
+- Summarise the distribution using the five-number summary  
+- Excellent for comparing distributions across groups  
+- Do not show detailed distribution shape
 
-- **Histograms**  
-  - Best for larger data sets  
-  - Show the overall shape clearly  
-  - Require careful choice of bin width
-
-- **Boxplots**  
-  - Summarise the distribution using the five-number summary  
-  - Excellent for comparing distributions across groups  
-  - Do not show detailed distribution shape
-
-::: {.tipBox}
-When constructing graphs, it is important to include:
-
+```{r, results='asis', echo=FALSE}
+tip_box(
+  "When constructing graphs",
+  "It is important to include:
+  
   - clear titles
   
   - labelled axes with units
   
   - appropriate scales
-
-A graph should make the **overall features of the distribution easy to see**.
-:::
-
----
-
-## Describing Distributions with Numbers
-
-Graphs show patterns visually, but numerical summaries allow us to **quantify**
-important features of a distribution.
-
-**Describing quantitative data**
-
-Four key features are used to describe a distribution:
-
-1. **Shape** – symmetry, skewness, peaks, and outliers  
-2. **Centre** – a typical value  
-3. **Spread** – how variable the data are  
-4. **Outliers** – unusually large or small values  
-
-**Measures of centre**
-
-- **Mean**
-  - Commonly used
-  - Sensitive to skewness and outliers
-
-- **Median**
-  - Resistant to outliers
-  - Preferred for skewed distributions
-
-**Measures of spread**
-
-- **Range** – simple but highly sensitive to outliers
-- **Interquartile range (IQR)** – resistant to outliers
-- **Standard deviation** – measures typical distance from the mean
-
-**Choosing appropriate measures**
-
-- For <span class="blue">**approximately symmetric distributions**</span>:
-  - Use the **mean** for centre
-  - Use the **standard deviation** for spread
-
-- For <span class="blue">**skewed distributions or distributions with outliers**</span>:
-  - Use the **median** for centre
-  - Use the **IQR** for spread
-
-Numerical summaries should always be interpreted **alongside graphical displays**.
-
----
-
-## Ethics and Statistics
-
-Ethical practice is essential in all stages of statistical work, from data collection
-through to analysis and reporting.
-
-**Why ethics matters**
-
-- Statistical results influence decisions in health, education, business, and public policy
-- Poor or dishonest practice can lead to **misinformation**
-- Consumers of statistics often cannot access the original data to verify claims
-
-The American Statistical Association (ASA) provides **Ethical Guidelines for Statistical Practice** to support ethical decision-making in statistics.
-
-**Key ethical considerations**
-
-- Reproducibility and open data
-- Security of data storage and data transmission
-- Ethical treatment of human and animal participants, including confidentiality and informed consent
-- Intellectual property
-
-**The Ethical Statistician**
-
-When evaluating or reporting statistical analyses, the ethical statistician:
-
-- acknowledges assumptions and limitations
-- reports sources of data and sample selection
-- clearly identifies responsibility for the statistical work
-- communicates findings honestly using appropriate tables, models, and graphics
-- discloses funding sources and intended use of results
-- supports replication where possible while protecting confidentiality
-- corrects errors promptly and transparently when discovered
-
-::: {.tipBox}
-Ethical statistical practice is not just about avoiding misconduct — it is about
-**building trust** through transparency, care, and responsibility.
-:::
-# Review Questions: Module 2 {-}
-```{=html}
-<div style="
-  background: #f0f7ff;
-  border-left: 6px solid #2a7ae2;
-  padding: 18px;
-  margin: 25px 0;
-  border-radius: 6px;
-">
-  <p style="margin:0; font-size:1.05em;">
-    Once you have watched the lecture recordings you should be able to answer the following 
-    <em>Threshold</em> questions (solutions can be found at the end of this Workbook).
-  </p>
-</div>
+  
+A graph should make the **overall features of the distribution easy to see**."
+)
 ```
 
+**Describing Distributions (Graphically)**
+  
+When interpreting a histogram or boxplot, describe:
+  
+1. **Shape**
+- Symmetric, left-skewed, right-skewed  
+- Number of peaks (modes)
+
+2. **Centre**
+- Typical value
+
+3. **Spread**
+- Range of values (exclude outliers if there are any)
+
+4. **Outliers**
+- Unusual observations
+
+**Time Series Data**
+  
+- Data measured over time at regular intervals  
+- Displayed using a **time series plot**
+  
+Use time series plots to:
+- Identify trends
+- Detect changes over time
+
+
+## Describing Distributions with Numbers
+  
+**Summary Statistics**
+  
+We describe quantitative data using:
+  
+**Centre**
+
+- Mean - Average value, sensitive to outliers
+
+- Median - middle number when dataset ordered, resistant to outliers
+
+**Spread**
+
+- Range = max − min
+
+- Interquartile Range (IQR) = [Q3 − Q1] - Used with the median for skewed data or data with outliers
+
+- Standard deviation - Measures average spread around the mean, used with the mean for symmetric data
+
+
+```{r, results='asis', echo=FALSE}
+tip_box(
+  "💡 Use:",
+" - Mean/SD: for **symmetric distributions** with no outliers.
+- Median/IQR: for **skewed distributions** or distributions with outilers."
+)
+```
+
+**Quartiles and Five-Number Summary**
+  
+Five-number summary:
+
+- Minimum  
+- First quartile (Q1)  
+- Median  
+- Third quartile (Q3)  
+- Maximum  
+
+Used to summarise the entire distribution. These numbers for the boxplot.
+
+
+**Choosing the Right Summary**
+  
+  | Distribution Type | Centre | Spread |
+  |-----------------|--------|--------|
+  | Symmetric        | Mean   | Standard deviation |
+  | Skewed / Outliers| Median | IQR |
+  
+## Key Takeaways
+  
+- Observational studies show relationships, not causation  
+- Experiments are required for cause-and-effect conclusions  
+- Graphs help visualise distributions  
+- Always describe distributions using: Shape, Centre, Spread, Outliers  
+- Use appropriate numerical summaries based on distribution shape  
+
+  
+# Review Questions: Module 2 {-}
+
+```{r, results='asis', echo=FALSE}
+banner_box(
+  "Review Questions",
+  "Once you have watched the lecture recordings you should be able to answer the following *Threshold* questions (solutions can be found at the end of this Workbook)."
+)
+```
+
+<!-- HTML VERSION -->
 ```{=html}
+
 <style>
   .revq { max-width:900px; margin:0 auto; }
   .revq .muted { color:#666; font-size:.9rem; }
@@ -317,79 +219,89 @@ Ethical statistical practice is not just about avoiding misconduct — it is abo
   .revq .btn { padding:6px 10px; border:1px solid #ccc; border-radius:4px; background:#f7f7f7; cursor:pointer; }
   .revq .btn + .btn { margin-left:.4rem; }
   .revq-answers { background:#f6fbff; border-left:6px solid #2b8cbe; padding:.9rem 1rem; border-radius:6px; margin-top:.8rem; display:none; }
-  .revq-answers h5 { margin:.2rem 0 .5rem; font-size:1.05rem; }
-  .revq-answers p { margin:.4rem 0; }
 </style>
 
 <div class="revq" id="revq">
-  <p class="muted">
-    Write your answers in the boxes below. Tick the checkbox if you believe your answer is correct.
-    Click <em>Show model answers</em> to compare.
-  </p>
 
-  (i) Which three types of graphs can be used to display the distribution of one quantitative variable?</strong>
-  <div class="revq-row">
-    <textarea id="revq_m2_q1"
-        placeholder="Your answer…"></textarea>
-    <label class="chk"><input type="checkbox"> Marked correct</label>
-  </div>
+<p class="muted">
+Write your answers in the boxes below. Tick the checkbox if you believe your answer is correct.
+Click <em>Show model answers</em> to compare.
+</p>
 
-  (ii) What is an outlier?</strong>
-  <div class="revq-row">
-    <textarea id="revq_m2_q2"
-    placeholder="Your answer…"></textarea>
-    <label class="chk"><input type="checkbox"> Marked correct</label>
-  </div>
+(i) What are the main differences between an observational study and an experiment?
+<div class="revq-row">
+  <textarea></textarea>
+  <label class="chk"><input type="checkbox"> Marked correct</label>
+</div>
 
-  (iii) If the units of measurement of the observations is metres, what are the units of measurement of each of the mean, median, standard deviation and variance?</strong>
-  <div class="revq-row">
-    <textarea id="revq_m3_q3"
-    placeholder="Your answer…"></textarea>
-    <label class="chk"><input type="checkbox"> Marked correct</label>
-  </div>
+(ii) State and define, with examples, the four principles of experimental design.
+<div class="revq-row">
+  <textarea></textarea>
+  <label class="chk"><input type="checkbox"> Marked correct</label>
+</div>
 
-  (iv) Which descriptions of centre and spread are best for a skewed distribution? Which measures are best for a reasonably symmetric distribution?</strong>
-  <div class="revq-row">
-    <textarea id="revq_m2_q4"
-    placeholder="Your answer…"></textarea>
-    <label class="chk"><input type="checkbox"> Marked correct</label>
-  </div>
-  
-  (v) Why is ethical statistical practice important to consider?</strong>
-  <div class="revq-row">
-    <textarea id="revq_m2_q5"
-    placeholder="Your answer…"></textarea>
-    <label class="chk"><input type="checkbox"> Marked correct</label>
-  </div>
+(iii) Which three types of graphs can be used to display the distribution of one quantitative variable?
+<div class="revq-row">
+  <textarea></textarea>
+  <label class="chk"><input type="checkbox"> Marked correct</label>
+</div>
 
-  <div style="margin-top:.6rem;">
-    <button class="btn" id="revq-show">Show model answers</button>
-    <button class="btn" id="revq-hide" style="display:none;">Hide model answers</button>
-    <button class="btn" id="revq-reset">Reset</button>
-  </div>
+(iv) What is an outlier?
+<div class="revq-row">
+  <textarea></textarea>
+  <label class="chk"><input type="checkbox"> Marked correct</label>
+</div>
 
-  <div class="revq-answers" id="revq-model">
-    <h5>Model answers</h5>
+(v) If the units of measurement are metres, what are the units of:
+mean, median, standard deviation, and variance?
+<div class="revq-row">
+  <textarea></textarea>
+  <label class="chk"><input type="checkbox"> Marked correct</label>
+</div>
 
-    <p><strong>(i)</strong> Histogram, stem & leaf plot, boxplot</p>
+(vi) Which descriptions of centre and spread are best for a skewed distribution?
+Which measures are best for a reasonably symmetric distribution?
+<div class="revq-row">
+  <textarea></textarea>
+  <label class="chk"><input type="checkbox"> Marked correct</label>
+</div>
 
-    <p><strong>(ii)</strong>
-    An outlier is a value (or values) that is significantly removed from the main body of data.</p>
+<div style="margin-top:.6rem;">
+  <button class="btn" id="revq-show">Show model answers</button>
+  <button class="btn" id="revq-hide" style="display:none;">Hide model answers</button>
+  <button class="btn" id="revq-reset">Reset</button>
+</div>
 
-    <p><strong>(iii)</strong>
-    Measures of centre and spread have the same units as the original data. So the units of measurement in this case would all be metres.</p>
+<div class="revq-answers" id="revq-model">
 
-    <p><strong>(iv)</strong>
-    Skewed distribution – use measures that are not affected by outliers
-[Centre = median and
-Spread = IQR (interquartile range)]
-Symmetric distribution - use measures that are strongest
-[Centre = mean and
-Spread = standard deviation]</p>
+<h5>Model answers</h5>
 
-<p><strong>(v)</strong>
-    Consideration of ethical statistical practice is important in order to reduce the potential for the spread of misinformation. As stated by the ASA: ‘Good statistical practice is fundamentally based on transparent assumptions, reproducible results, and valid interpretations.’ (https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx)</p>
-  </div>
+<p><strong>(i)</strong> Observational studies involve observing and measuring variables without intervention, while experiments impose treatments on individuals to observe effects. Observational studies can identify associations but cannot establish causation, whereas experiments can establish cause-and-effect relationships.</p>
+
+<p><strong>(ii)</strong> The four principles are:
+<br><strong>Randomisation:</strong> randomly assign subjects to treatments (reduces bias).
+<br><strong>Control:</strong> use control groups/placebos to compare results.
+<br><strong>Replication:</strong> use many subjects to reduce variability.
+<br><strong>Blocking:</strong> group similar individuals before assigning treatments.
+Example: In a drug trial, patients are randomly assigned treatments, compared with a placebo group, repeated across many patients, and possibly blocked by age.</p>
+
+<p><strong>(iii)</strong> Three graphs used for quantitative variables are:
+histogram, boxplot, and time series plot.</p>
+
+<p><strong>(iv)</strong> An outlier is an observation that lies unusually far from the rest of the data values.</p>
+
+<p><strong>(v)</strong> If the units are metres:
+mean = metres,
+median = metres,
+standard deviation = metres,
+variance = metres² (squared units).</p>
+
+<p><strong>(vi)</strong>
+For skewed distributions: use median and IQR.
+For symmetric distributions: use mean and standard deviation.</p>
+
+</div>
+
 </div>
 
 <script>
@@ -401,13 +313,45 @@ Spread = standard deviation]</p>
 
   show.onclick = () => { model.style.display="block"; show.style.display="none"; hide.style.display="inline-block"; };
   hide.onclick = () => { model.style.display="none"; hide.style.display="none"; show.style.display="inline-block"; };
+  
   reset.onclick = () => {
-    document.querySelectorAll("#revq textarea").forEach(t => t.value="");
-    document.querySelectorAll("#revq input[type=checkbox]").forEach(c => c.checked=false);
-    model.style.display="none"; hide.style.display="none"; show.style.display="inline-block";
+    document.querySelectorAll("#revq textarea").forEach(t => t.value = "");
+    document.querySelectorAll("#revq input[type=checkbox]").forEach(c => c.checked = false);
+    model.style.display="none";
+    hide.style.display="none";
+    show.style.display="inline-block";
   };
 })();
 </script>
+```
+
+<!-- PDF VERSION -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+  cat('
+\\textit{Write your answers in the spaces provided.}
+
+\\medskip
+
+\\textbf{(i) What are the main differences between an observational study and an experiment?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(ii) State and define, with examples, the four principles of experimental design.}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(iii) Which three types of graphs can be used to display the distribution of one quantitative variable?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(iv) What is an outlier?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(v) If the units are metres, what are the units of mean, median, standard deviation and variance?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(vi) Which descriptions of centre and spread are best for skewed vs symmetric distributions?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+')
+}
 ```
 
 <!--
@@ -422,5 +366,7 @@ DO NOT add this file's children to _bookdown.yml
 DO NOT use # headings in the child files
 -->
 
+
 ```{r, child="02-Tut2.Rmd"}
 ```
+

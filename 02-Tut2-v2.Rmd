@@ -1,0 +1,601 @@
+# Tutorial Questions: Module 2 {-}
+
+Note: * Indicates **Expanded** Competencies
+
+## Question 4: Describing Distributions
+
+The following represent the assignment results (out of 100) for a class of 20 Accounting students:
+
+85, 38, 92, 93, 100, 88, 78, 79, 96, 81, 62, 39, 77, 78, 83, 91, 90, 85, 99, 97
+
+```{r hist-assignment, fig.cap="Histogram of assignment results (n = 20)", echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+
+# Data
+scores <- c(85, 38, 92, 93, 100, 88, 78, 79, 96, 81, 62, 39, 77, 78, 83, 91, 90, 85, 99, 97)
+
+# Histogram
+p <- ggplot(data.frame(scores), aes(x = scores)) +
+  geom_histogram(binwidth = 10, fill = "#2a7ae2", color = "white", boundary = 0) +
+  labs(title = "Histogram of Assignment Results (n=20)",
+       x = "Assignment Results (out of 100)",
+       y = "Frequency") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.title = element_text(size = 12)
+  )
+
+# Interactive
+ggplotly(p)
+```
+
+
+For this data and Figure \@ref(fig:hist-assignment) complete the following questions:
+<!-- HTML -->
+```{=html}
+
+<!-- =========================
+Q4 (a) Describe the distribution
+========================== -->
+<p><strong>(a)</strong> Describe the distribution of Assignment Results in terms of shape, centre, spread and outliers (including how many student results could be considered to be outliers).</p>
+<p><strong>Shape:</strong></p>
+<select id="q4-shape">
+  <option value="">Choose</option>
+  <option>Symmetric</option>
+  <option>Skewed left, unimodal</option>
+  <option>Skewed right, unimodal</option>
+  <option>Skewed left, bimodal</option>
+  <option>Skewed right, bimodal</option>
+</select>
+<div>
+  <button class="q4-btn" onclick="q4_hintA('shape')">Hint</button>
+  <button class="q4-btn" onclick="q4_checkA('shape')">Check</button>
+  <button class="q4-btn" onclick="q4_resetA('shape')">Reset</button>
+</div>
+<p id="q4-fb-shape"></p>
+
+<p><strong>Centre:</strong></p>
+<select id="q4-centre">
+  <option value="">Choose</option>
+  <option>60–69</option>
+  <option>70–79</option>
+  <option>80–89</option>
+  <option>90–99</option>
+</select>
+<div>
+  <button class="q4-btn" onclick="q4_hintA('centre')">Hint</button>
+  <button class="q4-btn" onclick="q4_checkA('centre')">Check</button>
+  <button class="q4-btn" onclick="q4_resetA('centre')">Reset</button>
+</div>
+<p id="q4-fb-centre"></p>
+
+<p><strong>Spread:</strong></p>
+<select id="q4-spread">
+  <option value="">Choose</option>
+  <option>38–100</option>
+  <option>62–100</option>
+  <option>70–95</option>
+</select>
+<div>
+  <button class="q4-btn" onclick="q4_hintA('spread')">Hint</button>
+  <button class="q4-btn" onclick="q4_checkA('spread')">Check</button>
+  <button class="q4-btn" onclick="q4_resetA('spread')">Reset</button>
+</div>
+<p id="q4-fb-spread"></p>
+
+<p><strong>Outliers:</strong></p>
+<select id="q4-outlier">
+  <option value="">Choose</option>
+  <option>None</option>
+  <option>1 student</option>
+  <option>2 students</option>
+</select>
+<div>
+  <button class="q4-btn" onclick="q4_hintA('outlier')">Hint</button>
+  <button class="q4-btn" onclick="q4_checkA('outlier')">Check</button>
+  <button class="q4-btn" onclick="q4_resetA('outlier')">Reset</button>
+</div>
+<p id="q4-fb-outlier"></p>
+
+<hr>
+
+<!-- =========================
+(b) Centre and spread
+========================== -->
+<p><strong>(b)</strong> What centre and spread would you use to describe this distribution? Why?</p>
+<input id="q4-b" style="width:100%;">
+<div>
+  <button onclick="q4_hintB()">Hint</button>
+  <button onclick="q4_checkB()">Check</button>
+  <button onclick="q4_resetB()">Reset</button>
+</div>
+<p id="q4-fb-b"></p>
+
+<hr>
+
+<!-- =========================
+(c) Mean
+========================== -->
+<p><strong>(c)</strong> Calculate the mean of the data set:</p>
+<input type="number" id="q4-mean">
+<div>
+  <button onclick="q4_hintC()">Hint</button>
+  <button onclick="q4_checkC()">Check</button>
+  <button onclick="q4_resetC()">Reset</button>
+</div>
+<p id="q4-fb-c"></p>
+
+<hr>
+
+<!-- =========================
+(d) SD
+========================== -->
+<p><strong>(d)</strong> Calculate the standard deviation of the data set:</p>
+<input type="number" id="q4-sd">
+<div>
+  <button onclick="q4_hintD()">Hint</button>
+  <button onclick="q4_checkD()">Check</button>
+  <button onclick="q4_resetD()">Reset</button>
+</div>
+<p id="q4-fb-d"></p>
+
+<hr>
+
+<!-- =========================
+(e) Median
+========================== -->
+<p><strong>(e)</strong> Calculate the median of the data set by hand:</p>
+<input type="number" id="q4-median">
+<div>
+  <button onclick="q4_hintE()">Hint</button>
+  <button onclick="q4_checkE()">Check</button>
+  <button onclick="q4_resetE()">Reset</button>
+</div>
+<p id="q4-fb-e"></p>
+
+<hr>
+
+<!-- =========================
+(f) Explanation
+========================== -->
+<p><strong>(f)</strong> Why are the mean and median different/similar?</p>
+<textarea id="q4-f" style="width:100%;"></textarea>
+<div>
+  <button onclick="q4_hintF()">Hint</button>
+  <button onclick="q4_checkF()">Check</button>
+  <button onclick="q4_resetF()">Reset</button>
+</div>
+<p id="q4-fb-f"></p>
+
+<hr>
+
+<!-- =========================
+(h) Five-number summary
+========================== -->
+<p><strong>(h)</strong> What five numbers make up the five-number summary?</p>
+<input id="q4-h" style="width:100%;">
+<div>
+  <button onclick="q4_hintH()">Hint</button>
+  <button onclick="q4_checkH()">Check</button>
+  <button onclick="q4_resetH()">Reset</button>
+</div>
+<p id="q4-fb-h"></p>
+
+<hr>
+
+<!-- =========================
+(i) Quartiles
+========================== -->
+<p><strong>(i)</strong> Q1:</p>
+<input type="number" id="q4-q1">
+
+<p>Q3:</p>
+<input type="number" id="q4-q3">
+
+<div>
+  <button onclick="q4_hintI()">Hint</button>
+  <button onclick="q4_checkI()">Check</button>
+  <button onclick="q4_resetI()">Reset</button>
+</div>
+<p id="q4-fb-i"></p>
+
+<hr>
+
+<!-- =========================
+(j) IQR
+========================== -->
+<p><strong>(j)</strong> IQR:</p>
+<input type="number" id="q4-iqr">
+<div>
+  <button onclick="q4_hintJ()">Hint</button>
+  <button onclick="q4_checkJ()">Check</button>
+  <button onclick="q4_resetJ()">Reset</button>
+</div>
+<p id="q4-fb-j"></p>
+
+<!-- =========================
+LOGIC
+========================== -->
+<script>
+
+const tol = 0.1;
+
+function setState(id, ok){
+  const el = document.getElementById(id);
+  el.style.background = ok ? "#c8f7c5" : "#f7c5c5";
+}
+
+/* (a) */
+function q4_checkA(x){
+  const ans = {shape:"Skewed left, unimodal",centre:"80–89",spread:"62–100",outlier:"2 students"};
+  const el = document.getElementById("q4-"+x);
+  const ok = el.value === ans[x];
+  setState("q4-"+x,ok);
+}
+/* hints */
+function q4_hintA(x){
+  const msg={
+    shape:"Look for long tail and note the low values less than 40",
+    centre:"Most values are in the 80s",
+    spread:"Ignore outliers and focus on the bulk of the data",
+    outlier:"How many low values?"
+  };
+  document.getElementById("q4-fb-"+x).innerHTML = msg[x];
+}
+
+function q4_resetA(x){
+  document.getElementById("q4-"+x).value="";
+  document.getElementById("q4-"+x).style.background="";
+}
+
+/* (b) */
+function q4_checkB(){
+  let t = document.getElementById("q4-b").value.toLowerCase();
+  setState("q4-b", t.includes("median") && t.includes("iqr"));
+}
+function q4_hintB(){
+  document.getElementById("q4-fb-b").innerHTML="Skewed or outliers then use median & IQR. If Symmetric then use mean & Standard deviation";
+}
+function q4_resetB(){
+  document.getElementById("q4-b").value="";
+  document.getElementById("q4-b").style.background="";
+}
+
+/* (c,d,e) */
+function checkNum(id,val){
+  let x = parseFloat(document.getElementById(id).value);
+  setState(id, Math.abs(x-val)<=tol);
+}
+function q4_checkC(){ checkNum("q4-mean",81.55); }
+function q4_checkD(){ checkNum("q4-sd",17.32); }
+function q4_checkE(){ checkNum("q4-median",85); }
+
+function q4_hintC(){document.getElementById("q4-fb-c").innerHTML="sum ÷ 20";}
+function q4_hintD(){document.getElementById("q4-fb-d").innerHTML="use sample SD";}
+function q4_hintE(){document.getElementById("q4-fb-e").innerHTML="average 10th & 11th";}
+
+function resetNum(id){document.getElementById(id).value="";document.getElementById(id).style.background="";}
+function q4_resetC(){resetNum("q4-mean");}
+function q4_resetD(){resetNum("q4-sd");}
+function q4_resetE(){resetNum("q4-median");}
+
+/* (f) */
+function q4_checkF(){
+  let t=document.getElementById("q4-f").value.toLowerCase();
+  setState("q4-f", t.includes("mean") && t.includes("median") && t.includes("outlier") && t.includes("different"));
+}
+function q4_hintF(){
+  document.getElementById("q4-fb-f").innerHTML="Outliers pull mean.";
+}
+function q4_resetF(){
+  document.getElementById("q4-f").value="";
+}
+
+/* (h) */
+function q4_checkH(){
+  let t=document.getElementById("q4-h").value.toLowerCase();
+  setState("q4-h", t.includes("minimum") && t.includes("q1") && t.includes("median") && t.includes("q3") && t.includes("maximum"));
+}
+function q4_hintH(){
+  document.getElementById("q4-fb-h").innerHTML="min, Q1, median, Q3, max";
+}
+function q4_resetH(){
+  document.getElementById("q4-h").value="";
+}
+
+/* (i) */
+function q4_checkI(){
+  checkNum("q4-q1",78);
+  checkNum("q4-q3",92.5);
+}
+function q4_hintI(){
+  document.getElementById("q4-fb-i").innerHTML="Split ordered data into halves.";
+}
+function q4_resetI(){
+  resetNum("q4-q1"); resetNum("q4-q3");
+}
+
+/* (j) */
+function q4_checkJ(){ checkNum("q4-iqr",14.5); }
+function q4_hintJ(){
+  document.getElementById("q4-fb-j").innerHTML="IQR = Q3 − Q1";
+}
+function q4_resetJ(){ resetNum("q4-iqr"); }
+
+</script>
+```
+
+<!-- PDF -->
+```{r, results='asis', echo=FALSE}
+if (knitr::is_latex_output()) {
+cat('
+\\textbf{(a) Describe the distribution (shape, centre, spread and outliers).}
+\\begin{answerbox}\\vspace{4cm}\\end{answerbox}
+
+\\textbf{(b) What centre and spread would you use? Why?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(c) Calculate the mean.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(d) Calculate the standard deviation.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(e) Calculate the median.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(f) Why are the mean and median different/similar?}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(g) Reproduce the histogram and descriptive statistics in software.}
+\\begin{answerbox}\\vspace{3cm}\\end{answerbox}
+
+\\textbf{(h) What are the five numbers in the five-number summary?}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(i) Calculate Q1 and Q3.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+
+\\textbf{(j) Calculate the IQR.}
+\\begin{answerbox}\\vspace{2cm}\\end{answerbox}
+')
+}
+```
+
+
+## Further Practice from the Textbook
+
+Answers to these questions are located in the back of the textbook. If you require further explanation, please ask in the Module Content Discussion Forum on the Study-
+Desk.
+
+• Questions 3.25, 4.31, 4.33  (De Veaux, Velleman & Bock, (4th edition))
+
+• Questions 2.53, 4.31, 4.33  (De Veaux, Velleman & Bock, (5th edition))
+
+## Textbook Readings 
+For extra clarification on materials in this module, see: De Veaux, Velleman
+& Bock, (4th edition), Chapters 3, 4, and 12 (De Veaux, Velleman
+& Bock, (5th edition), Chapters 2.2-2.5, 4, and 11).
+
+
+# Module 2 Checklist {-}
+
+```{=html}
+<style>
+  .cl-wrap{max-width:900px;margin:0 auto}
+  .cl-card{border:1px solid #e5e5e5;border-radius:6px;padding:14px;background:#fff;margin:12px 0}
+  .cl-card h4{margin:.2rem 0 .6rem;font-size:1.05rem}
+  .cl-note{font-size:.9rem;color:#666}
+  .cl-group-title{font-weight:700;margin:.4rem 0}
+  .cl-item{display:flex;align-items:flex-start;gap:8px;margin:.35rem 0}
+  .cl-item input[type=checkbox]{transform:scale(1.2);margin-top:2px}
+  .cl-adv{font-style:italic;color:#333}
+  .cl-controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:.6rem}
+  .btn{padding:6px 10px;border:1px solid #ccc;border-radius:4px;background:#f7f7f7;cursor:pointer}
+  .cl-prog{height:10px;background:#f1f1f1;border-radius:6px;overflow:hidden;margin:.4rem 0 .8rem}
+  .cl-bar{height:100%;width:0%;background:#2b8cbe;transition:width .25s ease}
+  .cl-stats{font-size:.9rem;color:#555}
+</style>
+
+<div class="cl-wrap" id="m2-checklist">
+  <div class="cl-card">
+    <h4>Module 2 — Checklist</h4>
+    <div class="cl-note">
+      Once you have watched the lecture recordings, completed the tutorial activity,
+      and textbook problems, tick the outcomes you have achieved.
+      Your selections are saved in your browser on this device.
+    </div>
+
+    <div class="cl-prog"><div class="cl-bar"></div></div>
+    <div class="cl-stats"></div>
+
+    <div class="cl-controls">
+      <button class="btn" data-action="all">Mark all done</button>
+      <button class="btn" data-action="clear">Clear all</button>
+      <span class="cl-note">(* denotes expanded competencies)</span>
+    </div>
+  </div>
+
+  <div class="cl-card">
+    <div class="cl-group-title">Describing Distributions</div>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d1">
+      <span>Visually describe the distribution of a quantitative variable in terms of shape, centre, and spread from a histogram.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d2">
+      <span>Calculate by hand and interpret the median.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d3">
+      <span>Know the numbers that make up the five-number summary.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d4">
+      <span>Use technology to find the mean and standard deviation of a data set.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d5">
+      <span>Compare groups using boxplots.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d6">
+      <span class="cl-adv">* Calculate by hand the interquartile range (IQR) and five-number summary.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="d7">
+      <span class="cl-adv">* Recognise the impact of outliers and skewness on measures of centre and spread.</span>
+    </label>
+  </div>
+</div>
+
+<script>
+(function(){
+  const ROOT = document.getElementById("m2-checklist");
+  const KEY  = "m2-checklist-v1";
+
+  const boxes = Array.from(ROOT.querySelectorAll("input[type=checkbox][data-id]"));
+  const bar   = ROOT.querySelector(".cl-bar");
+  const stats = ROOT.querySelector(".cl-stats");
+  const btnAll   = ROOT.querySelector('[data-action="all"]');
+  const btnClear = ROOT.querySelector('[data-action="clear"]');
+
+  function update(){
+    const total = boxes.length;
+    const done  = boxes.filter(b => b.checked).length;
+    const pct   = total ? Math.round(100 * done / total) : 0;
+    bar.style.width = pct + "%";
+    stats.textContent = `${done} of ${total} completed (${pct}%)`;
+  }
+
+  function save(){
+    const state = {};
+    boxes.forEach(b => state[b.dataset.id] = b.checked);
+    localStorage.setItem(KEY, JSON.stringify(state));
+    update();
+  }
+
+  function load(){
+    const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+    boxes.forEach(b => b.checked = !!saved[b.dataset.id]);
+    update();
+  }
+
+  boxes.forEach(b => b.addEventListener("change", save));
+
+  btnAll.addEventListener("click", () => {
+    boxes.forEach(b => b.checked = true);
+    save();
+  });
+
+  btnClear.addEventListener("click", () => {
+    if (!confirm("Clear all ticks for this checklist on this device?")) return;
+    localStorage.removeItem(KEY);
+    boxes.forEach(b => b.checked = false);
+    update();
+  });
+
+  load();
+})();
+</script>
+```
+
+## Using Statistical Software Checklist {-}
+
+```{=html}
+<div class="cl-wrap" id="m2-software-checklist">
+  <div class="cl-card">
+    <h4>Module 2 — Using Statistical Software Checklist</h4>
+    <div class="cl-note">
+      On successful completion of this module, students should be able to use SPSS or Excel
+      to complete the following tasks.
+    </div>
+
+    <div class="cl-prog"><div class="cl-bar"></div></div>
+    <div class="cl-stats"></div>
+
+    <div class="cl-controls">
+      <button class="btn" data-action="all">Mark all done</button>
+      <button class="btn" data-action="clear">Clear all</button>
+    </div>
+  </div>
+
+  <div class="cl-card">
+    <div class="cl-group-title">Using Statistical Software</div>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="ss1">
+      <span>Construct a histogram, a boxplot, and multiple boxplots.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="ss2">
+      <span>Produce summary statistics of quantitative data.</span>
+    </label>
+
+    <label class="cl-item">
+      <input type="checkbox" data-id="ss3">
+      <span>Select subsets of data using Select Cases.</span>
+    </label>
+  </div>
+</div>
+
+<script>
+(function(){
+  const ROOT = document.getElementById("m2-software-checklist");
+  const KEY  = "m2-software-checklist-v1";
+
+  const boxes = Array.from(ROOT.querySelectorAll("input[type=checkbox][data-id]"));
+  const bar   = ROOT.querySelector(".cl-bar");
+  const stats = ROOT.querySelector(".cl-stats");
+  const btnAll   = ROOT.querySelector('[data-action="all"]');
+  const btnClear = ROOT.querySelector('[data-action="clear"]');
+
+  function update(){
+    const total = boxes.length;
+    const done  = boxes.filter(b => b.checked).length;
+    const pct   = total ? Math.round(100 * done / total) : 0;
+    bar.style.width = pct + "%";
+    stats.textContent = `${done} of ${total} completed (${pct}%)`;
+  }
+
+  function save(){
+    const state = {};
+    boxes.forEach(b => state[b.dataset.id] = b.checked);
+    localStorage.setItem(KEY, JSON.stringify(state));
+    update();
+  }
+
+  function load(){
+    const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+    boxes.forEach(b => b.checked = !!saved[b.dataset.id]);
+    update();
+  }
+
+  boxes.forEach(b => b.addEventListener("change", save));
+
+  btnAll.addEventListener("click", () => {
+    boxes.forEach(b => b.checked = true);
+    save();
+  });
+
+  btnClear.addEventListener("click", () => {
+    if (!confirm("Clear all ticks for this checklist on this device?")) return;
+    localStorage.removeItem(KEY);
+    boxes.forEach(b => b.checked = false);
+    update();
+  });
+
+  load();
+})();
+</script>
+```

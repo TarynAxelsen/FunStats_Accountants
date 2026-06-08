@@ -1,7 +1,7 @@
 --- 
 title: "Fundamental Statistics for Accountants"
 author: "Dr Taryn Axelsen"
-date: "Last Updated: 02 June 2026"
+date: "Last Updated: 08 June 2026"
 site: bookdown::bookdown_site
 documentclass: scrbook
 bibliography: [book.bib, packages.bib]
@@ -89,11 +89,19 @@ This interactive Workbook is your companion for the **learning through doing** c
 -->
 
 
-\begin{bannerbox}
-\textbf{Welcome to Fundamental Statistics}
-
-This interactive Workbook is your companion for the **learning through doing** component of the course.   It is designed to guide your practice, deepen your understanding, and support your progress throughout the semester.
-\end{bannerbox}
+<div style="
+  background: linear-gradient(90deg, #e6f0ff, #f7fbff);
+  border-left: 8px solid #2a7ae2;
+  padding: 18px;
+  border-radius: 6px;
+  margin: 20px 0;
+">
+  <strong style="color:#1a4f8b; font-size:1.1em;">
+    Welcome to Fundamental Statistics
+  </strong>
+  <p style="margin-top:8px;">This interactive Workbook is your companion for the **learning through doing** component of the course.   It is designed to guide your practice, deepen your understanding, and support your progress throughout the semester.</p>
+  
+</div>
 <!-- ====== END BANNER ====== -->
 
 The primary learning resource for the course is the lectures and tutorials, however we do have an accompanying textbook **Sharpe, De Veaux & Velleman,
@@ -123,15 +131,23 @@ To help guide you through this course and prevent the need to cram or skip mater
 
 
 
-\begin{tipbox}
-\textbf{💡 Think of statistics like a toolbox.}
-
-A good toolbox needs a hammer, pliers, a wrench, and a screwdriver.
+<div style="
+  background: #f0fff4;
+  border-left: 8px solid #2a9d8f;
+  padding: 18px;
+  border-radius: 6px;
+  margin: 20px 0;
+">
+  <strong style="color:#1b7f5f; font-size:1.1em;">
+    💡 Think of statistics like a toolbox.
+  </strong>
+  <p style="margin-top:8px;">A good toolbox needs a hammer, pliers, a wrench, and a screwdriver.
 
 Likewise, in this course there are some concepts and skills which are essential for you to master — we call these **Threshold Competencies**.
 
-To pass the course, you’ll need to demonstrate a full understanding of these Threshold Competencies.
-\end{tipbox}
+To pass the course, you’ll need to demonstrate a full understanding of these Threshold Competencies.</p>
+  
+</div>
 
 *   **Threshold competencies** in STA1004 refer to the key or fundamental ideas that are the core essential knowledge that a passing student must master.
 
@@ -191,6 +207,10 @@ Reset all answers in this workbook
 -->
 
 
+<button onclick="resetAllAnswers()"
+        style="margin:10px 0; padding:8px 14px;">
+Reset all answers in this workbook
+</button>
 
 
 \mainmatter 

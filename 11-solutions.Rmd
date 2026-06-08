@@ -1,50 +1,364 @@
-# Solutions
+# Solutions 
 
-## Module 1
+## Module 2
 
-### Question 1
+### Question 1 {-}
+In recent years, the Therapeutic Goods Administration has introduced new guidelines for marketers of herbs and other natural substances who make health claims about their product. Brands of gingko extract claim to improve memory and concentration. A study of 230 healthy people over 60 years old were randomly assigned to a gingko pill or a placebo pill. All participants took tests for learning and memory before treatment started and again after six weeks.
 
-*Is there an association between the type of banking client (new or old) and their satisfaction level*
+a) Is this an observational or experimental study? Explain your answer.
 
-The following data was collected and organized into the Contingency Table (two-way table) below to see if there is an association between amount of coffee consumed
-(stated as *3 or less coffees per day (Light)* and *more than 3 coffees per day (Heavy)*) and the number of hours slept per night (stated as *7 or less hours per night* and *more than 7 hours per night*) for 151 statistics students.
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+It is an experimental study because treatments (in this case, either a gingko or placebo pill) were imposed by the researchers.
+}" else 
 
-Table: Coffee consumption and hours of sleep
+"<span style='color:blue;'>
+It is an experimental study because treatments (in this case, either a gingko or placebo pill) were imposed by the researchers.
+  </span>"`
 
-|                          | 7 hours or less per night | More than 7 hours per night | Total |
-|--------------------------|---------------------------|------------------------------|-------|
-| 3 or less coffees per day (Light) | 57 | 19 | 76 |
-| More than 3 coffees per day (Heavy) | 36 | 39 | 75 |
-| Total 
+b) What were the subjects and how many were there?
 
-a) From the data in the study,
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+The subjects were the 230 healthy people over 60 years who participated in the experiment.
+}" else 
 
-i. how many students slept 7 or less hours per night?<br>
-<span class="blue">93 students</span>
+"<span style='color:blue;'>
+The subjects were the 230 healthy people over 60 years who participated in the experiment.
+  </span>"`
 
-ii. how many students are light coffee drinkers?<br>
-<span class="blue">76 students</span>
+c) Identify all factors and factor levels.
 
-iii. how many students are heavy coffee drinkers AND sleep 7 or less hours per night?
-<span class="blue">36 students</span>
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+There is one factor: a pill\\\\ The two levels of this factor are gingko and placebo.
+}" else 
+"<span style='color:blue;'>There is one factor: a pill<br>The two levels of this factor are gingko and placebo.</span>"`
 
-b) From the data in the study,
+d) What was the response variable(s)?
 
-i. what percentage of students slept 7 or less hours per night?<br>
-<span class="blue">Marginal %: 93/151*100=61.59%</span>
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+The response variables (or outcome variables) were the results on the learning and memory tests.
+}" else 
 
-ii. what percentage of students are light coffee drinkers?<br>
-<span class="blue">Marginal %: 76/151*100=50.33%</span>
+"<span style='color:blue;'>
+The response variables (or outcome variables) were the results on the learning and memory tests.
+  </span>"`
+  
 
-iii. what percentage of students are heavy coffee drinkers AND sleep 7 or less hours per night?<br>
-<span class="blue">Joint %: 36/151*100=23.84%</span>
 
-iv. what percentage of students who are light coffee drinkers also sleep 7 or less hours per night?<br>
-<span class="blue">Conditional %: 57/76*100=75.00%</span>
+### Question 2 {-}
+A researcher wants to know whether the difficulty of a task influences our estimate of how long we spend working at it. She designs two sets of mazes that subjects can work through on a computer – one set is easy and the other set is difficult. A group of 50 subjects are randomly allocated a set of mazes and work until told to stop (5 minutes, but subjects do not know this). They are then asked to estimate how long they worked.
 
-v. what percentage of students who sleep 7 or less hours per night are light coffee drinkers?<br>
-<span class="blue">Conditional %: 57/93*100=61.29%</span>
+a) Draw a diagram to show the design of this experiment.
 
-c) In a two-way table, display the joint distribution of level of coffee consumed and level of sleep in terms of percentages.
-<span class="blue">Joint distribution means that we divide each cell frequency by the total number of cases included in the whole study (n=151).</span>
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Note that this is a completely randomized design.
+}" else 
 
+"<span style='color:blue;'>
+Note that this is a completely randomized design.
+  </span>"`
+  
+```{r q2-diagram, echo=FALSE, message=FALSE, warning=FALSE}
+library(DiagrammeR)
+
+grViz("
+digraph experiment {
+
+  graph [layout = dot, rankdir = LR, nodesep = 1, ranksep = 1]
+
+  node [
+    shape = rectangle,
+    style = filled,
+    fillcolor = lightgrey,
+    color = black,
+    fontname = Helvetica
+  ]
+
+  edge [color = '#3C78D8']
+
+  random   [label = 'Random assignment']
+  group1   [label = 'Group 1: 25 subjects']
+  group2   [label = 'Group 2: 25 subjects']
+  easy     [label = 'Easy mazes']
+  difficult[label = 'Difficult mazes']
+  compare  [label = 'Compare']
+
+  random -> group1
+  random -> group2
+  group1 -> easy
+  group2 -> difficult
+  easy -> compare
+  difficult -> compare
+}
+")
+```
+b) Have the four elements of good experimental design been used here? 
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+• Randomization: subjects have been randomly allocated to either easy or difficult mazes (YES)\\\\ 
+• Control: there is not a group that has been given no mazes (ie no treatment), therefore there is no control group (NO)\\\\ 
+• Replication: there are 50 participants, so results for both treatments have been replicated (YES)\\\\ 
+• Blocking: the sample of subjects has not been divided into groups with similar characteristics before the treatments were randomly allocated (NO)\\\\ 
+}" else 
+
+"<span style='color:blue;'>
+• Randomization: subjects have been randomly allocated to either easy or difficult mazes (YES)<br>
+• Control: there is not a group that has been given no mazes (ie no treatment), therefore there is no control group (NO)<br>
+• Replication: there are 50 participants, so results for both treatments have been replicated (YES)<br>
+• Blocking: the sample of subjects has not been divided into groups with similar characteristics before the treatments were randomly allocated (NO)<br>
+  </span>"`
+
+c) The researcher is interested to see whether gender has an effect on people’s perception of how long it takes to do a difficult task. How could she account for this in her experimental design? Draw a diagram to show the revised design of this experiment.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Blocking could be incorporated by dividing the 50 people into males and females, and then randomly allocating both easy and difficult mazes to both genders.
+}" else 
+
+"<span style='color:blue;'>
+Blocking could be incorporated by dividing the 50 people into males and females, and then randomly allocating both easy and difficult mazes to both genders.
+  </span>"`
+
+```{r q2c-diagram, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages("DiagrammeR")
+library(DiagrammeR)
+
+grViz("
+digraph blocking_design {
+
+  graph [layout = dot, rankdir = LR, nodesep = 1, ranksep = 1.2]
+
+  node [
+    shape = rectangle,
+    style = filled,
+    fillcolor = lightgrey,
+    color = black,
+    fontname = Helvetica
+  ]
+
+  edge [color = '#3C78D8']
+
+  # Nodes
+  sample   [label = 'Original sample']
+
+  female   [label = 'Block 1: females']
+  male     [label = 'Block 2: males']
+
+  easy_f   [label = 'Easy mazes']
+  diff_f   [label = 'Difficult mazes']
+
+  easy_m   [label = 'Easy mazes']
+  diff_m   [label = 'Difficult mazes']
+
+  comp_f   [label = 'Compare']
+  comp_m   [label = 'Compare']
+
+  # Layout structure (keep blocks aligned)
+  {rank = same; female; male}
+  {rank = same; easy_f; easy_m}
+  {rank = same; diff_f; diff_m}
+
+  # Edges
+  sample -> female
+  sample -> male
+
+  female -> easy_f
+  female -> diff_f
+
+  male -> easy_m
+  male -> diff_m
+
+  easy_f -> comp_f
+  diff_f -> comp_f
+
+  easy_m -> comp_m
+  diff_m -> comp_m
+}
+")
+
+```
+### Question 3 {-}
+A study found that senior citizens who report drinking diet soft drink regularly experience a greater increase in weight and waist circumference than those who do not drink diet soft drink regularly.
+
+a) From these results, can we conclude that drinking diet soft drink causes weight gain? Why or why not?
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+No, we cannot conclude that drinking diet soft drink causes weight gain. Causation can only be established from a well designed experiment. This study is observational, as there was no manipulation by the researcher – no treatments were imposed. We can only conclude that there is an association between these two variables.
+In order to be an experimental study, the researcher would need to randomly allocate either ‘drink diet soft drink’ or ‘not drink diet soft drink’ to participants, and then collect data on weight and waist circumference after a length of time.
+}" else 
+
+"<span style='color:blue;'>
+No, we cannot conclude that drinking diet soft drink causes weight gain. Causation can only be established from a well designed experiment. This study is observational, as there was no manipulation by the researcher – no treatments were imposed. We can only conclude that there is an association between these two variables.
+In order to be an experimental study, the researcher would need to randomly allocate either ‘drink diet soft drink’ or ‘not drink diet soft drink’ to participants, and then collect data on weight and waist circumference after a length of time.
+  </span>"`
+
+b) What could be a potential lurking variable? Explain how it would impact both the explanatory and outcome variables.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+The explanatory variable in this scenario is ‘type of drink’ (either diet soft drink or other).
+The outcome (or response) variables are ‘weight’ and ‘waist circumference’.
+There are multiple possible lurking variables.
+One possible lurking variable is ‘health consciousness’. Someone who is health conscious may avoid diet soft drinks (due to concerns about the chemicals they contain), and may do lots of exercise (which would decrease their weight and weight circumference). On the flip side, someone who is NOT health conscious may eat lots of ‘junk’ food and do little exercise, which would increase their weight and waist circumference.
+}" else 
+
+"<span style='color:blue;'>
+The explanatory variable in this scenario is ‘type of drink’ (either diet soft drink or other).
+The outcome (or response) variables are ‘weight’ and ‘waist circumference’.
+There are multiple possible lurking variables.
+One possible lurking variable is ‘health consciousness’. Someone who is health conscious may avoid diet soft drinks (due to concerns about the chemicals they contain), and may do lots of exercise (which would decrease their weight and weight circumference). On the flip side, someone who is NOT health conscious may eat lots of ‘junk’ food and do little exercise, which would increase their weight and waist circumference.
+  </span>"`
+
+### Question 4 {-}
+
+a) Describe the distribution of Assignment Results in terms of shape, centre, spread and outliers (including how many student results could be considered to be outliers).
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+- Shape: skewed to the left, unimodal (peak at the 90 mark)\\\\
+- Centre: approximately 80-89 marks  \\\\
+- Spread: from 62 to 100 marks \\\\
+-	Outliers: There is one bin that represents potential outliers, but there are two cases in this bin (check frequency on the y-axis). I would state there are 2 outliers at 38 and 39 marks, however you may have stated that this is a continuation of the skew.  If you said there were no outliers, then your spread would be from 38 to 100 marks.
+}" else 
+
+"<span style='color:blue;'>
+- Shape: skewed to the left, unimodal (peak at the 90 mark)<br>
+- Centre: approximately 80-89 marks  <br>
+- Spread: from 62 to 100 marks <br>
+-	Outliers: There is one bin that represents potential outliers, but there are two cases in this bin (check frequency on the y-axis). I would state there are 2 outliers at 38 and 39 marks, however you may have stated that this is a continuation of the skew.  If you said there were no outliers, then your spread would be from 38 to 100 marks.  </span>"`
+
+b) What centre and spread would you use to describe this distribution? Why?
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+As there is a skew (and outliers) it is probably best to use the median for the centre and the IQR for the spread. This is because skewness or outliers affect the mean and standard deviation and not the median and IQR.
+}" else 
+
+"<span style='color:blue;'>
+As there is a skew (and outliers) it is probably best to use the median for the centre and the IQR for the spread. This is because skewness or outliers affect the mean and standard deviation and not the median and IQR.
+  </span>"`
+
+c) Calculate the mean of the data set.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Mean = 81.55 marks
+}" else 
+
+"<span style='color:blue;'>
+Mean = 81.55 marks
+  </span>"`
+
+d) Calculate the standard deviation of the data set.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Standard Deviation = 17.32 marks
+}" else 
+
+"<span style='color:blue;'>
+Standard Deviation = 17.32 marks
+  </span>"`
+
+e) Calculate the median of the data set by hand.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+First put the numbers in order:\\\\
+Median = the middle value once the numbers are sorted. Because we have an even number of values (n=20) we take the average of the 10th and 11th values (85+85)/2 = 85 marks.\\\\
+This can also be written as (n+1)/2th position = 21/2 = 10.5th position = (85+85)/2 = 85 marks.\\\\
+If we had an odd number of values the median will be the value of the single case in the middle position.
+}" else 
+"<span style='color:blue;'>
+First put the numbers in order:<br>
+Median = the middle value once the numbers are sorted. Because we have an even number of values (n=20) we take the average of the 10th and 11th values (85+85)/2 = 85 marks.<br>
+This can also be written as (n+1)/2th position = 21/2 = 10.5th position = (85+85)/2 = 85 marks.<br>
+If we had an odd number of values the median will be the value of the single case in the middle position.
+  </span>"`
+
+f) Why are the mean and median different/similar?
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+They are not very different; however, the difference is due to the skewness and outliers which in this case ‘pull’ the mean to the left a bit making the mean a bit lower (81.55 marks) than the median (85 marks). The way the mean is calculated means that when the distribution is skewed left the mean will be smaller than the median and when the distribution is skewed right the mean will be larger than the median.
+}" else 
+"<span style='color:blue;'>
+They are not very different; however, the difference is due to the skewness and outliers which in this case ‘pull’ the mean to the left a bit making the mean a bit lower (81.55 marks) than the median (85 marks). The way the mean is calculated means that when the distribution is skewed left the mean will be smaller than the median and when the distribution is skewed right the mean will be larger than the median.
+  </span>"`
+
+g) Reproduce these results (graph and descriptive statistics) using Excel.
+
+h) What 5 numbers make up the five-number summary?
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Minimum / Q1 / Median / Q3 / Maximum
+}" else 
+
+"<span style='color:blue;'>
+Minimum / Q1 / Median / Q3 / Maximum
+  </span>"`
+
+i) Calculate Q1 and Q3 of the data set by hand and then fill in the numbers of the five-number summary. Check these calculations using Excel.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Minimum: 38 marks\\\\
+Q1: We only consider the lower half (lower 50% or first 10 values) of the data and the middle value is average of the 5th and 6th values = (78+78)/2 = 78 marks\\\\
+Median: 85 marks (as calculated in part e))\\\\
+Q3: We will only consider the upper half (upper 50% or last 10 values) of the data and the middle value is average of the 15th and 16th values = (92+93)/2 = 92.5 marks\\\\
+Maximum: 100 marks \\\\
+Five number summary = (38, 78, 85, 92.5, 100)
+}" else 
+
+"<span style='color:blue;'>
+Minimum: 38 marks<br>
+Q1: We only consider the lower half (lower 50% or first 10 values) of the data and the middle value is average of the 5th and 6th values = (78+78)/2 = 78 marks<br>
+Median: 85 marks (as calculated in part e))<br>
+Q3: We will only consider the upper half (upper 50% or last 10 values) of the data and the middle value is average of the 15th and 16th values = (92+93)/2 = 92.5 marks<br>
+Maximum: 100 marks <br>
+Five number summary = (38, 78, 85, 92.5, 100)
+  </span>"`
+
+j) Calculate the IQR of the data set by hand.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+IQR = Q3 - Q1 = 92.5 – 78 = 14.5 marks
+}" else 
+
+"<span style='color:blue;'>
+IQR = Q3 - Q1 = 92.5 – 78 = 14.5 marks
+  </span>"`
+
+
+### Question 5 {-}
+
+The figure given the distribution of house prices for 545 furnished and unfurnished properties in a large city. Compare the distributions of prices of furnished and unfurnished properties in fewer than 100 words. You should mention shape, centre, spread, and outliers in your discussion.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+Shape: Both furnished and unfurnished house prices have a right skew – there are some high priced properties that are skewing the data.\\\\
+Centre: The average price for a furnished house is higher than that of an unfurnished house.\\\\
+Spread: There is a wider range of prices for furnished houses than unfurnished houses.\\\\
+Outliers: Both furnished and unfurnished houses have some very expensive properties (in comparison to the bulk of the data).
+}" else 
+
+"<span style='color:blue;'>
+Shape: Both furnished and unfurnished house prices have a right skew – there are some high priced properties that are skewing the data.<br>
+Centre: The average price for a furnished house is higher than that of an unfurnished house.<br>
+Spread: There is a wider range of prices for furnished houses than unfurnished houses.<br>
+Outliers: Both furnished and unfurnished houses have some very expensive properties (in comparison to the bulk of the data).
+  </span>"`
+
+### Question 6 {-}
+
+Figure 2.3 shows the value of Australian exports (measured in $AUD million).
+
+a) What type of graph is this?
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+This is a time series plot – the value of a quantitative variable (value of Aus exports) has been measured at regular intervals over time.
+}" else 
+
+"<span style='color:blue;'>
+This is a time series plot – the value of a quantitative variable (value of Aus exports) has been measured at regular intervals over time.
+  </span>"`
+
+b) In less than 100 words, interpret the information in this graph.
+The value of Australian exports was fairly stable between 1914 and 1958, with only a slight rise in that time. After 1958, the rate of increase has been exponential (ie increasing more and more quickly), with the exception of a short stable period between 1998 and 2002.
+
+`r if (knitr::is_latex_output()) "\\textcolor{blue}{
+
+}" else 
+
+"<span style='color:blue;'>
+The value of Australian exports was fairly stable between 1914 and 1958, with only a slight rise in that time. After 1958, the rate of increase has been exponential (ie increasing more and more quickly), with the exception of a short stable period between 1998 and 2002.
+  </span>"`
